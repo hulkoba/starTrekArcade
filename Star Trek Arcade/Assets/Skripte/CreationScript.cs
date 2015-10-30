@@ -6,13 +6,15 @@ public class CreationScript : MonoBehaviour {
 	public GameObject Example;
 	public float WaitTime = 2f;
 
-	private CameraScript Cam;
+    private int enemyCounter = 0;
+    private CameraScript Cam;
 	private Transform Group;
+    private Transform Player;
 
 	// Use this for initialization
 	void Start () {
-		Cam = GameObject.Find ("Main Camera").GetComponent<CameraScript>();
-		Group = GameObject.Find ("Objects").transform;
+		Group = GameObject.Find ("enemies").transform;
+        Player = GameObject.Find("player").transform;
 		StartCoroutine (CreateGameObject ());
 	}
 
@@ -21,21 +23,24 @@ public class CreationScript : MonoBehaviour {
 		// wait for some time
 		yield return new WaitForSeconds (WaitTime);
 
-		// if originals exists
-		if (Example != null) {
+        if (enemyCounter < 10) {
+            // if originals exists
+            if (Example != null)
+            {
 
-			// create new GameObject
-			GameObject NewGO = Instantiate (Example);
-			// set new random position
-			NewGO.transform.position = new Vector3(Random.Range(-10,10),Random.Range(0,3), Random.Range(-2,10));
-			NewGO.GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
-			// name it
-			NewGO.name = "Cube_" + Group.childCount;
-			// set group as parent
-			NewGO.transform.parent = Group;
-			// tell the camera the new target
-			Cam.SetTarget(NewGO.transform);
-		}
+                // create new GameObject
+                GameObject NewGO = Instantiate(Example);
+                // set new random position
+                NewGO.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(0, 3), Random.Range(-2, 10));
+                NewGO.transform.LookAt(Player);
+                // name it
+                NewGO.name = "Enemy_" + Group.childCount;
+                // set group as parent
+                NewGO.transform.parent = Group;
+                // tell the camera the new 
+                enemyCounter = enemyCounter + 1;
+            }
+        }
 
 		// call this function again
 		StartCoroutine (CreateGameObject ());
