@@ -13,8 +13,8 @@ public class CreationScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Group = GameObject.Find ("enemies").transform;
-        Player = GameObject.Find("player").transform;
+		Group = GameObject.Find ("Enemies").transform;
+        Player = GameObject.Find("Player").transform;
 		StartCoroutine (CreateGameObject ());
 	}
 
@@ -27,7 +27,7 @@ public class CreationScript : MonoBehaviour {
             // if originals exists
             if (Example != null)
             {
-
+                Debug.Log("Spawn Enemy");
                 // create new GameObject
                 GameObject NewGO = Instantiate(Example);
                 // set new random position
