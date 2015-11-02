@@ -6,15 +6,16 @@ public class CreationScript : MonoBehaviour {
 	public GameObject Example;
 	public float WaitTime = 2f;
 
-    private int enemyCounter = 0;
+    public int enemyCounter = 0;
+
     private CameraScript Cam;
 	private Transform Group;
     private Transform Player;
 
 	// Use this for initialization
 	void Start () {
-		Group = GameObject.Find ("enemies").transform;
-        Player = GameObject.Find("player").transform;
+		Group = GameObject.Find ("Enemies").transform;
+        Player = GameObject.Find("Player").transform;
 		StartCoroutine (CreateGameObject ());
 	}
 
@@ -27,7 +28,7 @@ public class CreationScript : MonoBehaviour {
             // if originals exists
             if (Example != null)
             {
-
+                
                 // create new GameObject
                 GameObject NewGO = Instantiate(Example);
                 // set new random position
@@ -39,6 +40,7 @@ public class CreationScript : MonoBehaviour {
                 NewGO.transform.parent = Group;
                 // tell the camera the new 
                 enemyCounter = enemyCounter + 1;
+				Debug.Log(enemyCounter);
             }
         }
 
