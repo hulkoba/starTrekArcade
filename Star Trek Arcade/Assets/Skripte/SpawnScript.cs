@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CreationScript : MonoBehaviour {
+public class SpawnScript : MonoBehaviour {
 
 	public GameObject Example;
 	public float WaitTime = 2f;
@@ -24,7 +24,7 @@ public class CreationScript : MonoBehaviour {
 		// wait for some time
 		yield return new WaitForSeconds (WaitTime);
 
-        if (enemyCounter < 10) {
+        if (enemyCounter < 3) {
             // if originals exists
             if (Example != null)
             {
