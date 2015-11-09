@@ -33,6 +33,8 @@ public class LifePointController : MonoBehaviour {
         LifePoints = PlayerPrefs.GetInt("LPs");
     }
 	
+	//Zeitstempel bei Schuss setzen, wenn bei Update die 
+	//jetzige Zeit - Zeitstempel > als z.B. 0.5 Sec. kann das Schild wieder aufgeladen werden.
 	// Update is called once per frame
 	void Update () {
         lpText.text = lifePoints.ToString();

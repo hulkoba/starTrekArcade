@@ -10,13 +10,13 @@ public class EnemyAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Player = GameObject.Find("Player").transform;
+		player = GameObject.Find("Player").transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		playerDistance = Vector3.Distance(player.position, transform.position);
-		
+		Debug.Log(playerDistance);
 		if(playerDistance < 15f){
 			lookAtPlayer();
 		}
@@ -27,11 +27,31 @@ public class EnemyAI : MonoBehaviour {
 	
 	void lookAtPlayer(){
 		//transform.LookAt(Player);
-		Quanternion rotation = Quanternion.LookRotation (player.position - transform.position);
-		transform.rotation = Quanternion.Slerp(transform.rotation,rotation,Time.deltaTime * rotationDamping);
+		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
+		transform.rotation = Quaternion.Slerp(transform.rotation,rotation,Time.deltaTime * rotationDamping);
 	}
 	
 	void chase(){
-		transform.Translate(Vector3.forward = moveSpeed * Time.deltaTime);
+		lookAtPlayer();
+		transform.Translate(transform.forward * moveSpeed * Time.deltaTime);
 	}
+	
+	//Spieler als Sphere oder Rigit Body einbauen, der Enemy hat selbst einen Sphere Collider
+	//Sobald der Spieler in den Collider kommt, wird das hier ausgelöst, TriggerEnter
+	//WICHTIG: TriggerEnter 
+	void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Astroid"))
+        {
+            obstacleDetected = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Astroid"))
+        {
+            obstacleDetected = false;
+        }
+    }
 }
