@@ -9,12 +9,12 @@ public class EnemyRadar : MonoBehaviour {
     public int importancePlayer;
     public int importanceStation;
 
-    private GameObject player;
+   // private GameObject player;
 
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
+       // player = GameObject.FindGameObjectWithTag("Player");
         InvokeRepeating("Searching",0.5F,0.5F);
 	}
 
@@ -31,7 +31,7 @@ public class EnemyRadar : MonoBehaviour {
                 Vector3 dir = hit.transform.position - transform.position;
                 float angle = Vector3.Angle(dir, transform.forward);
                 if (angle < fieldOfView * 0.5f)
-					
+
                     //MUSS BEARBEITET WERDEN, WAS GENAU GESUCHT WIRD, DESWEGEN AUCH IMPORTANCEPLAYER-STATION
                     //RANGE ZU PLAYER KUERZER ALS ZU STATION = PLAYER WIRD ANGEGRIFFEN
                     StopSearching();
@@ -60,9 +60,9 @@ public class EnemyRadar : MonoBehaviour {
             obstacleDetected = false;
         }
     }
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 }
