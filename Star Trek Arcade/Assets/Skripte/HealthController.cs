@@ -7,6 +7,9 @@ public class HealthController : MonoBehaviour {
 	public float shield = 100;
 	public bool beenShot = false;
     private bool isDead = false;
+	
+	//VLLT hier Update aus LifePointController einbauen, damit
+	//es beim Multiplayer einfacher ist zu trennen möglicherweise.
 
     void ApplyDamage(float damage)
     {

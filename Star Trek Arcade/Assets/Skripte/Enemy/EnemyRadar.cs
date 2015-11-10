@@ -20,7 +20,8 @@ public class EnemyRadar : MonoBehaviour {
 
     void Searching()
     {
-        Vector3 direction = player.transform.position - transform.position;
+		Debug.Log("FOUND THE ENEMY!");
+        /*Vector3 direction = player.transform.position - transform.position;
         Ray ray = new Ray(transform.position, direction.normalized);
         RaycastHit hit;
         if(Physics.Raycast(ray,out hit, 5))
@@ -30,11 +31,12 @@ public class EnemyRadar : MonoBehaviour {
                 Vector3 dir = hit.transform.position - transform.position;
                 float angle = Vector3.Angle(dir, transform.forward);
                 if (angle < fieldOfView * 0.5f)
+					
                     //MUSS BEARBEITET WERDEN, WAS GENAU GESUCHT WIRD, DESWEGEN AUCH IMPORTANCEPLAYER-STATION
                     //RANGE ZU PLAYER KUERZER ALS ZU STATION = PLAYER WIRD ANGEGRIFFEN
                     StopSearching();
             }
-        }
+        }*/
     }
 
     public void StopSearching()
