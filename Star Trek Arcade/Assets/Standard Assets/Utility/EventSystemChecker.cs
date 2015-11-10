@@ -1,12 +1,33 @@
+// using System;
+// using System.Collections;
+// using UnityEngine;
+// using UnityEngine.EventSystems;
+//
+// public class EventSystemChecker : MonoBehaviour
+// {
+//     public GameObject eventSystem;
+//
+// 	// Use this for initialization
+// 	void Awake ()
+// 	{
+// 	    if(!FindObjectOfType<EventSystem>())
+//         {
+//            //Instantiate(eventSystem);
+//             GameObject obj = new GameObject("EventSystem");
+//             obj.AddComponent<EventSystem>();
+//             obj.AddComponent<StandaloneInputModule>().forceModuleActive = true;
+//             obj.AddComponent<TouchInputModule>();
+//         }
+// 	}
+// }
 using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EventSystemChecker : MonoBehaviour
-{
-    public GameObject eventSystem;
+public class EventSystemChecker : MonoBehaviour {
 
+    public GameObject eventSystem;
 
      // Use this for initialization
      IEnumerator Start () {
@@ -22,12 +43,12 @@ public class EventSystemChecker : MonoBehaviour
 	// void Awake ()
 	// {
 	//     if(!FindObjectOfType<EventSystem>())
- //        {
- //           //Instantiate(eventSystem);
- //            GameObject obj = new GameObject("EventSystem");
- //            obj.AddComponent<EventSystem>();
- //            obj.AddComponent<StandaloneInputModule>().forceModuleActive = true;
- //            obj.AddComponent<TouchInputModule>();
- //        }
- //	}
+ 	//        {
+ 	//           //Instantiate(eventSystem);
+ 	//            GameObject obj = new GameObject("EventSystem");
+ 	//            obj.AddComponent<EventSystem>();
+ 	//            obj.AddComponent<StandaloneInputModule>().forceModuleActive = true;
+ 	//            obj.AddComponent<TouchInputModule>();
+ 	//        }
+ 	//	}
 }
