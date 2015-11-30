@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-    public class ArrowLook
-    {
+    public class ArrowLook {
 
         public bool clampVerticalRotation = true;
         public float MinimumX = -90F;
@@ -11,13 +10,11 @@ using UnityStandardAssets.CrossPlatformInput;
         public bool smooth;
         public float smoothTime = 5f;
 
-
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
 
 
-        public void Init(Transform character, Transform camera)
-        {
+        public void Init(Transform character, Transform camera) {
             m_CharacterTargetRot = character.localRotation;
             m_CameraTargetRot = camera.localRotation;
         }
@@ -48,9 +45,7 @@ using UnityStandardAssets.CrossPlatformInput;
             }
         }
 
-
-        Quaternion ClampRotationAroundXAxis(Quaternion q)
-        {
+        Quaternion ClampRotationAroundXAxis(Quaternion q){
             q.x /= q.w;
             q.y /= q.w;
             q.z /= q.w;

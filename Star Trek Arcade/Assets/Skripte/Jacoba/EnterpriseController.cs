@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
     [RequireComponent(typeof (AudioSource))]
     public class EnterpriseController : MonoBehaviour
     {
-        [SerializeField] private bool _isFlying;
+
         [SerializeField] private float _flySpeed;
         [SerializeField] private float _warpSpeed;  // left shift for running
 
@@ -20,7 +20,9 @@ using Random = UnityEngine.Random;
         [SerializeField] private AudioClip _explosionSound;
 
         private Camera _camera;
-        private ArrowLook _ArrowLook;
+        private bool _isFlying;
+        //private ArrowLook _ArrowLook;
+
         private float m_YRotation;
         private Vector2 m_Input;
         private Vector3 m_MoveDir = Vector3.zero;
@@ -29,19 +31,69 @@ using Random = UnityEngine.Random;
         private Vector3 m_OriginalCameraPosition;
         private AudioSource m_AudioSource;
 
+//------------------------------------------------------------------------------------------------
+        //ArrowLook
+        // TODO: extra file
+        public bool clampVerticalRotation = true;
+        private float MinimumX = -360F;
+        private float MaximumX = 360F;
+        private float smoothTime = 5f;
+
+        private Quaternion m_CharacterTargetRot;
+        private Quaternion m_CameraTargetRot;
+
+
+        public void InitArrowLook(Transform character, Transform camera) {
+            m_CharacterTargetRot = character.localRotation;
+            m_CameraTargetRot = camera.localRotation;
+        }
+
+        public void LookRotation(Transform character, Transform camera) {
+
+            float yRot = CrossPlatformInputManager.GetAxis("Horizontal");
+            float xRot = CrossPlatformInputManager.GetAxis("Vertical");
+
+            m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
+            m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
+
+            if(clampVerticalRotation)
+                m_CameraTargetRot = ClampRotationAroundXAxis (m_CameraTargetRot);
+
+            character.localRotation = Quaternion.Slerp (character.localRotation, m_CharacterTargetRot,
+                    smoothTime * Time.deltaTime);
+                camera.localRotation = Quaternion.Slerp (camera.localRotation, m_CameraTargetRot,
+                    smoothTime * Time.deltaTime);
+        }
+
+        Quaternion ClampRotationAroundXAxis(Quaternion q){
+            q.x /= q.w;
+            q.y /= q.w;
+            q.z /= q.w;
+            q.w = 1.0f;
+
+            float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan (q.x);
+
+            angleX = Mathf.Clamp (angleX, MinimumX, MaximumX);
+
+            q.x = Mathf.Tan (0.5f * Mathf.Deg2Rad * angleX);
+
+            return q;
+        }
+// -------------------------------------------------------------------------------------------------------------------------
+
 
         // Use this for initialization
-        private void Start()
-        {
+        private void Start() {
             m_CharacterController = GetComponent<CharacterController>();
             _camera = Camera.main;
+            _isFlying = true;
             m_OriginalCameraPosition = _camera.transform.localPosition;
             m_FovKick.Setup(_camera);
 
             m_AudioSource = GetComponent<AudioSource>();
-
-            _ArrowLook.Init(transform , _camera.transform);
+        /*_ArrowLook.*/InitArrowLook(transform , _camera.transform);
         }
+
 
 
         // Update is called once per frame
@@ -126,7 +178,7 @@ using Random = UnityEngine.Random;
 
         private void RotateView()
         {
-             _ArrowLook.LookRotation (transform, _camera.transform);
+             /*_ArrowLook.*/LookRotation (transform, _camera.transform);
         }
 
 
