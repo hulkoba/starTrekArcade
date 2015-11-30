@@ -2,9 +2,6 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace Jacoba
-{
-    [Serializable]
     public class ArrowLook
     {
 
@@ -68,4 +65,3 @@ namespace Jacoba
             return q;
         }
     }
-}
