@@ -2,13 +2,12 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets.Characters.FirstPerson
+namespace Jacoba
 {
     [Serializable]
-    public class MouseLook
+    public class ArrowLook
     {
-        public float XSensitivity = 2f;
-        public float YSensitivity = 2f;
+
         public bool clampVerticalRotation = true;
         public float MinimumX = -90F;
         public float MaximumX = 90F;
@@ -28,10 +27,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         public void LookRotation(Transform character, Transform camera) {
-            //float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
-            //float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
-            float yRot = CrossPlatformInputManager.GetAxis("Horizontal") * XSensitivity;
-            float xRot = CrossPlatformInputManager.GetAxis("Vertical") * YSensitivity;
+
+            float yRot = CrossPlatformInputManager.GetAxis("Horizontal");
+            float xRot = CrossPlatformInputManager.GetAxis("Vertical");
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
@@ -69,6 +67,5 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             return q;
         }
-
     }
 }
