@@ -19,18 +19,18 @@ public class colliderScript : MonoBehaviour {
 		//Destroy(other.gameObject);
 		if (other.gameObject.name == "Enemy") {
 			if(other.GetType () == typeof(SphereCollider)){
-				Debug.Log("Enemy Sphere!");
+				//Debug.Log("Enemy Sphere!");
 			}
 			else if(other.GetType() == typeof(BoxCollider)){
-				Debug.Log ("Enemy Box!");
+				//Debug.Log ("Enemy Box!");
 			}
 		}
 		else if(other.gameObject.name == "Astroid"){
 			if(other.GetType () == typeof(SphereCollider)){
-				Debug.Log("Astroid Sphere!");
+				//Debug.Log("Astroid Sphere!");
 			}
 			else if(other.GetType() == typeof(BoxCollider)){
-				Debug.Log ("Astroid Box!");
+				//Debug.Log ("Astroid Box!");
 			}
 		}
 

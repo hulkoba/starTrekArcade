@@ -12,13 +12,14 @@ public class EnemyShooting : MonoBehaviour
 	{
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
+		StartCoroutine("FireLaser");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		StopCoroutine("FireLaser");
-		StartCoroutine("FireLaser");
+		//StopCoroutine("FireLaser");
+		//StartCoroutine("FireLaser");
 	
 	}
 	
@@ -30,10 +31,11 @@ public class EnemyShooting : MonoBehaviour
 			
 		line.SetPosition(0,ray.origin);
 
-		if(Physics.Raycast(ray, out hit, 1)){
+		if(Physics.Raycast(ray, out hit, 100)){
 			line.SetPosition(1,hit.point);
 			if(hit.rigidbody)
 			{
+				Debug.Log("HIT!!!");
 				hit.rigidbody.AddForceAtPosition(transform.forward*10,hit.point);
 			}
 		}
@@ -42,7 +44,10 @@ public class EnemyShooting : MonoBehaviour
 
 
 
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(0.1f);
+		line.enabled = false;
+		yield return new WaitForSeconds (0.25f);
+		StartCoroutine("FireLaser");
 	}
 
 }
