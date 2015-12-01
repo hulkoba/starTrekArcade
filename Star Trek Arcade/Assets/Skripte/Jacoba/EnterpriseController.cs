@@ -23,7 +23,7 @@ using Random = UnityEngine.Random;
         //private ArrowLook _ArrowLook;
 
         private float m_YRotation;
-        private Vector2 m_Input;
+        //private Vector2 m_Input;
         private Vector3 m_MoveDir = Vector3.zero;
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
@@ -104,8 +104,7 @@ using Random = UnityEngine.Random;
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward * speed;
-            //+ transform.right * m_Input.x
+            Vector3 desiredMove = transform.forward * speed; //+ transform.right * m_Input.x
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
@@ -158,16 +157,14 @@ using Random = UnityEngine.Random;
             //speed = _isMoving ? _flySpeed : _warpSpeed;
 
 
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-
-
-            m_Input = new Vector2(h, v);
-
-            // normalize input if it exceeds 1 in combined length:
-             if (m_Input.sqrMagnitude > 1) {
-                 m_Input.Normalize();
-             }
+            // float h = Input.GetAxis("Horizontal");
+            // float v = Input.GetAxis("Vertical");
+            // m_Input = new Vector2(h, v);
+            //
+            // // normalize input if it exceeds 1 in combined length:
+            //  if (m_Input.sqrMagnitude > 1) {
+            //      m_Input.Normalize();
+            //  }
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
