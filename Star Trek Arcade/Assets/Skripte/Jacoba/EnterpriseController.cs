@@ -22,9 +22,9 @@ using Random = UnityEngine.Random;
         private float _warpSpeed = 40;  // w for warping
         //private ArrowLook _ArrowLook;
 
-        private float m_YRotation;
+        //private float m_YRotation;
         //private Vector2 m_Input;
-        private Vector3 m_MoveDir = Vector3.zero;
+        private Vector3 _moveDir = Vector3.zero;
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
         private Vector3 m_OriginalCameraPosition;
@@ -97,26 +97,30 @@ using Random = UnityEngine.Random;
         // Update is called once per frame
         private void Update() {
             RotateView();
-            //m_MoveDir.y = 0f;
+            //_moveDir.y = 0f;
         }
 
         private void FixedUpdate() {
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward * speed; //+ transform.right * m_Input.x
+            Vector3 forward = transform.TransformDirection(Vector3.forward);
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
                                m_CharacterController.height/2f);
 
-            desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+            forward = Vector3.ProjectOnPlane(forward, hitInfo.normal).normalized;
 
-            //m_MoveDir.x = desiredMove.x * speed;
-            m_MoveDir.z = desiredMove.z * speed;
+            if(speed == _warpSpeed) {
+            //    _moveDir.z = desiredMove.z * speed;
 
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
+            } else {
+            //    _moveDir.z = desiredMove.z * speed;
+            }
+            forward *= speed;
+            m_CollisionFlags = m_CharacterController.Move(forward * Time.deltaTime);
 
             UpdateCameraPosition();
         }
