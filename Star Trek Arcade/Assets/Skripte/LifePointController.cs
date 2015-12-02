@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LifePointController : MonoBehaviour {
 
-    public GUIText lpText;
+    //public GUIText lpText;
     private int lifePoints = 0;
 
     public int LifePoints
@@ -25,19 +25,19 @@ public class LifePointController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 
     void Awake()
     {
         LifePoints = PlayerPrefs.GetInt("LPs");
     }
-	
-	//Zeitstempel bei Schuss setzen, wenn bei Update die 
+
+	//Zeitstempel bei Schuss setzen, wenn bei Update die
 	//jetzige Zeit - Zeitstempel > als z.B. 0.5 Sec. kann das Schild wieder aufgeladen werden.
 	// Update is called once per frame
 	void Update () {
-        lpText.text = lifePoints.ToString();
+    //    lpText.text = lifePoints.ToString();
 	}
 
     void OnDestroy()

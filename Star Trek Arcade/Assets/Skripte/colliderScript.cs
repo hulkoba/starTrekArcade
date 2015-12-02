@@ -7,12 +7,7 @@ public class colliderScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -38,7 +33,7 @@ public class colliderScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider other) {
 		//if (other.attachedRigidbody) {
-		//	other.attachedRigidbody.AddForce (Vector3.up * 10);        
+		//	other.attachedRigidbody.AddForce (Vector3.up * 10);
 		//}
 	}
 
