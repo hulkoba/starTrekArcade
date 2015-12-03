@@ -5,11 +5,6 @@ public class colliderScript : MonoBehaviour {
 
 
 
-	// Use this for initialization
-	void Start () {
-
-	}
-
 	void OnTriggerEnter(Collider other) {
 		//Destroy(other.gameObject);
 		if (other.gameObject.name == "Enemy") {
