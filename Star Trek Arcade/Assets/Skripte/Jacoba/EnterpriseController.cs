@@ -23,9 +23,6 @@ using Random = UnityEngine.Random;
         private float _warpSpeed = 40;  // w for warping
         //private ArrowLook _ArrowLook;
 
-        //private float m_YRotation;
-        //private Vector2 m_Input;
-        //private Vector3 _moveDir = Vector3.zero;
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
         private Vector3 m_OriginalCameraPosition;
@@ -195,8 +192,7 @@ using Random = UnityEngine.Random;
         }
 
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
+        private void OnControllerColliderHit(ControllerColliderHit hit) {
             print("### Collision!  " + hit);
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
