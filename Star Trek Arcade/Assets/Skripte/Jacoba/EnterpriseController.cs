@@ -14,6 +14,7 @@ using Random = UnityEngine.Random;
         [SerializeField] private FOVKick m_FovKick = new FOVKick();
 
         [SerializeField] private AudioClip _warpSound;
+        [SerializeField] private AudioClip _shotSound;
         [SerializeField] private AudioClip _explosionSound;
 
         private Camera _camera;
@@ -29,6 +30,12 @@ using Random = UnityEngine.Random;
         private CollisionFlags m_CollisionFlags;
         private Vector3 m_OriginalCameraPosition;
         private AudioSource m_AudioSource;
+
+        // shots:
+        public GameObject shot;
+        public Transform shotSpawn;
+        private float nextFire = 0.5f;
+        public float fireRate;
 
 //------------------------------------------------------------------------------------------------
         //ArrowLook
@@ -49,8 +56,8 @@ using Random = UnityEngine.Random;
 
         public void LookRotation(Transform character, Transform camera) {
 
-            float yRot = CrossPlatformInputManager.GetAxis("Horizontal");
-            float xRot = CrossPlatformInputManager.GetAxis("Vertical");
+            float yRot = Input.GetAxis("Horizontal");
+            float xRot = Input.GetAxis("Vertical");
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
@@ -97,7 +104,11 @@ using Random = UnityEngine.Random;
         // Update is called once per frame
         private void Update() {
             RotateView();
-            //_moveDir.y = 0f;
+            //pressed the firebutton AND loaded weapons?
+            if(Input.GetButton("Fire1") && Time.time >= nextFire ) {
+                nextFire = Time.time + fireRate;
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            }
         }
 
         private void FixedUpdate() {
@@ -158,17 +169,6 @@ using Random = UnityEngine.Random;
                 speed = _flySpeed;
             }
 #endif
-            //speed = _isMoving ? _flySpeed : _warpSpeed;
-
-
-            // float h = Input.GetAxis("Horizontal");
-            // float v = Input.GetAxis("Vertical");
-            // m_Input = new Vector2(h, v);
-            //
-            // // normalize input if it exceeds 1 in combined length:
-            //  if (m_Input.sqrMagnitude > 1) {
-            //      m_Input.Normalize();
-            //  }
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
@@ -180,6 +180,11 @@ using Random = UnityEngine.Random;
 
         private void PlayWarpSound() {
             m_AudioSource.clip = _warpSound;
+            m_AudioSource.Play();
+        }
+
+        private void PlayShotSound() {
+            m_AudioSource.clip = _shotSound;
             m_AudioSource.Play();
         }
 
