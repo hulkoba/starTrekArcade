@@ -15,7 +15,6 @@ public class GameController : MonoBehaviour {
 	void Start() {
 		//
 		Enterprise = GameObject.Find("FPSController").transform;
-		Debug.Log("Enterprise: " + Enterprise.position);
 		StartCoroutine (SpawnWaves ());
 	}
 
@@ -28,7 +27,6 @@ public class GameController : MonoBehaviour {
             for (int i = 0; i < hazardCount; i++) {
 				// create a hazard(Asteroid or enemy) in a random position in given range
 				Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), Random.Range(Enterprise.position.y -range, Enterprise.position.y + range), Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
-				Debug.Log("SpawnPosition: " + spawnPosition);
 				// instantiate with no rotation
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate(hazard, spawnPosition, spawnRotation);

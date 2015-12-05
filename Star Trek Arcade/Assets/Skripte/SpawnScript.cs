@@ -8,7 +8,6 @@ public class SpawnScript : MonoBehaviour {
 
     public int enemyCounter = 0;
 
-    private CameraScript Cam;
 	private Transform Group;
     private Transform Player;
 
@@ -28,7 +27,7 @@ public class SpawnScript : MonoBehaviour {
             // if originals exists
             if (Example != null)
             {
-                
+
                 // create new GameObject
                 GameObject NewGO = Instantiate(Example);
                 // set new random position
@@ -38,7 +37,7 @@ public class SpawnScript : MonoBehaviour {
                 NewGO.name = "Enemy_" + Group.childCount;
                 // set group as parent
                 NewGO.transform.parent = Group;
-                // tell the camera the new 
+                // tell the camera the new
                 enemyCounter = enemyCounter + 1;
 				Debug.Log(enemyCounter);
             }
