@@ -5,35 +5,81 @@ public class EnemyAI : MonoBehaviour {
 	
 	public Transform player;
 	public float playerDistance;
+
 	public float rotationDamping;
 	public float moveSpeed;
+
+	public Transform stations;
+
+	//ENEMY DATEN
+	public bool kamikaze;
+	public float playerPrio;
+	public float starPrio;
+	public float damage;
+	public float expDamage;
+	public float laserSpeed;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("Player").transform;
+		stations = GameObject.Find("Stations").transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		playerDistance = Vector3.Distance(player.position, transform.position);
-		//Debug.Log(playerDistance);
-		if(playerDistance < 15f){
-			lookAtPlayer();
+		var shortestStation = 500f;
+		var stationDistanceHelper = 0f;
+		for (int i = 0; i < stations.childCount; i++) {
+			stationDistanceHelper = Vector3.Distance(stations.GetChild(i).position, transform.position);
+			if(stationDistanceHelper < shortestStation){
+				shortestStation = stationDistanceHelper;
+			}
 		}
-		if(playerDistance < 12f){
+
+		//Debug.Log(playerDistance);
+		if (playerDistance < 10f) {
+			//Debug.Log("SHOOT!");
+			attackEnemy();
+		}
+		if(playerDistance < 15f){
+			//Debug.Log ("CHASE!");
+			gameObject.GetComponent<EnemyMove>().targetFound = true;
+			gameObject.GetComponent<EnemyMove>().agent.enabled = false;
 			chase();
+		}
+		if (playerDistance > 15f && playerDistance < 16f) {
+			chase ();
+		}
+		if (playerDistance > 16f) {
+			//Debug.Log ("ESCAPED!");
+			gameObject.GetComponent<EnemyMove>().enabled = true;
+			gameObject.GetComponent<EnemyMove>().targetFound = false;
+			gameObject.GetComponent<EnemyMove>().agent.enabled = true;
 		}
 	}
 	
 	void lookAtPlayer(){
-		//transform.LookAt(Player);
+		//transform.LookAt(player);
 		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
 		transform.rotation = Quaternion.Slerp(transform.rotation,rotation,Time.deltaTime * rotationDamping);
 	}
 	
 	void chase(){
 		lookAtPlayer();
-		transform.Translate(transform.forward * moveSpeed * Time.deltaTime);
+		if (playerDistance > 5f) {
+			transform.Translate (transform.forward * moveSpeed * Time.deltaTime);
+		} else {
+			if(kamikaze == true){
+				transform.Translate (transform.forward * moveSpeed * Time.deltaTime);
+				//if HIT on Player ApplyDamage
+				//player.gameObject.GetComponent<PlayerHealth>().ApplyDamage(expDamage);
+			}
+		}
+	}
+
+	void attackEnemy(){
+		gameObject.GetComponentInChildren<EnemyShooting>().startFire(damage);	
 	}
 	
 	//Spieler als Sphere oder Rigit Body einbauen, der Enemy hat selbst einen Sphere Collider
