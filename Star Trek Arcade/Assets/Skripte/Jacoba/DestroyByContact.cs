@@ -6,6 +6,18 @@ public class DestroyByContact : MonoBehaviour {
 	public GameObject explosion;
 	public GameObject playerExplosion;
 
+	//script
+	private GameController gameController;
+
+	void Start () {
+        GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+        if (gameControllerObject != null) {
+            gameController = gameControllerObject.GetComponent <GameController>();
+        } else {
+			Debug.Log ("Cannot find 'GameController' script");
+		}
+    }
+
 	void OnTriggerEnter(Collider other) {
 	    // not destroying the Boundary!
 		if (other.tag == "Boundary") {
@@ -22,6 +34,8 @@ public class DestroyByContact : MonoBehaviour {
             //gameController.GameOver ();
         //}
 
+
+		gameController.AddScore(1);
 		//destroy the shot and the asteroid...
 	    Destroy(other.gameObject);
 	    Destroy(gameObject);
