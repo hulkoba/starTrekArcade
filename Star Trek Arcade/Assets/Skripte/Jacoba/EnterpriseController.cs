@@ -29,7 +29,7 @@ using Random = UnityEngine.Random;
         private AudioSource m_AudioSource;
 
         // shots:
-        public GameObject shot;
+        public Transform shot;
         public Transform shotSpawn;
         private float nextFire = 0.5f;
         public float fireRate;
@@ -60,14 +60,9 @@ using Random = UnityEngine.Random;
             //pressed the firebutton AND loaded weapons?
             if(Input.GetButton("Fire1") && Time.time >= nextFire ) {
                 nextFire = Time.time + fireRate;
-                Debug.Log("spawnPosition " + shotSpawn.position);
-                Debug.Log("spawnRotation " + _camera.transform.rotation);
-
                 shotSpawn.rotation = _camera.transform.rotation;
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 
-                //Instantiate(shot, shotSpawn.position, _camera.transform.rotation);
-                Debug.Log("Shot " + shot.transform.rotation);
                 PlayShotSound();
             }
         }
