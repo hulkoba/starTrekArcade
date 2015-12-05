@@ -60,7 +60,7 @@ using Random = UnityEngine.Random;
             //pressed the firebutton AND loaded weapons?
             if(Input.GetButton("Fire1") && Time.time >= nextFire ) {
                 nextFire = Time.time + fireRate;
-                Instantiate(shot, _camera.transform.position, _camera.transform.rotation);
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                 PlayShotSound();
             }
         }

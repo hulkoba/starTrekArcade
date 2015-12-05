@@ -27,20 +27,10 @@ public class DestroyByContact : MonoBehaviour {
 	    Destroy(gameObject);
 
 		// 	if (other.tag == "Enemy") {
-		// 		if(other.GetType () == typeof(SphereCollider)){
-		// 			//Debug.Log("Enemy Sphere!");
-		// 		}
-		// 		else if(other.GetType() == typeof(BoxCollider)){
-		// 			//Debug.Log ("Enemy Box!");
-		// 		}
+		//
 		// 	}
 		// 	else if(other.tag == "Astroid"){
-		// 		if(other.GetType () == typeof(SphereCollider)){
-		// 			//Debug.Log("Astroid Sphere!");
-		// 		}
-		// 		else if(other.GetType() == typeof(BoxCollider)){
-		// 			//Debug.Log ("Astroid Box!");
-		// 		}
+		//
 		// 	}
 	}
 
