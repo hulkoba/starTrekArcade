@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyMove : MonoBehaviour {
-	
+
 	public NavMeshAgent agent;
 	Transform target;
 
@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour {
 
 	public Transform player;
 	public float playerDistance;
-	
+
 	public float firingRange;
 
 	// Use this for initialization
@@ -23,7 +23,7 @@ public class EnemyMove : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent> ();
 		target = GameObject.Find("Enterprise").transform;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -53,9 +53,9 @@ public class EnemyMove : MonoBehaviour {
 			if(gameObject.transform.forward != GameObject.Find(targetHelper).transform.position){
 				transform.LookAt(GameObject.Find(targetHelper).transform.position);
 			}
-			gameObject.GetComponent<EnemyShooting> ().startFire = true;
+			//gameObject.GetComponent<EnemyShooting> ().startFire = true;
 		} else {
-			gameObject.GetComponent<EnemyShooting> ().startFire = false;
+			//gameObject.GetComponent<EnemyShooting> ().startFire = false;
 		}
 	}
 

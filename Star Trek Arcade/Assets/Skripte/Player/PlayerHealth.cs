@@ -1,59 +1,85 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; // for access to Slider
 
 public class PlayerHealth : MonoBehaviour {
 
-	public GameObject explosion;
-	public float shield;
-	public float health;
+	public GameObject playerExplosion;
+	public Slider healthUI;
+	// TODO: transparent damageimage
+	//public Image damageImage
+	//public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
-	public void ApplyDamage(float damage) {
-		if(health <= 0 && shield <= 0)
-		{
-			Dying();
-		}
-		else
-		{
-			if(shield > 0){
-				ShieldDamaging(damage);
-			}
-			else{
-				Damaging(damage);
-			}
+	//EnterpriseController playerMovement; // Reference to the player's movement.
+
+	public int startingShield = 100;
+	public int startingHealth = 100;
+	public int currentHealth;
+	public int currentShield;
+
+	void Awake () {
+        // Set the initial health of the player.
+        currentHealth = startingHealth;
+		currentShield = startingShield;
+    }
+
+	// void Update () {
+    //     // If the player has just been damaged...
+    //     if(damaged) {
+    //         // ... set the colour of the damageImage to the flash colour.
+    //         damageImage.color = flashColour;
+    //     } else {
+    //         // ... transition the colour back to clear.
+    //         damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+    //     }
+    //     // Reset the damaged flag.
+    //     damaged = false;
+    // }
+
+
+	public void ApplyDamage(int damage) {
+		Debug.Log("Apply damage");
+		if(currentShield > 0){
+			ShieldDamaging(damage);
+		} else{
+			Damaging(damage);
 		}
 	}
 
-	public virtual void ShieldDamaging(float damage)
-	{
-		shield -= damage;
-		if(shield<0) {
-			float damageLeft = shield*-1;
-			shield = 0;
+	public void ShieldDamaging(int damage) {
+		currentShield -= damage;
+		if(currentShield <= 0) {
+			int damageLeft = currentShield*-1;
+			currentShield = 0;
 			Damaging(damageLeft);
 		}
 	}
 
 	//SIEHE ENEMYHEALTH FUER IDEEN
 	public virtual void RechargeShield(){
-		while (shield <=100) {
-			shield += 5;
+		while (currentShield <=100) {
+			currentShield += 5;
 		}
 	}
 
-	public virtual void Damaging(float damage)
-	{
-		health -= damage;
+	public void Damaging(int damage) {
+		currentHealth -= damage;
+		healthUI.value = currentHealth;
+
+		if(currentHealth <= 0) {
+			Dying();
+		}
 	}
 
-    public void Dying()
-    {
+    public void Dying() {
+		Debug.Log("DEATH!!!");
+
 		//KAMERA.PARTEN = NULL
 		//DANN NACH HINTEN .TransForm UND MAN KÖNNTE DANN EXPLODIEREN
 		//DRAN DENKEN, DASS DIE KAMERA DANN GELÖSCHT WERDEN MUSS, WENN NEUES SPIEL GESTARTET WIRD
-		//instantiate an explosion at the same position as the ship
-		Instantiate(explosion, transform.position, transform.rotation);
+		//instantiate an playerExplosion at the same position as the ship
+		Instantiate(playerExplosion, transform.position, transform.rotation);
 		Destroy(gameObject);
-
+		//Destroy(other.gameObject); --> if we use Bolt for enemies
     }
-	
 }
