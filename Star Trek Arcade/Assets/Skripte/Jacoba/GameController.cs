@@ -3,9 +3,10 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public GameObject hazard;
+	public GameObject Astroid;
+	public GameObject Enemy;
 	private Transform Enterprise;
-	private float range = 15f;
+	private float range = 55f;
 
 	public int hazardCount;
     public float spawnWait; // wait time value
@@ -13,6 +14,7 @@ public class GameController : MonoBehaviour {
     public float waveWait;
 
 	// scores
+
 	public GUIText Score;
 	private int score;
 
@@ -32,10 +34,19 @@ public class GameController : MonoBehaviour {
         while (true) {
             for (int i = 0; i < hazardCount; i++) {
 				// create a hazard(Asteroid or enemy) in a random position in given range
-				Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), Random.Range(Enterprise.position.y -range, Enterprise.position.y + range), Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
-				// instantiate with no rotation
 				Quaternion spawnRotation = Quaternion.identity;
-				Instantiate(hazard, spawnPosition, spawnRotation);
+				// instantiate with no rotation
+
+				var chooser = Random.Range(0,2);
+				Debug.Log ("Chooser"+chooser);
+				if(chooser < 1){
+					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), 0, Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
+					Instantiate(Enemy, spawnPosition, spawnRotation);
+				}
+				else{
+					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), Random.Range(Enterprise.position.y -range, Enterprise.position.y + range), Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
+					Instantiate(Astroid, spawnPosition, spawnRotation);
+				}
 
                 yield return new WaitForSeconds (spawnWait);
             }

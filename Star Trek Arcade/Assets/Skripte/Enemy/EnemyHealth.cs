@@ -3,6 +3,19 @@ using System.Collections;
 
 public class EnemyHealth : HealthController {
 
+	public GameObject explosion;
+
+	private GameController gameController;
+
+	public void Start(){
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		} else {
+			Debug.Log ("Cannot find 'GameController' script");
+		}
+	}
+
 	//VLLT hier Update aus LifePointController einbauen, damit
 	//es beim Multiplayer einfacher ist zu trennen möglicherweise.
 	public override void ApplyDamage(float damage) {
@@ -45,6 +58,10 @@ public class EnemyHealth : HealthController {
 
 	public virtual void Dying()
 	{
-
+		//instantiate an explosion at the same position as the asteroid
+		Instantiate(explosion, transform.position, transform.rotation);
+		gameController.AddScore(10);
+		//destroy the shot and the asteroid...
+		Destroy(gameObject);
 	}
 }

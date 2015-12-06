@@ -18,10 +18,10 @@ public class EnemyMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("Player").transform;
+		player = GameObject.Find("Enterprise").transform;
 		stations = GameObject.Find("Stations").transform;
 		agent = GetComponent<NavMeshAgent> ();
-		target = GameObject.Find("Player").transform;
+		target = GameObject.Find("Enterprise").transform;
 	}
 	
 	// Update is called once per frame
@@ -42,7 +42,7 @@ public class EnemyMove : MonoBehaviour {
 		}
 
 		if (playerDistance * playerPrio <= shortestStation * stationPrio) {
-			changeTarget ("Player");
+			changeTarget ("Enterprise");
 		} else {
 			//changeTarget (targetHelper);
 		}

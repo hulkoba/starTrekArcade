@@ -50,9 +50,9 @@ public class EnemyShooting : MonoBehaviour
 			line.SetPosition(1,ray.GetPoint(5));
 		}
 
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.5f);
 		line.enabled = false;
-		yield return new WaitForSeconds (0.3f);
+		yield return new WaitForSeconds (0.5f);
 		StartCoroutine("FireLaser");
 	}
 
