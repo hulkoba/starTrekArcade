@@ -6,12 +6,14 @@ public class EnemyAI : MonoBehaviour {
 	public Transform player;
 	public float playerDistance;
 
+	public Rigidbody rb;
+
 	public float rotationDamping;
-	public float moveSpeed;
 
 	public Transform stations;
 
 	//ENEMY DATEN
+	public float moveSpeed;
 	public bool kamikaze;
 	public float playerPrio;
 	public float starPrio;
@@ -21,6 +23,7 @@ public class EnemyAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		rb = GetComponent<Rigidbody> ();
 		player = GameObject.Find("Player").transform;
 		stations = GameObject.Find("Stations").transform;
 	}
@@ -68,12 +71,24 @@ public class EnemyAI : MonoBehaviour {
 	void chase(){
 		lookAtPlayer();
 		if (playerDistance > 5f) {
-			transform.Translate (transform.forward * moveSpeed * Time.deltaTime);
+			//transform.Translate (transform.forward * moveSpeed * Time.deltaTime);
+			rb.AddForce(transform.forward*moveSpeed);
+
 		} else {
 			if(kamikaze == true){
-				transform.Translate (transform.forward * moveSpeed * Time.deltaTime);
+				//transform.Translate (transform.forward * moveSpeed * Time.deltaTime);
+				//rb.AddForce(transform.forward*moveSpeed);
 				//if HIT on Player ApplyDamage
 				//player.gameObject.GetComponent<PlayerHealth>().ApplyDamage(expDamage);
+			}
+			else{
+				if(playerDistance < 4f){
+					rb.AddForce(-1*transform.forward*moveSpeed);
+				}
+				else{
+					rb.velocity = Vector3.zero;
+					rb.angularVelocity = Vector3.zero;
+				}
 			}
 		}
 	}
