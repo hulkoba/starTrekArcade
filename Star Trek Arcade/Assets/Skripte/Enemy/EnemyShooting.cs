@@ -17,12 +17,8 @@ public class EnemyShooting : MonoBehaviour
 
 	// Use this for initialization
 	void Awake () {
-		playerInRange = false;
-		player = GameObject.FindGameObjectWithTag("Enterprise");
+		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
-		Debug.Log("health " + playerHealth);
-
-		Debug.Log("health " + playerHealth.currentHealth);
 
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
@@ -33,7 +29,6 @@ public class EnemyShooting : MonoBehaviour
 		timer += Time.deltaTime;
 
 		if(timer >= reloadTime && playerInRange /*&& enemyHealth.currentHealth > 0*/){
-
 			FireLaser ();
 		}
 		//Debug.Log("playerInRange: " + playerInRange);
@@ -43,6 +38,12 @@ public class EnemyShooting : MonoBehaviour
 	}
 
 	void OnTriggerEnter (Collider other) {
+        // If the entering collider is the player...
+        if(other.gameObject == player) {
+            playerInRange = true;
+        }
+    }
+	void OnTriggerStay (Collider other) {
         // If the entering collider is the player...
         if(other.gameObject == player) {
             playerInRange = true;
@@ -63,8 +64,8 @@ public class EnemyShooting : MonoBehaviour
 		Ray ray = new Ray(transform.position, transform.forward);
 		RaycastHit hit;
 
-		line.SetPosition(0,transform.position);
-		//line.SetPosition(0,ray.origin);
+		//line.SetPosition(0,transform.position);
+		line.SetPosition(0,ray.origin);
 
 		// Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
 		ray.origin = transform.position;

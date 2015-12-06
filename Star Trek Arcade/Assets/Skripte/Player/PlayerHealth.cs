@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public GameObject playerExplosion;
 	public Slider healthUI;
+	public Slider shieldUI;
 	// TODO: transparent damageimage
 	//public Image damageImage
 	//public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
@@ -38,7 +39,7 @@ public class PlayerHealth : MonoBehaviour {
 
 
 	public void ApplyDamage(int damage) {
-		Debug.Log("Apply damage");
+		Debug.Log("Apply damage" + damage);
 		if(currentShield > 0){
 			ShieldDamaging(damage);
 		} else{
@@ -48,6 +49,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void ShieldDamaging(int damage) {
 		currentShield -= damage;
+		shieldUI.value = currentShield;
 		if(currentShield <= 0) {
 			int damageLeft = currentShield*-1;
 			currentShield = 0;
