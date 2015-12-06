@@ -3,9 +3,11 @@ using System.Collections;
 
 public class PlayerHealth : HealthController {
 
+	public GameObject explosion;
+
 //    public GUITexture healthGui;
 
-    private LifePointController lifePointController;
+    //private LifePointController lifePointController;
 //    private float maxHealth;
 //    private GUIText messageText;
 //    private Rect guiRect;
@@ -26,6 +28,7 @@ public class PlayerHealth : HealthController {
 
 	public override void ApplyDamage(float damage) {
 		base.ApplyDamage(damage);
+		Debug.Log ("DAMAGE" + health);
 	}
 
 	public virtual void ShieldDamaging(float damage)
@@ -64,18 +67,22 @@ public class PlayerHealth : HealthController {
 		//DRAN DENKEN, DASS DIE KAMERA DANN GELÖSCHT WERDEN MUSS, WENN NEUES SPIEL GESTARTET WIRD
         base.Dying();
 
-        lifePointController.LifePoints -= 1;
+		//instantiate an explosion at the same position as the asteroid
+		Instantiate(explosion, transform.position, transform.rotation);
+		Destroy(gameObject);
 
-        if (lifePointController.LifePoints > 0)
-            Invoke("Restart", 1);
+        //lifePointController.LifePoints -= 1;
+
+        //if (lifePointController.LifePoints > 0)
+        //    Invoke("Restart", 1);
         //else
             //messageText.text = "Game Over";
     }
 
-    void Restart()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
+    //void Restart()
+    //{
+    //    Application.LoadLevel(Application.loadedLevel);
+    //}
 
     // Update is called once per frame
     // void Update () {

@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour {
 				// instantiate with no rotation
 
 				var chooser = Random.Range(0,2);
-				Debug.Log ("Chooser"+chooser);
 				if(chooser < 1){
 					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), 0, Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
 					Instantiate(Enemy, spawnPosition, spawnRotation);

@@ -31,7 +31,7 @@ public class EnemyMove : MonoBehaviour {
 
 		var shortestStation = Mathf.Infinity;
 		var stationDistanceHelper = 0f;
-		var targetHelper = "Station1";
+		var targetHelper = "Enterprise";
 
 		for (int i = 0; i < stations.childCount; i++) {
 			stationDistanceHelper = Vector3.Distance(stations.GetChild(i).position, transform.position);
@@ -42,15 +42,17 @@ public class EnemyMove : MonoBehaviour {
 		}
 
 		if (playerDistance * playerPrio <= shortestStation * stationPrio) {
-			changeTarget ("Enterprise");
-		} else {
-			//changeTarget (targetHelper);
+			targetHelper = "Enterprise";
 		}
+		changeTarget (targetHelper);
 
 		agent.SetDestination(target.position);
 
 		var targetDistance = Vector3.Distance(target.position,transform.position);
 		if (targetDistance <= firingRange) {
+			if(gameObject.transform.forward != GameObject.Find(targetHelper).transform.position){
+				transform.LookAt(GameObject.Find(targetHelper).transform.position);
+			}
 			gameObject.GetComponent<EnemyShooting> ().startFire = true;
 		} else {
 			gameObject.GetComponent<EnemyShooting> ().startFire = false;
