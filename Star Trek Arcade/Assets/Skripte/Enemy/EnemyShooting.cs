@@ -12,10 +12,13 @@ public class EnemyShooting : MonoBehaviour
 	{
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
-		StartCoroutine("FireLaser");
 	}
 
-	IEnumerator FireLaser(){
+	public void startFire(float damage){
+		StartCoroutine("FireLaser",damage);
+	}
+
+	IEnumerator FireLaser(float damage){
 		line.enabled = true;
 
 		Ray ray = new Ray(transform.position, transform.forward);
@@ -27,10 +30,12 @@ public class EnemyShooting : MonoBehaviour
 			line.SetPosition(1,hit.point);
 			// trifft irgendwas
 			if(hit.rigidbody) {
-				Debug.Log("HIT!!!");
 				if(hit.rigidbody.gameObject.name.Equals("Player")){
-			     	hit.rigidbody.gameObject.GetComponent<PlayerHealth>().ApplyDamage(10f);
+			     	hit.rigidbody.gameObject.GetComponent<PlayerHealth>().ApplyDamage(damage);
 			    }
+				else if(hit.rigidbody.gameObject.tag.Equals("Station")){
+					//DAMAGE TO SPACESTATION
+				}
 				//hit.rigidbody.AddForceAtPosition(transform.forward*10,hit.point);
 			}
 		}
@@ -41,7 +46,7 @@ public class EnemyShooting : MonoBehaviour
 		yield return new WaitForSeconds(0.1f);
 		line.enabled = false;
 		yield return new WaitForSeconds (0.3f);
-		StartCoroutine("FireLaser");
+		StartCoroutine("FireLaser",damage);
 	}
 
 }
