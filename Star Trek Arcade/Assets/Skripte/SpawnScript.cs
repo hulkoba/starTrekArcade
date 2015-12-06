@@ -31,7 +31,7 @@ public class SpawnScript : MonoBehaviour {
                 // create new GameObject
                 GameObject NewGO = Instantiate(Example);
                 // set new random position
-                NewGO.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(0, 3), Random.Range(-2, 10));
+                NewGO.transform.position = new Vector3(Random.Range(45, 50), Random.Range(0, 3), Random.Range(0, 50));
                 NewGO.transform.LookAt(Player);
                 // name it
                 NewGO.name = "Enemy_" + Group.childCount;

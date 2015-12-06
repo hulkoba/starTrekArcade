@@ -3,6 +3,10 @@ using System.Collections;
 
 public class EnemyShooting : MonoBehaviour
 {
+	public bool startFire;
+
+	public float damage;
+	public float laserSpeed;
 
 	LineRenderer line;
 	public float reloadTime = 5f;
@@ -10,15 +14,18 @@ public class EnemyShooting : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		startFire = false;
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
 	}
 
-	public void startFire(float damage){
-		StartCoroutine("FireLaser",damage);
+	public void Update(){
+		if (startFire) {
+			StartCoroutine("FireLaser");
+		}
 	}
 
-	IEnumerator FireLaser(float damage){
+	IEnumerator FireLaser(){
 		line.enabled = true;
 
 		Ray ray = new Ray(transform.position, transform.forward);
@@ -46,7 +53,7 @@ public class EnemyShooting : MonoBehaviour
 		yield return new WaitForSeconds(0.1f);
 		line.enabled = false;
 		yield return new WaitForSeconds (0.3f);
-		StartCoroutine("FireLaser",damage);
+		StartCoroutine("FireLaser");
 	}
 
 }
