@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHealth : HealthController {
+public class EnemyHealth : MonoBehaviour {
 
 	public GameObject explosion;
+	public float shield;
+	public float health;
 
 	private GameController gameController;
 
@@ -18,25 +20,32 @@ public class EnemyHealth : HealthController {
 
 	//VLLT hier Update aus LifePointController einbauen, damit
 	//es beim Multiplayer einfacher ist zu trennen möglicherweise.
-	public override void ApplyDamage(float damage) {
-		base.ApplyDamage(damage);
+	public void ApplyDamage(float damage) {
+
+		if(health <= 0 && shield <= 0)
+		{
+			Dying();
+		}
+		else
+		{
+			if(shield > 0){
+				ShieldDamaging(damage);
+			}
+			else{
+				Damaging(damage);
+			}
+		}
 	}
 
-	public virtual IEnumerator ShieldDamaging(float damage)
+	public virtual void ShieldDamaging(float damage)
 	{
-		shield -= damage;//<---- DA NOCH WAS SUCHEN FUER EIGENTLICHEN SCHADEN
+		shield -= damage;
 
 		if(shield < 0){
 			float damageLeft = shield*-1;
 			shield = 0;
 			Damaging(damageLeft);
 		}
-		//Wait 0.5 Sec.
-		//WaitForSeconds(0.5f);//<----? Geht das?
-		yield return new WaitForSeconds(0.5f);
-		// if (beenShot != true) {
-		// 	RechargeShield();
-		// }
 	}
 
 	/**
@@ -53,7 +62,6 @@ public class EnemyHealth : HealthController {
 	public virtual void Damaging(float damage)
 	{
 		health -= damage;
-		//beenShot = false;
 	}
 
 	public virtual void Dying()
@@ -61,17 +69,15 @@ public class EnemyHealth : HealthController {
 		//instantiate an explosion at the same position as the asteroid
 		Instantiate(explosion, transform.position, transform.rotation);
 		gameController.AddScore(10);
-		//destroy the shot and the asteroid...
+		//destroy the shot
 		Destroy(gameObject);
 	}
 
-	void OnTriggerEnter(Collider other) {
-		// not destroying the Boundary!
-		if (other.tag == "Boundary") {
-			//Dying();
-		}
+	void OnTriggerEnter(Collider other){
 		if (other.tag == "Bolt") {
-			Debug.Log ("BOLTHIT!");
+			ApplyDamage(10);
+			//Zerstoere Schuss
+			Destroy(other.gameObject);
 		}
 	}
 }
