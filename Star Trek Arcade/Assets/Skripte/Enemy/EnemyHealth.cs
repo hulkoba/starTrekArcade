@@ -64,4 +64,14 @@ public class EnemyHealth : HealthController {
 		//destroy the shot and the asteroid...
 		Destroy(gameObject);
 	}
+
+	void OnTriggerEnter(Collider other) {
+		// not destroying the Boundary!
+		if (other.tag == "Boundary") {
+			//Dying();
+		}
+		if (other.tag == "Bolt") {
+			Debug.Log ("BOLTHIT!");
+		}
+	}
 }
