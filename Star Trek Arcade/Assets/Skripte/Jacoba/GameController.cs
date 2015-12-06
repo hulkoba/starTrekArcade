@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Astroid;
 	public GameObject Enemy;
 	private Transform Enterprise;
-	private float range = 55f;
+	private float range = 20f;
 
 	public int hazardCount;
     public float spawnWait; // wait time value
