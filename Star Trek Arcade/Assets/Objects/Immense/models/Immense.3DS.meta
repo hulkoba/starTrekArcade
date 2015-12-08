@@ -1,0 +1,3277 @@
+fileFormatVersion: 2
+guid: 96e649d393a9d4588bd7a345cc65e4fe
+timeCreated: 1449581268
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: bblue
+    100002: Box02
+    100004: Box04
+    100006: Box16
+    100008: Box17
+    100010: Box33
+    100012: Box34
+    100014: Box35
+    100016: Box36
+    100018: Box47
+    100020: Box48
+    100022: Box49
+    100024: Box50
+    100026: Box51
+    100028: Box52
+    100030: Box59
+    100032: Box60
+    100034: Box61
+    100036: Box63
+    100038: brackets01
+    100040: brackets02
+    100042: brackets03
+    100044: brackets04
+    100046: ccmb-1
+    100048: ccmb-2
+    100050: ccmb-3
+    100052: ccmb-5
+    100054: ccmb-6
+    100056: ccmb-7
+    100058: ccmb-8
+    100060: ccmb-9
+    100062: ChamferB10
+    100064: ChamferB11
+    100066: ChamferB12
+    100068: ChamferB13
+    100070: ChamferB14
+    100072: ChamferB15
+    100074: ChamferB16
+    100076: ChamferB17
+    100078: ChamferB18
+    100080: ChamferB19
+    100082: ChamferB20
+    100084: ChamferB21
+    100086: ChamferB22
+    100088: ChamferB23
+    100090: ChamferB24
+    100092: ChamferB25
+    100094: ChamferB26
+    100096: ChamferB27
+    100098: ChamferB28
+    100100: ChamferB29
+    100102: ChamferB30
+    100104: ChamferB31
+    100106: ChamferB32
+    100108: ChamferB33
+    100110: ChamferBo0
+    100112: ChamferBo1
+    100114: ChamferBo2
+    100116: ChamferBo3
+    100118: ChamferBo4
+    100120: ChamferBo5
+    100122: ChamferBo6
+    100124: ChamferBo7
+    100126: ChamferBo8
+    100128: ChamferBo9
+    100130: ChamferBox
+    100132: Command C0
+    100134: Command Ce
+    100136: Cylinder00
+    100138: Cylinder01
+    100140: Cylinder02
+    100142: Cylinder03
+    100144: Cylinder04
+    100146: Cylinder05
+    100148: Cylinder06
+    100150: Cylinder07
+    100152: Cylinder08
+    100154: Cylinder09
+    100156: Cylinder10
+    100158: cylinder10
+    100160: Cylinder11
+    100162: cylinder11
+    100164: Cylinder12
+    100166: cylinder12
+    100168: Cylinder13
+    100170: cylinder13
+    100172: Cylinder14
+    100174: Cylinder15
+    100176: Cylinder16
+    100178: Cylinder17
+    100180: Cylinder18
+    100182: Cylinder19
+    100184: Cylinder20
+    100186: Cylinder21
+    100188: Cylinder22
+    100190: Cylinder23
+    100192: Cylinder24
+    100194: Cylinder25
+    100196: Cylinder26
+    100198: Cylinder27
+    100200: Cylinder28
+    100202: Cylinder29
+    100204: Cylinder30
+    100206: Cylinder31
+    100208: Cylinder32
+    100210: Cylinder33
+    100212: Cylinder34
+    100214: Cylinder35
+    100216: Cylinder36
+    100218: Cylinder37
+    100220: Cylinder38
+    100222: Cylinder39
+    100224: Cylinder40
+    100226: Cylinder41
+    100228: Cylinder42
+    100230: Cylinder43
+    100232: Cylinder44
+    100234: Cylinder45
+    100236: Cylinder46
+    100238: Cylinder47
+    100240: Cylinder48
+    100242: Cylinder49
+    100244: Cylinder50
+    100246: Cylinder51
+    100248: Cylinder52
+    100250: Cylinder53
+    100252: Cylinder54
+    100254: Cylinder55
+    100256: Cylinder56
+    100258: Cylinder57
+    100260: Cylinder58
+    100262: Cylinder59
+    100264: Cylinder60
+    100266: Cylinder61
+    100268: Cylinder62
+    100270: Cylinder63
+    100272: Cylinder64
+    100274: Cylinder65
+    100276: Cylinder66
+    100278: Cylinder67
+    100280: Cylinder68
+    100282: Cylinder69
+    100284: Cylinder70
+    100286: Cylinder71
+    100288: cylinder71
+    100290: Cylinder72
+    100292: Cylinder73
+    100294: Cylinder74
+    100296: Cylinder75
+    100298: Cylinder76
+    100300: Cylinder77
+    100302: Cylinder78
+    100304: cylinder78
+    100306: Cylinder79
+    100308: Cylinder80
+    100310: cylinder80
+    100312: Cylinder82
+    100314: cylinder82
+    100316: dd2bmcon-2
+    100318: dd2mbcon-1
+    100320: ddbmcon-1
+    100322: ddbmcon-2
+    100324: Docking 10
+    100326: Docking 11
+    100328: Docking 12
+    100330: Docking 13
+    100332: Docking 14
+    100334: Docking 15
+    100336: Docking 16
+    100338: Docking 17
+    100340: Docking 18
+    100342: Docking 19
+    100344: Docking 20
+    100346: Docking 21
+    100348: Docking 22
+    100350: Docking 23
+    100352: Docking 24
+    100354: Docking 25
+    100356: Docking 26
+    100358: Docking 27
+    100360: Docking 28
+    100362: Docking 29
+    100364: Docking 30
+    100366: Docking 31
+    100368: Docking 32
+    100370: Docking 33
+    100372: Docking 34
+    100374: Docking 35
+    100376: Docking 36
+    100378: Docking 37
+    100380: Docking 38
+    100382: Docking 39
+    100384: Docking 40
+    100386: Docking 41
+    100388: Docking 42
+    100390: Docking 43
+    100392: Docking 44
+    100394: Docking 45
+    100396: Docking 46
+    100398: Docking 47
+    100400: Docking 48
+    100402: Docking 49
+    100404: Docking 50
+    100406: Docking 51
+    100408: Docking 52
+    100410: Docking 53
+    100412: Docking 54
+    100414: Docking 55
+    100416: Docking 56
+    100418: Docking S0
+    100420: Docking S1
+    100422: Docking S2
+    100424: Docking S3
+    100426: Docking S4
+    100428: Docking S5
+    100430: Docking S6
+    100432: Docking S7
+    100434: Docking S8
+    100436: Docking S9
+    100438: Docking Se
+    100440: 'Drydock 1 '
+    100442: Drydock 10
+    100444: Drydock 11
+    100446: Drydock 12
+    100448: Drydock 13
+    100450: Drydock 14
+    100452: Drydock 15
+    100454: Drydock 16
+    100456: Drydock 17
+    100458: Drydock 18
+    100460: Drydock 19
+    100462: 'Drydock 2 '
+    100464: Drydock 20
+    100466: Drydock 21
+    100468: Drydock 22
+    100470: Drydock 23
+    100472: Drydock 24
+    100474: Drydock 25
+    100476: Drydock 26
+    100478: Drydock 27
+    100480: Drydock 28
+    100482: Drydock 29
+    100484: Drydock 30
+    100486: Drydock 31
+    100488: Drydock 32
+    100490: Drydock 33
+    100492: Drydock 34
+    100494: Drydock 35
+    100496: Drydock 36
+    100498: Drydock 37
+    100500: Drydock 38
+    100502: Drydock 39
+    100504: Drydock 40
+    100506: Drydock 41
+    100508: Drydock 42
+    100510: Drydock 43
+    100512: Drydock 44
+    100514: Drydock 45
+    100516: Drydock 46
+    100518: Drydock 47
+    100520: Drydock 48
+    100522: Drydock 49
+    100524: Drydock 50
+    100526: Drydock 51
+    100528: Drydock 52
+    100530: Drydock 53
+    100532: Drydock 54
+    100534: Drydock 55
+    100536: Drydock 56
+    100538: Drydock 57
+    100540: Drydock 58
+    100542: Drydock 59
+    100544: Drydock 60
+    100546: Drydock 61
+    100548: Drydock 62
+    100550: Drydock 63
+    100552: Drydock 64
+    100554: ds1b-1
+    100556: ds1b-2
+    100558: ds1ls-1
+    100560: ds1lsc-2
+    100562: ds1lscon-1
+    100564: ds1m-1
+    100566: ds1m-2
+    100568: ds1m-3
+    100570: ds1m-4
+    100572: ds1m-5
+    100574: ds1s1-1
+    100576: ds2b-1
+    100578: ds2ccb-1
+    100580: ds2ccb-5
+    100582: ds2ccb-6
+    100584: ds2ccb7
+    100586: ds2ccb8
+    100588: ds2ls-1
+    100590: ds2lsc-1
+    100592: ds2lscon-1
+    100594: ds2m-1
+    100596: ds2m-2
+    100598: ds2m-3
+    100600: ds2m-4
+    100602: ds2m-6
+    100604: ds2m-7
+    100606: ds2m-8
+    100608: ds2m-9
+    100610: ds2s1-1
+    100612: ellbg-1
+    100614: Engineeri0
+    100616: Engineeri1
+    100618: Engineeri2
+    100620: Engineeri3
+    100622: Engineerin
+    100624: Holder Py0
+    100626: Holder Py1
+    100628: Holder Py2
+    100630: Holder Pyl
+    100632: //RootNode
+    100634: Inner Rin0
+    100636: Inner Rin1
+    100638: Inner Rin2
+    100640: Inner Ring
+    100642: ir5-1
+    100644: ir6-1
+    100646: ir7-1
+    100648: ir8-1
+    100650: Landing 10
+    100652: Landing 11
+    100654: Landing 12
+    100656: Landing 13
+    100658: Landing P0
+    100660: Landing P1
+    100662: Landing P2
+    100664: Landing P3
+    100666: Landing P4
+    100668: Landing P5
+    100670: Landing P6
+    100672: Landing P7
+    100674: Landing P8
+    100676: Landing P9
+    100678: Landing Pa
+    100680: Landing Pl
+    100682: lhpo1-1
+    100684: lhpo1-2
+    100686: lhpo1-3
+    100688: lhpo2-1
+    100690: lhpo2-2
+    100692: lhpo2-3
+    100694: lhpo3-1
+    100696: lhpo3-2
+    100698: lhpo3-3
+    100700: lhpo4-1
+    100702: lhpo4-2
+    100704: lhpo4-3
+    100706: Line01
+    100708: Line02
+    100710: Line04
+    100712: Line10
+    100714: Line100
+    100716: Line101
+    100718: Line102
+    100720: Line11
+    100722: Line13
+    100724: Line15
+    100726: Line150
+    100728: Line16
+    100730: Line160
+    100732: Line17
+    100734: Line18
+    100736: Line19
+    100738: Line20
+    100740: Line21
+    100742: Line22
+    100744: Line23
+    100746: Line24
+    100748: Line25
+    100750: Line26
+    100752: Line27
+    100754: Line28
+    100756: Line29
+    100758: Line30
+    100760: Line31
+    100762: Line32
+    100764: Line33
+    100766: Line35
+    100768: Line37
+    100770: Line38
+    100772: Line39
+    100774: Line40
+    100776: Line41
+    100778: Line42
+    100780: Line43
+    100782: Line44
+    100784: Line45
+    100786: Line53
+    100788: Line54
+    100790: Line61
+    100792: Line69
+    100794: Line70
+    100796: Line71
+    100798: Line73
+    100800: Line74
+    100802: Line75
+    100804: Line76
+    100806: Line77
+    100808: Line78
+    100810: Line90
+    100812: Line91
+    100814: Line92
+    100816: Line93
+    100818: Line94
+    100820: Line95
+    100822: Line96
+    100824: Line97
+    100826: Line98
+    100828: Line99
+    100830: Lower Hol0
+    100832: Lower Hol1
+    100834: Lower Hol2
+    100836: Lower Hol3
+    100838: Lower Hol4
+    100840: Lower Hol5
+    100842: Lower Hol6
+    100844: Lower Hold
+    100846: Lower Sph0
+    100848: Lower Sph1
+    100850: Lower Sphe
+    100852: lp07-1
+    100854: lp5-1
+    100856: lp6-1
+    100858: lp8-1
+    100860: lsc-1
+    100862: lsm-1
+    100864: lsmb3-1
+    100866: lsmb3-2
+    100868: Main Comm0
+    100870: Main Comm1
+    100872: Main Comma
+    100874: Main Conn0
+    100876: Main Conn1
+    100878: Main Conn2
+    100880: Main Conn3
+    100882: Main Conn4
+    100884: Main Conn5
+    100886: Main Conn6
+    100888: Main Conn7
+    100890: Main Conn8
+    100892: Main Conne
+    100894: Main Hul10
+    100896: Main Hul11
+    100898: Main Hul12
+    100900: Main Hul13
+    100902: Main Hul14
+    100904: Main Hul15
+    100906: Main Hul16
+    100908: Main Hul17
+    100910: Main Hul18
+    100912: Main Hul19
+    100914: 'Main Hull '
+    100916: Main Hull0
+    100918: Main Hull1
+    100920: Main Hull2
+    100922: Main Hull3
+    100924: Main Hull4
+    100926: Main Hull5
+    100928: Main Hull6
+    100930: Main Hull7
+    100932: Main Hull8
+    100934: Main Hull9
+    100936: maincomma0
+    100938: maincomma1
+    100940: maincomman
+    100942: mcbm-1
+    100944: mcc-1
+    100946: mcc-2
+    100948: mcc-3
+    100950: mcd-1
+    100952: mcl-1
+    100954: mcu-1
+    100956: mh-1
+    100958: mh-10
+    100960: mh-11
+    100962: mh-12
+    100964: mh-13
+    100966: mh-14
+    100968: mh-2
+    100970: mh-3
+    100972: mh-4
+    100974: mh-5
+    100976: mh-6
+    100978: mh-7
+    100980: mh-8
+    100982: mh-9
+    100984: mhl-1
+    100986: Middle Ri0
+    100988: Middle Ri1
+    100990: Middle Ri2
+    100992: Middle Rin
+    100994: myNX05
+    100996: Outer Rin0
+    100998: Outer Rin1
+    101000: Outer Rin2
+    101002: Outer Ring
+    101004: RCS03
+    101006: Rectangl10
+    101008: Rectangl11
+    101010: Rectangl12
+    101012: Rectangl13
+    101014: Rectangl14
+    101016: Rectangl15
+    101018: Rectangl16
+    101020: Rectangl17
+    101022: Rectangl18
+    101024: Rectangl19
+    101026: Rectangl20
+    101028: Rectangl21
+    101030: Rectangl22
+    101032: Rectangl23
+    101034: Rectangl24
+    101036: Rectangl25
+    101038: Rectangl26
+    101040: Rectangl27
+    101042: Rectangl28
+    101044: Rectangl29
+    101046: Rectangl30
+    101048: Rectangl31
+    101050: Rectangl32
+    101052: Rectangl33
+    101054: Rectangl34
+    101056: Rectangl35
+    101058: Rectangl36
+    101060: Rectangl37
+    101062: Rectangl38
+    101064: Rectangl39
+    101066: Rectangl40
+    101068: Rectangl41
+    101070: Rectangl42
+    101072: Rectangl43
+    101074: Rectangl44
+    101076: Rectangl45
+    101078: Rectangl46
+    101080: Rectangl47
+    101082: Rectangl48
+    101084: Rectangl49
+    101086: Rectangl50
+    101088: Rectangl51
+    101090: Rectangl52
+    101092: Rectangl53
+    101094: Rectangl54
+    101096: Rectangl55
+    101098: Rectangl56
+    101100: Rectangl57
+    101102: Rectangl58
+    101104: Rectangl59
+    101106: Rectangl60
+    101108: Rectangl61
+    101110: Rectangl62
+    101112: Rectangl63
+    101114: Rectangl64
+    101116: Rectangl65
+    101118: Rectangl66
+    101120: Rectangl67
+    101122: Rectangl68
+    101124: Rectangl69
+    101126: Rectangl70
+    101128: Rectangl71
+    101130: Rectangl72
+    101132: Rectangl73
+    101134: Rectangl74
+    101136: Rectangl75
+    101138: Rectangl76
+    101140: Rectangl77
+    101142: Rectangl78
+    101144: Rectangl79
+    101146: Rectangl80
+    101148: Rectangl81
+    101150: Rectangl82
+    101152: Rectangl83
+    101154: Rectangl84
+    101156: Rectangl85
+    101158: Rectangl86
+    101160: Rectangl87
+    101162: Rectangl88
+    101164: Rectangl89
+    101166: Rectangl90
+    101168: Rectangl91
+    101170: Rectangl92
+    101172: Rectangl93
+    101174: Rectangl94
+    101176: Rectangl95
+    101178: Rectangle0
+    101180: Rectangle1
+    101182: Rectangle2
+    101184: Rectangle3
+    101186: Rectangle4
+    101188: Rectangle5
+    101190: Rectangle6
+    101192: Rectangle7
+    101194: Rectangle8
+    101196: Rectangle9
+    101198: rfin1
+    101200: rfin10
+    101202: rfin11
+    101204: rfin12
+    101206: rfin13
+    101208: rfin14
+    101210: rfin15
+    101212: rfin16
+    101214: rfin17
+    101216: rfin18
+    101218: rfin19
+    101220: rfin2
+    101222: rfin20
+    101224: rfin21
+    101226: rfin22
+    101228: rfin23
+    101230: rfin24
+    101232: rfin3
+    101234: rfin4
+    101236: rfin5
+    101238: rfin6
+    101240: rfin7
+    101242: rfin8
+    101244: rfin9
+    101246: s1m-1
+    101248: s2m-1
+    101250: 'Shuttlbay '
+    101252: Shuttlbay0
+    101254: Shuttlbay1
+    101256: Shuttlbay2
+    101258: Shuttleba0
+    101260: Shuttleba1
+    101262: Shuttleba2
+    101264: Shuttleba3
+    101266: Shuttleba4
+    101268: Shuttleba5
+    101270: Shuttleba6
+    101272: Shuttlebay
+    101274: spacedoor1
+    101276: spacedoor2
+    101278: Sphere01
+    101280: Sphere02
+    101282: Sphere03
+    101284: Sphere04
+    101286: Sphere13
+    101288: Sphere26
+    101290: Sphere27
+    101292: Sphere28
+    101294: Sphere29
+    101296: Sphere30
+    101298: Spike (Ma0
+    101300: Spike (Ma1
+    101302: Spike (Ma2
+    101304: Spike (Mai
+    101306: Spike 1 (M
+    101308: Spike 2 (M
+    101310: srblue
+    101312: srblue01
+    101314: Tube01
+    101316: Tube02
+    400000: bblue
+    400002: Box02
+    400004: Box04
+    400006: Box16
+    400008: Box17
+    400010: Box33
+    400012: Box34
+    400014: Box35
+    400016: Box36
+    400018: Box47
+    400020: Box48
+    400022: Box49
+    400024: Box50
+    400026: Box51
+    400028: Box52
+    400030: Box59
+    400032: Box60
+    400034: Box61
+    400036: Box63
+    400038: brackets01
+    400040: brackets02
+    400042: brackets03
+    400044: brackets04
+    400046: ccmb-1
+    400048: ccmb-2
+    400050: ccmb-3
+    400052: ccmb-5
+    400054: ccmb-6
+    400056: ccmb-7
+    400058: ccmb-8
+    400060: ccmb-9
+    400062: ChamferB10
+    400064: ChamferB11
+    400066: ChamferB12
+    400068: ChamferB13
+    400070: ChamferB14
+    400072: ChamferB15
+    400074: ChamferB16
+    400076: ChamferB17
+    400078: ChamferB18
+    400080: ChamferB19
+    400082: ChamferB20
+    400084: ChamferB21
+    400086: ChamferB22
+    400088: ChamferB23
+    400090: ChamferB24
+    400092: ChamferB25
+    400094: ChamferB26
+    400096: ChamferB27
+    400098: ChamferB28
+    400100: ChamferB29
+    400102: ChamferB30
+    400104: ChamferB31
+    400106: ChamferB32
+    400108: ChamferB33
+    400110: ChamferBo0
+    400112: ChamferBo1
+    400114: ChamferBo2
+    400116: ChamferBo3
+    400118: ChamferBo4
+    400120: ChamferBo5
+    400122: ChamferBo6
+    400124: ChamferBo7
+    400126: ChamferBo8
+    400128: ChamferBo9
+    400130: ChamferBox
+    400132: Command C0
+    400134: Command Ce
+    400136: Cylinder00
+    400138: Cylinder01
+    400140: Cylinder02
+    400142: Cylinder03
+    400144: Cylinder04
+    400146: Cylinder05
+    400148: Cylinder06
+    400150: Cylinder07
+    400152: Cylinder08
+    400154: Cylinder09
+    400156: Cylinder10
+    400158: cylinder10
+    400160: Cylinder11
+    400162: cylinder11
+    400164: Cylinder12
+    400166: cylinder12
+    400168: Cylinder13
+    400170: cylinder13
+    400172: Cylinder14
+    400174: Cylinder15
+    400176: Cylinder16
+    400178: Cylinder17
+    400180: Cylinder18
+    400182: Cylinder19
+    400184: Cylinder20
+    400186: Cylinder21
+    400188: Cylinder22
+    400190: Cylinder23
+    400192: Cylinder24
+    400194: Cylinder25
+    400196: Cylinder26
+    400198: Cylinder27
+    400200: Cylinder28
+    400202: Cylinder29
+    400204: Cylinder30
+    400206: Cylinder31
+    400208: Cylinder32
+    400210: Cylinder33
+    400212: Cylinder34
+    400214: Cylinder35
+    400216: Cylinder36
+    400218: Cylinder37
+    400220: Cylinder38
+    400222: Cylinder39
+    400224: Cylinder40
+    400226: Cylinder41
+    400228: Cylinder42
+    400230: Cylinder43
+    400232: Cylinder44
+    400234: Cylinder45
+    400236: Cylinder46
+    400238: Cylinder47
+    400240: Cylinder48
+    400242: Cylinder49
+    400244: Cylinder50
+    400246: Cylinder51
+    400248: Cylinder52
+    400250: Cylinder53
+    400252: Cylinder54
+    400254: Cylinder55
+    400256: Cylinder56
+    400258: Cylinder57
+    400260: Cylinder58
+    400262: Cylinder59
+    400264: Cylinder60
+    400266: Cylinder61
+    400268: Cylinder62
+    400270: Cylinder63
+    400272: Cylinder64
+    400274: Cylinder65
+    400276: Cylinder66
+    400278: Cylinder67
+    400280: Cylinder68
+    400282: Cylinder69
+    400284: Cylinder70
+    400286: Cylinder71
+    400288: cylinder71
+    400290: Cylinder72
+    400292: Cylinder73
+    400294: Cylinder74
+    400296: Cylinder75
+    400298: Cylinder76
+    400300: Cylinder77
+    400302: Cylinder78
+    400304: cylinder78
+    400306: Cylinder79
+    400308: Cylinder80
+    400310: cylinder80
+    400312: Cylinder82
+    400314: cylinder82
+    400316: dd2bmcon-2
+    400318: dd2mbcon-1
+    400320: ddbmcon-1
+    400322: ddbmcon-2
+    400324: Docking 10
+    400326: Docking 11
+    400328: Docking 12
+    400330: Docking 13
+    400332: Docking 14
+    400334: Docking 15
+    400336: Docking 16
+    400338: Docking 17
+    400340: Docking 18
+    400342: Docking 19
+    400344: Docking 20
+    400346: Docking 21
+    400348: Docking 22
+    400350: Docking 23
+    400352: Docking 24
+    400354: Docking 25
+    400356: Docking 26
+    400358: Docking 27
+    400360: Docking 28
+    400362: Docking 29
+    400364: Docking 30
+    400366: Docking 31
+    400368: Docking 32
+    400370: Docking 33
+    400372: Docking 34
+    400374: Docking 35
+    400376: Docking 36
+    400378: Docking 37
+    400380: Docking 38
+    400382: Docking 39
+    400384: Docking 40
+    400386: Docking 41
+    400388: Docking 42
+    400390: Docking 43
+    400392: Docking 44
+    400394: Docking 45
+    400396: Docking 46
+    400398: Docking 47
+    400400: Docking 48
+    400402: Docking 49
+    400404: Docking 50
+    400406: Docking 51
+    400408: Docking 52
+    400410: Docking 53
+    400412: Docking 54
+    400414: Docking 55
+    400416: Docking 56
+    400418: Docking S0
+    400420: Docking S1
+    400422: Docking S2
+    400424: Docking S3
+    400426: Docking S4
+    400428: Docking S5
+    400430: Docking S6
+    400432: Docking S7
+    400434: Docking S8
+    400436: Docking S9
+    400438: Docking Se
+    400440: 'Drydock 1 '
+    400442: Drydock 10
+    400444: Drydock 11
+    400446: Drydock 12
+    400448: Drydock 13
+    400450: Drydock 14
+    400452: Drydock 15
+    400454: Drydock 16
+    400456: Drydock 17
+    400458: Drydock 18
+    400460: Drydock 19
+    400462: 'Drydock 2 '
+    400464: Drydock 20
+    400466: Drydock 21
+    400468: Drydock 22
+    400470: Drydock 23
+    400472: Drydock 24
+    400474: Drydock 25
+    400476: Drydock 26
+    400478: Drydock 27
+    400480: Drydock 28
+    400482: Drydock 29
+    400484: Drydock 30
+    400486: Drydock 31
+    400488: Drydock 32
+    400490: Drydock 33
+    400492: Drydock 34
+    400494: Drydock 35
+    400496: Drydock 36
+    400498: Drydock 37
+    400500: Drydock 38
+    400502: Drydock 39
+    400504: Drydock 40
+    400506: Drydock 41
+    400508: Drydock 42
+    400510: Drydock 43
+    400512: Drydock 44
+    400514: Drydock 45
+    400516: Drydock 46
+    400518: Drydock 47
+    400520: Drydock 48
+    400522: Drydock 49
+    400524: Drydock 50
+    400526: Drydock 51
+    400528: Drydock 52
+    400530: Drydock 53
+    400532: Drydock 54
+    400534: Drydock 55
+    400536: Drydock 56
+    400538: Drydock 57
+    400540: Drydock 58
+    400542: Drydock 59
+    400544: Drydock 60
+    400546: Drydock 61
+    400548: Drydock 62
+    400550: Drydock 63
+    400552: Drydock 64
+    400554: ds1b-1
+    400556: ds1b-2
+    400558: ds1ls-1
+    400560: ds1lsc-2
+    400562: ds1lscon-1
+    400564: ds1m-1
+    400566: ds1m-2
+    400568: ds1m-3
+    400570: ds1m-4
+    400572: ds1m-5
+    400574: ds1s1-1
+    400576: ds2b-1
+    400578: ds2ccb-1
+    400580: ds2ccb-5
+    400582: ds2ccb-6
+    400584: ds2ccb7
+    400586: ds2ccb8
+    400588: ds2ls-1
+    400590: ds2lsc-1
+    400592: ds2lscon-1
+    400594: ds2m-1
+    400596: ds2m-2
+    400598: ds2m-3
+    400600: ds2m-4
+    400602: ds2m-6
+    400604: ds2m-7
+    400606: ds2m-8
+    400608: ds2m-9
+    400610: ds2s1-1
+    400612: ellbg-1
+    400614: Engineeri0
+    400616: Engineeri1
+    400618: Engineeri2
+    400620: Engineeri3
+    400622: Engineerin
+    400624: Holder Py0
+    400626: Holder Py1
+    400628: Holder Py2
+    400630: Holder Pyl
+    400632: //RootNode
+    400634: Inner Rin0
+    400636: Inner Rin1
+    400638: Inner Rin2
+    400640: Inner Ring
+    400642: ir5-1
+    400644: ir6-1
+    400646: ir7-1
+    400648: ir8-1
+    400650: Landing 10
+    400652: Landing 11
+    400654: Landing 12
+    400656: Landing 13
+    400658: Landing P0
+    400660: Landing P1
+    400662: Landing P2
+    400664: Landing P3
+    400666: Landing P4
+    400668: Landing P5
+    400670: Landing P6
+    400672: Landing P7
+    400674: Landing P8
+    400676: Landing P9
+    400678: Landing Pa
+    400680: Landing Pl
+    400682: lhpo1-1
+    400684: lhpo1-2
+    400686: lhpo1-3
+    400688: lhpo2-1
+    400690: lhpo2-2
+    400692: lhpo2-3
+    400694: lhpo3-1
+    400696: lhpo3-2
+    400698: lhpo3-3
+    400700: lhpo4-1
+    400702: lhpo4-2
+    400704: lhpo4-3
+    400706: Line01
+    400708: Line02
+    400710: Line04
+    400712: Line10
+    400714: Line100
+    400716: Line101
+    400718: Line102
+    400720: Line11
+    400722: Line13
+    400724: Line15
+    400726: Line150
+    400728: Line16
+    400730: Line160
+    400732: Line17
+    400734: Line18
+    400736: Line19
+    400738: Line20
+    400740: Line21
+    400742: Line22
+    400744: Line23
+    400746: Line24
+    400748: Line25
+    400750: Line26
+    400752: Line27
+    400754: Line28
+    400756: Line29
+    400758: Line30
+    400760: Line31
+    400762: Line32
+    400764: Line33
+    400766: Line35
+    400768: Line37
+    400770: Line38
+    400772: Line39
+    400774: Line40
+    400776: Line41
+    400778: Line42
+    400780: Line43
+    400782: Line44
+    400784: Line45
+    400786: Line53
+    400788: Line54
+    400790: Line61
+    400792: Line69
+    400794: Line70
+    400796: Line71
+    400798: Line73
+    400800: Line74
+    400802: Line75
+    400804: Line76
+    400806: Line77
+    400808: Line78
+    400810: Line90
+    400812: Line91
+    400814: Line92
+    400816: Line93
+    400818: Line94
+    400820: Line95
+    400822: Line96
+    400824: Line97
+    400826: Line98
+    400828: Line99
+    400830: Lower Hol0
+    400832: Lower Hol1
+    400834: Lower Hol2
+    400836: Lower Hol3
+    400838: Lower Hol4
+    400840: Lower Hol5
+    400842: Lower Hol6
+    400844: Lower Hold
+    400846: Lower Sph0
+    400848: Lower Sph1
+    400850: Lower Sphe
+    400852: lp07-1
+    400854: lp5-1
+    400856: lp6-1
+    400858: lp8-1
+    400860: lsc-1
+    400862: lsm-1
+    400864: lsmb3-1
+    400866: lsmb3-2
+    400868: Main Comm0
+    400870: Main Comm1
+    400872: Main Comma
+    400874: Main Conn0
+    400876: Main Conn1
+    400878: Main Conn2
+    400880: Main Conn3
+    400882: Main Conn4
+    400884: Main Conn5
+    400886: Main Conn6
+    400888: Main Conn7
+    400890: Main Conn8
+    400892: Main Conne
+    400894: Main Hul10
+    400896: Main Hul11
+    400898: Main Hul12
+    400900: Main Hul13
+    400902: Main Hul14
+    400904: Main Hul15
+    400906: Main Hul16
+    400908: Main Hul17
+    400910: Main Hul18
+    400912: Main Hul19
+    400914: 'Main Hull '
+    400916: Main Hull0
+    400918: Main Hull1
+    400920: Main Hull2
+    400922: Main Hull3
+    400924: Main Hull4
+    400926: Main Hull5
+    400928: Main Hull6
+    400930: Main Hull7
+    400932: Main Hull8
+    400934: Main Hull9
+    400936: maincomma0
+    400938: maincomma1
+    400940: maincomman
+    400942: mcbm-1
+    400944: mcc-1
+    400946: mcc-2
+    400948: mcc-3
+    400950: mcd-1
+    400952: mcl-1
+    400954: mcu-1
+    400956: mh-1
+    400958: mh-10
+    400960: mh-11
+    400962: mh-12
+    400964: mh-13
+    400966: mh-14
+    400968: mh-2
+    400970: mh-3
+    400972: mh-4
+    400974: mh-5
+    400976: mh-6
+    400978: mh-7
+    400980: mh-8
+    400982: mh-9
+    400984: mhl-1
+    400986: Middle Ri0
+    400988: Middle Ri1
+    400990: Middle Ri2
+    400992: Middle Rin
+    400994: myNX05
+    400996: Outer Rin0
+    400998: Outer Rin1
+    401000: Outer Rin2
+    401002: Outer Ring
+    401004: RCS03
+    401006: Rectangl10
+    401008: Rectangl11
+    401010: Rectangl12
+    401012: Rectangl13
+    401014: Rectangl14
+    401016: Rectangl15
+    401018: Rectangl16
+    401020: Rectangl17
+    401022: Rectangl18
+    401024: Rectangl19
+    401026: Rectangl20
+    401028: Rectangl21
+    401030: Rectangl22
+    401032: Rectangl23
+    401034: Rectangl24
+    401036: Rectangl25
+    401038: Rectangl26
+    401040: Rectangl27
+    401042: Rectangl28
+    401044: Rectangl29
+    401046: Rectangl30
+    401048: Rectangl31
+    401050: Rectangl32
+    401052: Rectangl33
+    401054: Rectangl34
+    401056: Rectangl35
+    401058: Rectangl36
+    401060: Rectangl37
+    401062: Rectangl38
+    401064: Rectangl39
+    401066: Rectangl40
+    401068: Rectangl41
+    401070: Rectangl42
+    401072: Rectangl43
+    401074: Rectangl44
+    401076: Rectangl45
+    401078: Rectangl46
+    401080: Rectangl47
+    401082: Rectangl48
+    401084: Rectangl49
+    401086: Rectangl50
+    401088: Rectangl51
+    401090: Rectangl52
+    401092: Rectangl53
+    401094: Rectangl54
+    401096: Rectangl55
+    401098: Rectangl56
+    401100: Rectangl57
+    401102: Rectangl58
+    401104: Rectangl59
+    401106: Rectangl60
+    401108: Rectangl61
+    401110: Rectangl62
+    401112: Rectangl63
+    401114: Rectangl64
+    401116: Rectangl65
+    401118: Rectangl66
+    401120: Rectangl67
+    401122: Rectangl68
+    401124: Rectangl69
+    401126: Rectangl70
+    401128: Rectangl71
+    401130: Rectangl72
+    401132: Rectangl73
+    401134: Rectangl74
+    401136: Rectangl75
+    401138: Rectangl76
+    401140: Rectangl77
+    401142: Rectangl78
+    401144: Rectangl79
+    401146: Rectangl80
+    401148: Rectangl81
+    401150: Rectangl82
+    401152: Rectangl83
+    401154: Rectangl84
+    401156: Rectangl85
+    401158: Rectangl86
+    401160: Rectangl87
+    401162: Rectangl88
+    401164: Rectangl89
+    401166: Rectangl90
+    401168: Rectangl91
+    401170: Rectangl92
+    401172: Rectangl93
+    401174: Rectangl94
+    401176: Rectangl95
+    401178: Rectangle0
+    401180: Rectangle1
+    401182: Rectangle2
+    401184: Rectangle3
+    401186: Rectangle4
+    401188: Rectangle5
+    401190: Rectangle6
+    401192: Rectangle7
+    401194: Rectangle8
+    401196: Rectangle9
+    401198: rfin1
+    401200: rfin10
+    401202: rfin11
+    401204: rfin12
+    401206: rfin13
+    401208: rfin14
+    401210: rfin15
+    401212: rfin16
+    401214: rfin17
+    401216: rfin18
+    401218: rfin19
+    401220: rfin2
+    401222: rfin20
+    401224: rfin21
+    401226: rfin22
+    401228: rfin23
+    401230: rfin24
+    401232: rfin3
+    401234: rfin4
+    401236: rfin5
+    401238: rfin6
+    401240: rfin7
+    401242: rfin8
+    401244: rfin9
+    401246: s1m-1
+    401248: s2m-1
+    401250: 'Shuttlbay '
+    401252: Shuttlbay0
+    401254: Shuttlbay1
+    401256: Shuttlbay2
+    401258: Shuttleba0
+    401260: Shuttleba1
+    401262: Shuttleba2
+    401264: Shuttleba3
+    401266: Shuttleba4
+    401268: Shuttleba5
+    401270: Shuttleba6
+    401272: Shuttlebay
+    401274: spacedoor1
+    401276: spacedoor2
+    401278: Sphere01
+    401280: Sphere02
+    401282: Sphere03
+    401284: Sphere04
+    401286: Sphere13
+    401288: Sphere26
+    401290: Sphere27
+    401292: Sphere28
+    401294: Sphere29
+    401296: Sphere30
+    401298: Spike (Ma0
+    401300: Spike (Ma1
+    401302: Spike (Ma2
+    401304: Spike (Mai
+    401306: Spike 1 (M
+    401308: Spike 2 (M
+    401310: srblue
+    401312: srblue01
+    401314: Tube01
+    401316: Tube02
+    2300000: bblue
+    2300002: Box02
+    2300004: Box04
+    2300006: Box16
+    2300008: Box17
+    2300010: Box33
+    2300012: Box34
+    2300014: Box35
+    2300016: Box36
+    2300018: Box47
+    2300020: Box48
+    2300022: Box49
+    2300024: Box50
+    2300026: Box51
+    2300028: Box52
+    2300030: Box59
+    2300032: Box60
+    2300034: Box61
+    2300036: Box63
+    2300038: ccmb-1
+    2300040: ccmb-2
+    2300042: ccmb-3
+    2300044: ccmb-5
+    2300046: ccmb-6
+    2300048: ccmb-7
+    2300050: ccmb-8
+    2300052: ccmb-9
+    2300054: ChamferB10
+    2300056: ChamferB11
+    2300058: ChamferB12
+    2300060: ChamferB13
+    2300062: ChamferB14
+    2300064: ChamferB15
+    2300066: ChamferB16
+    2300068: ChamferB17
+    2300070: ChamferB18
+    2300072: ChamferB19
+    2300074: ChamferB20
+    2300076: ChamferB21
+    2300078: ChamferB22
+    2300080: ChamferB23
+    2300082: ChamferB24
+    2300084: ChamferB25
+    2300086: ChamferB26
+    2300088: ChamferB27
+    2300090: ChamferB28
+    2300092: ChamferB29
+    2300094: ChamferB30
+    2300096: ChamferB31
+    2300098: ChamferB32
+    2300100: ChamferB33
+    2300102: ChamferBo0
+    2300104: ChamferBo1
+    2300106: ChamferBo2
+    2300108: ChamferBo3
+    2300110: ChamferBo4
+    2300112: ChamferBo5
+    2300114: ChamferBo6
+    2300116: ChamferBo7
+    2300118: ChamferBo8
+    2300120: ChamferBo9
+    2300122: ChamferBox
+    2300124: Command C0
+    2300126: Command Ce
+    2300128: Cylinder00
+    2300130: Cylinder01
+    2300132: Cylinder02
+    2300134: Cylinder03
+    2300136: Cylinder04
+    2300138: Cylinder05
+    2300140: Cylinder06
+    2300142: Cylinder07
+    2300144: Cylinder08
+    2300146: Cylinder09
+    2300148: Cylinder10
+    2300150: cylinder10
+    2300152: Cylinder11
+    2300154: cylinder11
+    2300156: Cylinder12
+    2300158: cylinder12
+    2300160: Cylinder13
+    2300162: cylinder13
+    2300164: Cylinder14
+    2300166: Cylinder15
+    2300168: Cylinder16
+    2300170: Cylinder17
+    2300172: Cylinder18
+    2300174: Cylinder19
+    2300176: Cylinder20
+    2300178: Cylinder21
+    2300180: Cylinder22
+    2300182: Cylinder23
+    2300184: Cylinder24
+    2300186: Cylinder25
+    2300188: Cylinder26
+    2300190: Cylinder27
+    2300192: Cylinder28
+    2300194: Cylinder29
+    2300196: Cylinder30
+    2300198: Cylinder31
+    2300200: Cylinder32
+    2300202: Cylinder33
+    2300204: Cylinder34
+    2300206: Cylinder35
+    2300208: Cylinder36
+    2300210: Cylinder37
+    2300212: Cylinder38
+    2300214: Cylinder39
+    2300216: Cylinder40
+    2300218: Cylinder41
+    2300220: Cylinder42
+    2300222: Cylinder43
+    2300224: Cylinder44
+    2300226: Cylinder45
+    2300228: Cylinder46
+    2300230: Cylinder47
+    2300232: Cylinder48
+    2300234: Cylinder49
+    2300236: Cylinder50
+    2300238: Cylinder51
+    2300240: Cylinder52
+    2300242: Cylinder53
+    2300244: Cylinder54
+    2300246: Cylinder55
+    2300248: Cylinder56
+    2300250: Cylinder57
+    2300252: Cylinder58
+    2300254: Cylinder59
+    2300256: Cylinder60
+    2300258: Cylinder61
+    2300260: Cylinder62
+    2300262: Cylinder63
+    2300264: Cylinder64
+    2300266: Cylinder65
+    2300268: Cylinder66
+    2300270: Cylinder67
+    2300272: Cylinder68
+    2300274: Cylinder69
+    2300276: Cylinder70
+    2300278: Cylinder71
+    2300280: cylinder71
+    2300282: Cylinder72
+    2300284: Cylinder73
+    2300286: Cylinder74
+    2300288: Cylinder75
+    2300290: Cylinder76
+    2300292: Cylinder77
+    2300294: Cylinder78
+    2300296: cylinder78
+    2300298: Cylinder79
+    2300300: Cylinder80
+    2300302: cylinder80
+    2300304: Cylinder82
+    2300306: cylinder82
+    2300308: dd2bmcon-2
+    2300310: dd2mbcon-1
+    2300312: ddbmcon-1
+    2300314: ddbmcon-2
+    2300316: Docking 10
+    2300318: Docking 11
+    2300320: Docking 12
+    2300322: Docking 13
+    2300324: Docking 14
+    2300326: Docking 15
+    2300328: Docking 16
+    2300330: Docking 17
+    2300332: Docking 18
+    2300334: Docking 19
+    2300336: Docking 20
+    2300338: Docking 21
+    2300340: Docking 22
+    2300342: Docking 23
+    2300344: Docking 24
+    2300346: Docking 25
+    2300348: Docking 26
+    2300350: Docking 27
+    2300352: Docking 28
+    2300354: Docking 29
+    2300356: Docking 30
+    2300358: Docking 31
+    2300360: Docking 32
+    2300362: Docking 33
+    2300364: Docking 34
+    2300366: Docking 35
+    2300368: Docking 36
+    2300370: Docking 37
+    2300372: Docking 38
+    2300374: Docking 39
+    2300376: Docking 40
+    2300378: Docking 41
+    2300380: Docking 42
+    2300382: Docking 43
+    2300384: Docking 44
+    2300386: Docking 45
+    2300388: Docking 46
+    2300390: Docking 47
+    2300392: Docking 48
+    2300394: Docking 49
+    2300396: Docking 50
+    2300398: Docking 51
+    2300400: Docking 52
+    2300402: Docking 53
+    2300404: Docking 54
+    2300406: Docking 55
+    2300408: Docking 56
+    2300410: Docking S0
+    2300412: Docking S1
+    2300414: Docking S2
+    2300416: Docking S3
+    2300418: Docking S4
+    2300420: Docking S5
+    2300422: Docking S6
+    2300424: Docking S7
+    2300426: Docking S8
+    2300428: Docking S9
+    2300430: Docking Se
+    2300432: 'Drydock 1 '
+    2300434: Drydock 10
+    2300436: Drydock 11
+    2300438: Drydock 12
+    2300440: Drydock 13
+    2300442: Drydock 14
+    2300444: Drydock 15
+    2300446: Drydock 16
+    2300448: Drydock 17
+    2300450: Drydock 18
+    2300452: Drydock 19
+    2300454: 'Drydock 2 '
+    2300456: Drydock 20
+    2300458: Drydock 21
+    2300460: Drydock 22
+    2300462: Drydock 23
+    2300464: Drydock 24
+    2300466: Drydock 25
+    2300468: Drydock 26
+    2300470: Drydock 27
+    2300472: Drydock 28
+    2300474: Drydock 29
+    2300476: Drydock 30
+    2300478: Drydock 31
+    2300480: Drydock 32
+    2300482: Drydock 33
+    2300484: Drydock 34
+    2300486: Drydock 35
+    2300488: Drydock 36
+    2300490: Drydock 37
+    2300492: Drydock 38
+    2300494: Drydock 39
+    2300496: Drydock 40
+    2300498: Drydock 41
+    2300500: Drydock 42
+    2300502: Drydock 43
+    2300504: Drydock 44
+    2300506: Drydock 45
+    2300508: ds1b-1
+    2300510: ds1b-2
+    2300512: ds1ls-1
+    2300514: ds1lsc-2
+    2300516: ds1lscon-1
+    2300518: ds1m-1
+    2300520: ds1m-2
+    2300522: ds1m-3
+    2300524: ds1m-4
+    2300526: ds1m-5
+    2300528: ds1s1-1
+    2300530: ds2b-1
+    2300532: ds2ccb-1
+    2300534: ds2ccb-5
+    2300536: ds2ccb-6
+    2300538: ds2ccb7
+    2300540: ds2ccb8
+    2300542: ds2ls-1
+    2300544: ds2lsc-1
+    2300546: ds2lscon-1
+    2300548: ds2m-1
+    2300550: ds2m-2
+    2300552: ds2m-3
+    2300554: ds2m-4
+    2300556: ds2m-6
+    2300558: ds2m-7
+    2300560: ds2m-8
+    2300562: ds2m-9
+    2300564: ds2s1-1
+    2300566: ellbg-1
+    2300568: Engineeri0
+    2300570: Engineeri1
+    2300572: Engineeri2
+    2300574: Engineeri3
+    2300576: Engineerin
+    2300578: Holder Py0
+    2300580: Holder Py1
+    2300582: Holder Py2
+    2300584: Holder Pyl
+    2300586: Inner Rin0
+    2300588: Inner Rin1
+    2300590: Inner Rin2
+    2300592: Inner Ring
+    2300594: ir5-1
+    2300596: ir6-1
+    2300598: ir7-1
+    2300600: ir8-1
+    2300602: Landing 10
+    2300604: Landing 11
+    2300606: Landing 12
+    2300608: Landing 13
+    2300610: Landing P0
+    2300612: Landing P1
+    2300614: Landing P2
+    2300616: Landing P3
+    2300618: Landing P4
+    2300620: Landing P5
+    2300622: Landing P6
+    2300624: Landing P7
+    2300626: Landing P8
+    2300628: Landing P9
+    2300630: Landing Pa
+    2300632: Landing Pl
+    2300634: lhpo1-1
+    2300636: lhpo1-2
+    2300638: lhpo1-3
+    2300640: lhpo2-1
+    2300642: lhpo2-2
+    2300644: lhpo2-3
+    2300646: lhpo3-1
+    2300648: lhpo3-2
+    2300650: lhpo3-3
+    2300652: lhpo4-1
+    2300654: lhpo4-2
+    2300656: lhpo4-3
+    2300658: Line01
+    2300660: Line02
+    2300662: Line04
+    2300664: Line10
+    2300666: Line100
+    2300668: Line101
+    2300670: Line102
+    2300672: Line11
+    2300674: Line13
+    2300676: Line15
+    2300678: Line150
+    2300680: Line16
+    2300682: Line160
+    2300684: Line17
+    2300686: Line18
+    2300688: Line19
+    2300690: Line20
+    2300692: Line21
+    2300694: Line22
+    2300696: Line23
+    2300698: Line24
+    2300700: Line25
+    2300702: Line26
+    2300704: Line27
+    2300706: Line28
+    2300708: Line29
+    2300710: Line30
+    2300712: Line31
+    2300714: Line32
+    2300716: Line33
+    2300718: Line35
+    2300720: Line37
+    2300722: Line38
+    2300724: Line39
+    2300726: Line40
+    2300728: Line41
+    2300730: Line42
+    2300732: Line43
+    2300734: Line44
+    2300736: Line45
+    2300738: Line53
+    2300740: Line54
+    2300742: Line61
+    2300744: Line69
+    2300746: Line70
+    2300748: Line71
+    2300750: Line73
+    2300752: Line74
+    2300754: Line75
+    2300756: Line76
+    2300758: Line77
+    2300760: Line78
+    2300762: Line90
+    2300764: Line91
+    2300766: Line92
+    2300768: Line93
+    2300770: Line94
+    2300772: Line95
+    2300774: Line96
+    2300776: Line97
+    2300778: Line98
+    2300780: Line99
+    2300782: Lower Hol0
+    2300784: Lower Hol1
+    2300786: Lower Hol2
+    2300788: Lower Hol3
+    2300790: Lower Hol4
+    2300792: Lower Hol5
+    2300794: Lower Hol6
+    2300796: Lower Hold
+    2300798: Lower Sph0
+    2300800: Lower Sph1
+    2300802: Lower Sphe
+    2300804: lp07-1
+    2300806: lp5-1
+    2300808: lp6-1
+    2300810: lp8-1
+    2300812: lsc-1
+    2300814: lsm-1
+    2300816: lsmb3-1
+    2300818: lsmb3-2
+    2300820: Main Conn0
+    2300822: Main Conn1
+    2300824: Main Conn2
+    2300826: Main Conn3
+    2300828: Main Conn4
+    2300830: Main Conn5
+    2300832: Main Conn6
+    2300834: Main Conn7
+    2300836: Main Conn8
+    2300838: Main Conne
+    2300840: Main Hul10
+    2300842: Main Hul11
+    2300844: Main Hul12
+    2300846: Main Hul13
+    2300848: Main Hul14
+    2300850: Main Hul15
+    2300852: Main Hul16
+    2300854: Main Hul17
+    2300856: Main Hul18
+    2300858: Main Hul19
+    2300860: 'Main Hull '
+    2300862: Main Hull0
+    2300864: Main Hull1
+    2300866: Main Hull2
+    2300868: Main Hull3
+    2300870: Main Hull4
+    2300872: Main Hull5
+    2300874: Main Hull6
+    2300876: Main Hull7
+    2300878: Main Hull8
+    2300880: Main Hull9
+    2300882: maincomma0
+    2300884: maincomma1
+    2300886: maincomman
+    2300888: mcbm-1
+    2300890: mcc-1
+    2300892: mcc-2
+    2300894: mcc-3
+    2300896: mcd-1
+    2300898: mcl-1
+    2300900: mcu-1
+    2300902: mh-1
+    2300904: mh-10
+    2300906: mh-11
+    2300908: mh-12
+    2300910: mh-13
+    2300912: mh-14
+    2300914: mh-2
+    2300916: mh-3
+    2300918: mh-4
+    2300920: mh-5
+    2300922: mh-6
+    2300924: mh-7
+    2300926: mh-8
+    2300928: mh-9
+    2300930: mhl-1
+    2300932: Middle Ri0
+    2300934: Middle Ri1
+    2300936: Middle Ri2
+    2300938: Middle Rin
+    2300940: Outer Rin0
+    2300942: Outer Rin1
+    2300944: Outer Rin2
+    2300946: Outer Ring
+    2300948: Rectangl10
+    2300950: Rectangl11
+    2300952: Rectangl12
+    2300954: Rectangl13
+    2300956: Rectangl14
+    2300958: Rectangl15
+    2300960: Rectangl16
+    2300962: Rectangl17
+    2300964: Rectangl18
+    2300966: Rectangl19
+    2300968: Rectangl20
+    2300970: Rectangl21
+    2300972: Rectangl22
+    2300974: Rectangl23
+    2300976: Rectangl24
+    2300978: Rectangl25
+    2300980: Rectangl26
+    2300982: Rectangl27
+    2300984: Rectangl28
+    2300986: Rectangl29
+    2300988: Rectangl30
+    2300990: Rectangl31
+    2300992: Rectangl32
+    2300994: Rectangl33
+    2300996: Rectangl34
+    2300998: Rectangl35
+    2301000: Rectangl36
+    2301002: Rectangl37
+    2301004: Rectangl38
+    2301006: Rectangl39
+    2301008: Rectangl40
+    2301010: Rectangl41
+    2301012: Rectangl42
+    2301014: Rectangl43
+    2301016: Rectangl44
+    2301018: Rectangl45
+    2301020: Rectangl46
+    2301022: Rectangl47
+    2301024: Rectangl48
+    2301026: Rectangl49
+    2301028: Rectangl50
+    2301030: Rectangl51
+    2301032: Rectangl52
+    2301034: Rectangl53
+    2301036: Rectangl54
+    2301038: Rectangl55
+    2301040: Rectangl56
+    2301042: Rectangl57
+    2301044: Rectangl58
+    2301046: Rectangl59
+    2301048: Rectangl60
+    2301050: Rectangl61
+    2301052: Rectangl62
+    2301054: Rectangl63
+    2301056: Rectangl64
+    2301058: Rectangl65
+    2301060: Rectangl66
+    2301062: Rectangl67
+    2301064: Rectangl68
+    2301066: Rectangl69
+    2301068: Rectangl70
+    2301070: Rectangl71
+    2301072: Rectangl72
+    2301074: Rectangl73
+    2301076: Rectangl74
+    2301078: Rectangl75
+    2301080: Rectangl76
+    2301082: Rectangl77
+    2301084: Rectangl78
+    2301086: Rectangl79
+    2301088: Rectangl80
+    2301090: Rectangl81
+    2301092: Rectangl82
+    2301094: Rectangl83
+    2301096: Rectangl84
+    2301098: Rectangl85
+    2301100: Rectangl86
+    2301102: Rectangl87
+    2301104: Rectangl88
+    2301106: Rectangl89
+    2301108: Rectangl90
+    2301110: Rectangl91
+    2301112: Rectangl92
+    2301114: Rectangl93
+    2301116: Rectangl94
+    2301118: Rectangl95
+    2301120: Rectangle0
+    2301122: Rectangle1
+    2301124: Rectangle2
+    2301126: Rectangle3
+    2301128: Rectangle4
+    2301130: Rectangle5
+    2301132: Rectangle6
+    2301134: Rectangle7
+    2301136: Rectangle8
+    2301138: Rectangle9
+    2301140: rfin1
+    2301142: rfin10
+    2301144: rfin11
+    2301146: rfin12
+    2301148: rfin13
+    2301150: rfin14
+    2301152: rfin15
+    2301154: rfin16
+    2301156: rfin17
+    2301158: rfin18
+    2301160: rfin19
+    2301162: rfin2
+    2301164: rfin20
+    2301166: rfin21
+    2301168: rfin22
+    2301170: rfin23
+    2301172: rfin24
+    2301174: rfin3
+    2301176: rfin4
+    2301178: rfin5
+    2301180: rfin6
+    2301182: rfin7
+    2301184: rfin8
+    2301186: rfin9
+    2301188: s1m-1
+    2301190: s2m-1
+    2301192: 'Shuttlbay '
+    2301194: Shuttlbay0
+    2301196: Shuttlbay1
+    2301198: Shuttlbay2
+    2301200: Shuttleba0
+    2301202: Shuttleba1
+    2301204: Shuttleba2
+    2301206: Shuttleba3
+    2301208: Shuttleba4
+    2301210: Shuttleba5
+    2301212: Shuttleba6
+    2301214: Shuttlebay
+    2301216: spacedoor1
+    2301218: spacedoor2
+    2301220: Sphere01
+    2301222: Sphere02
+    2301224: Sphere03
+    2301226: Sphere04
+    2301228: Sphere13
+    2301230: Sphere26
+    2301232: Sphere27
+    2301234: Sphere28
+    2301236: Sphere29
+    2301238: Sphere30
+    2301240: Spike (Ma0
+    2301242: Spike (Ma1
+    2301244: Spike (Ma2
+    2301246: Spike (Mai
+    2301248: Spike 1 (M
+    2301250: Spike 2 (M
+    2301252: srblue
+    2301254: srblue01
+    2301256: Tube01
+    2301258: Tube02
+    3300000: bblue
+    3300002: Box02
+    3300004: Box04
+    3300006: Box16
+    3300008: Box17
+    3300010: Box33
+    3300012: Box34
+    3300014: Box35
+    3300016: Box36
+    3300018: Box47
+    3300020: Box48
+    3300022: Box49
+    3300024: Box50
+    3300026: Box51
+    3300028: Box52
+    3300030: Box59
+    3300032: Box60
+    3300034: Box61
+    3300036: Box63
+    3300038: ccmb-1
+    3300040: ccmb-2
+    3300042: ccmb-3
+    3300044: ccmb-5
+    3300046: ccmb-6
+    3300048: ccmb-7
+    3300050: ccmb-8
+    3300052: ccmb-9
+    3300054: ChamferB10
+    3300056: ChamferB11
+    3300058: ChamferB12
+    3300060: ChamferB13
+    3300062: ChamferB14
+    3300064: ChamferB15
+    3300066: ChamferB16
+    3300068: ChamferB17
+    3300070: ChamferB18
+    3300072: ChamferB19
+    3300074: ChamferB20
+    3300076: ChamferB21
+    3300078: ChamferB22
+    3300080: ChamferB23
+    3300082: ChamferB24
+    3300084: ChamferB25
+    3300086: ChamferB26
+    3300088: ChamferB27
+    3300090: ChamferB28
+    3300092: ChamferB29
+    3300094: ChamferB30
+    3300096: ChamferB31
+    3300098: ChamferB32
+    3300100: ChamferB33
+    3300102: ChamferBo0
+    3300104: ChamferBo1
+    3300106: ChamferBo2
+    3300108: ChamferBo3
+    3300110: ChamferBo4
+    3300112: ChamferBo5
+    3300114: ChamferBo6
+    3300116: ChamferBo7
+    3300118: ChamferBo8
+    3300120: ChamferBo9
+    3300122: ChamferBox
+    3300124: Command C0
+    3300126: Command Ce
+    3300128: Cylinder00
+    3300130: Cylinder01
+    3300132: Cylinder02
+    3300134: Cylinder03
+    3300136: Cylinder04
+    3300138: Cylinder05
+    3300140: Cylinder06
+    3300142: Cylinder07
+    3300144: Cylinder08
+    3300146: Cylinder09
+    3300148: Cylinder10
+    3300150: cylinder10
+    3300152: Cylinder11
+    3300154: cylinder11
+    3300156: Cylinder12
+    3300158: cylinder12
+    3300160: Cylinder13
+    3300162: cylinder13
+    3300164: Cylinder14
+    3300166: Cylinder15
+    3300168: Cylinder16
+    3300170: Cylinder17
+    3300172: Cylinder18
+    3300174: Cylinder19
+    3300176: Cylinder20
+    3300178: Cylinder21
+    3300180: Cylinder22
+    3300182: Cylinder23
+    3300184: Cylinder24
+    3300186: Cylinder25
+    3300188: Cylinder26
+    3300190: Cylinder27
+    3300192: Cylinder28
+    3300194: Cylinder29
+    3300196: Cylinder30
+    3300198: Cylinder31
+    3300200: Cylinder32
+    3300202: Cylinder33
+    3300204: Cylinder34
+    3300206: Cylinder35
+    3300208: Cylinder36
+    3300210: Cylinder37
+    3300212: Cylinder38
+    3300214: Cylinder39
+    3300216: Cylinder40
+    3300218: Cylinder41
+    3300220: Cylinder42
+    3300222: Cylinder43
+    3300224: Cylinder44
+    3300226: Cylinder45
+    3300228: Cylinder46
+    3300230: Cylinder47
+    3300232: Cylinder48
+    3300234: Cylinder49
+    3300236: Cylinder50
+    3300238: Cylinder51
+    3300240: Cylinder52
+    3300242: Cylinder53
+    3300244: Cylinder54
+    3300246: Cylinder55
+    3300248: Cylinder56
+    3300250: Cylinder57
+    3300252: Cylinder58
+    3300254: Cylinder59
+    3300256: Cylinder60
+    3300258: Cylinder61
+    3300260: Cylinder62
+    3300262: Cylinder63
+    3300264: Cylinder64
+    3300266: Cylinder65
+    3300268: Cylinder66
+    3300270: Cylinder67
+    3300272: Cylinder68
+    3300274: Cylinder69
+    3300276: Cylinder70
+    3300278: Cylinder71
+    3300280: cylinder71
+    3300282: Cylinder72
+    3300284: Cylinder73
+    3300286: Cylinder74
+    3300288: Cylinder75
+    3300290: Cylinder76
+    3300292: Cylinder77
+    3300294: Cylinder78
+    3300296: cylinder78
+    3300298: Cylinder79
+    3300300: Cylinder80
+    3300302: cylinder80
+    3300304: Cylinder82
+    3300306: cylinder82
+    3300308: dd2bmcon-2
+    3300310: dd2mbcon-1
+    3300312: ddbmcon-1
+    3300314: ddbmcon-2
+    3300316: Docking 10
+    3300318: Docking 11
+    3300320: Docking 12
+    3300322: Docking 13
+    3300324: Docking 14
+    3300326: Docking 15
+    3300328: Docking 16
+    3300330: Docking 17
+    3300332: Docking 18
+    3300334: Docking 19
+    3300336: Docking 20
+    3300338: Docking 21
+    3300340: Docking 22
+    3300342: Docking 23
+    3300344: Docking 24
+    3300346: Docking 25
+    3300348: Docking 26
+    3300350: Docking 27
+    3300352: Docking 28
+    3300354: Docking 29
+    3300356: Docking 30
+    3300358: Docking 31
+    3300360: Docking 32
+    3300362: Docking 33
+    3300364: Docking 34
+    3300366: Docking 35
+    3300368: Docking 36
+    3300370: Docking 37
+    3300372: Docking 38
+    3300374: Docking 39
+    3300376: Docking 40
+    3300378: Docking 41
+    3300380: Docking 42
+    3300382: Docking 43
+    3300384: Docking 44
+    3300386: Docking 45
+    3300388: Docking 46
+    3300390: Docking 47
+    3300392: Docking 48
+    3300394: Docking 49
+    3300396: Docking 50
+    3300398: Docking 51
+    3300400: Docking 52
+    3300402: Docking 53
+    3300404: Docking 54
+    3300406: Docking 55
+    3300408: Docking 56
+    3300410: Docking S0
+    3300412: Docking S1
+    3300414: Docking S2
+    3300416: Docking S3
+    3300418: Docking S4
+    3300420: Docking S5
+    3300422: Docking S6
+    3300424: Docking S7
+    3300426: Docking S8
+    3300428: Docking S9
+    3300430: Docking Se
+    3300432: 'Drydock 1 '
+    3300434: Drydock 10
+    3300436: Drydock 11
+    3300438: Drydock 12
+    3300440: Drydock 13
+    3300442: Drydock 14
+    3300444: Drydock 15
+    3300446: Drydock 16
+    3300448: Drydock 17
+    3300450: Drydock 18
+    3300452: Drydock 19
+    3300454: 'Drydock 2 '
+    3300456: Drydock 20
+    3300458: Drydock 21
+    3300460: Drydock 22
+    3300462: Drydock 23
+    3300464: Drydock 24
+    3300466: Drydock 25
+    3300468: Drydock 26
+    3300470: Drydock 27
+    3300472: Drydock 28
+    3300474: Drydock 29
+    3300476: Drydock 30
+    3300478: Drydock 31
+    3300480: Drydock 32
+    3300482: Drydock 33
+    3300484: Drydock 34
+    3300486: Drydock 35
+    3300488: Drydock 36
+    3300490: Drydock 37
+    3300492: Drydock 38
+    3300494: Drydock 39
+    3300496: Drydock 40
+    3300498: Drydock 41
+    3300500: Drydock 42
+    3300502: Drydock 43
+    3300504: Drydock 44
+    3300506: Drydock 45
+    3300508: ds1b-1
+    3300510: ds1b-2
+    3300512: ds1ls-1
+    3300514: ds1lsc-2
+    3300516: ds1lscon-1
+    3300518: ds1m-1
+    3300520: ds1m-2
+    3300522: ds1m-3
+    3300524: ds1m-4
+    3300526: ds1m-5
+    3300528: ds1s1-1
+    3300530: ds2b-1
+    3300532: ds2ccb-1
+    3300534: ds2ccb-5
+    3300536: ds2ccb-6
+    3300538: ds2ccb7
+    3300540: ds2ccb8
+    3300542: ds2ls-1
+    3300544: ds2lsc-1
+    3300546: ds2lscon-1
+    3300548: ds2m-1
+    3300550: ds2m-2
+    3300552: ds2m-3
+    3300554: ds2m-4
+    3300556: ds2m-6
+    3300558: ds2m-7
+    3300560: ds2m-8
+    3300562: ds2m-9
+    3300564: ds2s1-1
+    3300566: ellbg-1
+    3300568: Engineeri0
+    3300570: Engineeri1
+    3300572: Engineeri2
+    3300574: Engineeri3
+    3300576: Engineerin
+    3300578: Holder Py0
+    3300580: Holder Py1
+    3300582: Holder Py2
+    3300584: Holder Pyl
+    3300586: Inner Rin0
+    3300588: Inner Rin1
+    3300590: Inner Rin2
+    3300592: Inner Ring
+    3300594: ir5-1
+    3300596: ir6-1
+    3300598: ir7-1
+    3300600: ir8-1
+    3300602: Landing 10
+    3300604: Landing 11
+    3300606: Landing 12
+    3300608: Landing 13
+    3300610: Landing P0
+    3300612: Landing P1
+    3300614: Landing P2
+    3300616: Landing P3
+    3300618: Landing P4
+    3300620: Landing P5
+    3300622: Landing P6
+    3300624: Landing P7
+    3300626: Landing P8
+    3300628: Landing P9
+    3300630: Landing Pa
+    3300632: Landing Pl
+    3300634: lhpo1-1
+    3300636: lhpo1-2
+    3300638: lhpo1-3
+    3300640: lhpo2-1
+    3300642: lhpo2-2
+    3300644: lhpo2-3
+    3300646: lhpo3-1
+    3300648: lhpo3-2
+    3300650: lhpo3-3
+    3300652: lhpo4-1
+    3300654: lhpo4-2
+    3300656: lhpo4-3
+    3300658: Line01
+    3300660: Line02
+    3300662: Line04
+    3300664: Line10
+    3300666: Line100
+    3300668: Line101
+    3300670: Line102
+    3300672: Line11
+    3300674: Line13
+    3300676: Line15
+    3300678: Line150
+    3300680: Line16
+    3300682: Line160
+    3300684: Line17
+    3300686: Line18
+    3300688: Line19
+    3300690: Line20
+    3300692: Line21
+    3300694: Line22
+    3300696: Line23
+    3300698: Line24
+    3300700: Line25
+    3300702: Line26
+    3300704: Line27
+    3300706: Line28
+    3300708: Line29
+    3300710: Line30
+    3300712: Line31
+    3300714: Line32
+    3300716: Line33
+    3300718: Line35
+    3300720: Line37
+    3300722: Line38
+    3300724: Line39
+    3300726: Line40
+    3300728: Line41
+    3300730: Line42
+    3300732: Line43
+    3300734: Line44
+    3300736: Line45
+    3300738: Line53
+    3300740: Line54
+    3300742: Line61
+    3300744: Line69
+    3300746: Line70
+    3300748: Line71
+    3300750: Line73
+    3300752: Line74
+    3300754: Line75
+    3300756: Line76
+    3300758: Line77
+    3300760: Line78
+    3300762: Line90
+    3300764: Line91
+    3300766: Line92
+    3300768: Line93
+    3300770: Line94
+    3300772: Line95
+    3300774: Line96
+    3300776: Line97
+    3300778: Line98
+    3300780: Line99
+    3300782: Lower Hol0
+    3300784: Lower Hol1
+    3300786: Lower Hol2
+    3300788: Lower Hol3
+    3300790: Lower Hol4
+    3300792: Lower Hol5
+    3300794: Lower Hol6
+    3300796: Lower Hold
+    3300798: Lower Sph0
+    3300800: Lower Sph1
+    3300802: Lower Sphe
+    3300804: lp07-1
+    3300806: lp5-1
+    3300808: lp6-1
+    3300810: lp8-1
+    3300812: lsc-1
+    3300814: lsm-1
+    3300816: lsmb3-1
+    3300818: lsmb3-2
+    3300820: Main Conn0
+    3300822: Main Conn1
+    3300824: Main Conn2
+    3300826: Main Conn3
+    3300828: Main Conn4
+    3300830: Main Conn5
+    3300832: Main Conn6
+    3300834: Main Conn7
+    3300836: Main Conn8
+    3300838: Main Conne
+    3300840: Main Hul10
+    3300842: Main Hul11
+    3300844: Main Hul12
+    3300846: Main Hul13
+    3300848: Main Hul14
+    3300850: Main Hul15
+    3300852: Main Hul16
+    3300854: Main Hul17
+    3300856: Main Hul18
+    3300858: Main Hul19
+    3300860: 'Main Hull '
+    3300862: Main Hull0
+    3300864: Main Hull1
+    3300866: Main Hull2
+    3300868: Main Hull3
+    3300870: Main Hull4
+    3300872: Main Hull5
+    3300874: Main Hull6
+    3300876: Main Hull7
+    3300878: Main Hull8
+    3300880: Main Hull9
+    3300882: maincomma0
+    3300884: maincomma1
+    3300886: maincomman
+    3300888: mcbm-1
+    3300890: mcc-1
+    3300892: mcc-2
+    3300894: mcc-3
+    3300896: mcd-1
+    3300898: mcl-1
+    3300900: mcu-1
+    3300902: mh-1
+    3300904: mh-10
+    3300906: mh-11
+    3300908: mh-12
+    3300910: mh-13
+    3300912: mh-14
+    3300914: mh-2
+    3300916: mh-3
+    3300918: mh-4
+    3300920: mh-5
+    3300922: mh-6
+    3300924: mh-7
+    3300926: mh-8
+    3300928: mh-9
+    3300930: mhl-1
+    3300932: Middle Ri0
+    3300934: Middle Ri1
+    3300936: Middle Ri2
+    3300938: Middle Rin
+    3300940: Outer Rin0
+    3300942: Outer Rin1
+    3300944: Outer Rin2
+    3300946: Outer Ring
+    3300948: Rectangl10
+    3300950: Rectangl11
+    3300952: Rectangl12
+    3300954: Rectangl13
+    3300956: Rectangl14
+    3300958: Rectangl15
+    3300960: Rectangl16
+    3300962: Rectangl17
+    3300964: Rectangl18
+    3300966: Rectangl19
+    3300968: Rectangl20
+    3300970: Rectangl21
+    3300972: Rectangl22
+    3300974: Rectangl23
+    3300976: Rectangl24
+    3300978: Rectangl25
+    3300980: Rectangl26
+    3300982: Rectangl27
+    3300984: Rectangl28
+    3300986: Rectangl29
+    3300988: Rectangl30
+    3300990: Rectangl31
+    3300992: Rectangl32
+    3300994: Rectangl33
+    3300996: Rectangl34
+    3300998: Rectangl35
+    3301000: Rectangl36
+    3301002: Rectangl37
+    3301004: Rectangl38
+    3301006: Rectangl39
+    3301008: Rectangl40
+    3301010: Rectangl41
+    3301012: Rectangl42
+    3301014: Rectangl43
+    3301016: Rectangl44
+    3301018: Rectangl45
+    3301020: Rectangl46
+    3301022: Rectangl47
+    3301024: Rectangl48
+    3301026: Rectangl49
+    3301028: Rectangl50
+    3301030: Rectangl51
+    3301032: Rectangl52
+    3301034: Rectangl53
+    3301036: Rectangl54
+    3301038: Rectangl55
+    3301040: Rectangl56
+    3301042: Rectangl57
+    3301044: Rectangl58
+    3301046: Rectangl59
+    3301048: Rectangl60
+    3301050: Rectangl61
+    3301052: Rectangl62
+    3301054: Rectangl63
+    3301056: Rectangl64
+    3301058: Rectangl65
+    3301060: Rectangl66
+    3301062: Rectangl67
+    3301064: Rectangl68
+    3301066: Rectangl69
+    3301068: Rectangl70
+    3301070: Rectangl71
+    3301072: Rectangl72
+    3301074: Rectangl73
+    3301076: Rectangl74
+    3301078: Rectangl75
+    3301080: Rectangl76
+    3301082: Rectangl77
+    3301084: Rectangl78
+    3301086: Rectangl79
+    3301088: Rectangl80
+    3301090: Rectangl81
+    3301092: Rectangl82
+    3301094: Rectangl83
+    3301096: Rectangl84
+    3301098: Rectangl85
+    3301100: Rectangl86
+    3301102: Rectangl87
+    3301104: Rectangl88
+    3301106: Rectangl89
+    3301108: Rectangl90
+    3301110: Rectangl91
+    3301112: Rectangl92
+    3301114: Rectangl93
+    3301116: Rectangl94
+    3301118: Rectangl95
+    3301120: Rectangle0
+    3301122: Rectangle1
+    3301124: Rectangle2
+    3301126: Rectangle3
+    3301128: Rectangle4
+    3301130: Rectangle5
+    3301132: Rectangle6
+    3301134: Rectangle7
+    3301136: Rectangle8
+    3301138: Rectangle9
+    3301140: rfin1
+    3301142: rfin10
+    3301144: rfin11
+    3301146: rfin12
+    3301148: rfin13
+    3301150: rfin14
+    3301152: rfin15
+    3301154: rfin16
+    3301156: rfin17
+    3301158: rfin18
+    3301160: rfin19
+    3301162: rfin2
+    3301164: rfin20
+    3301166: rfin21
+    3301168: rfin22
+    3301170: rfin23
+    3301172: rfin24
+    3301174: rfin3
+    3301176: rfin4
+    3301178: rfin5
+    3301180: rfin6
+    3301182: rfin7
+    3301184: rfin8
+    3301186: rfin9
+    3301188: s1m-1
+    3301190: s2m-1
+    3301192: 'Shuttlbay '
+    3301194: Shuttlbay0
+    3301196: Shuttlbay1
+    3301198: Shuttlbay2
+    3301200: Shuttleba0
+    3301202: Shuttleba1
+    3301204: Shuttleba2
+    3301206: Shuttleba3
+    3301208: Shuttleba4
+    3301210: Shuttleba5
+    3301212: Shuttleba6
+    3301214: Shuttlebay
+    3301216: spacedoor1
+    3301218: spacedoor2
+    3301220: Sphere01
+    3301222: Sphere02
+    3301224: Sphere03
+    3301226: Sphere04
+    3301228: Sphere13
+    3301230: Sphere26
+    3301232: Sphere27
+    3301234: Sphere28
+    3301236: Sphere29
+    3301238: Sphere30
+    3301240: Spike (Ma0
+    3301242: Spike (Ma1
+    3301244: Spike (Ma2
+    3301246: Spike (Mai
+    3301248: Spike 1 (M
+    3301250: Spike 2 (M
+    3301252: srblue
+    3301254: srblue01
+    3301256: Tube01
+    3301258: Tube02
+    4300000: Lower Sphe
+    4300002: Main Conne
+    4300004: Main Conn0
+    4300006: Holder Pyl
+    4300008: Holder Py0
+    4300010: Engineerin
+    4300012: Engineeri0
+    4300014: Engineeri1
+    4300016: 'Main Hull '
+    4300018: Lower Sph0
+    4300020: Main Hull0
+    4300022: Main Hull1
+    4300024: Engineeri2
+    4300026: Engineeri3
+    4300028: Command Ce
+    4300030: Command C0
+    4300032: ChamferBox
+    4300034: ChamferBo0
+    4300036: ChamferBo1
+    4300038: ChamferBo2
+    4300040: ChamferBo3
+    4300042: ChamferBo4
+    4300044: ChamferBo5
+    4300046: ChamferBo6
+    4300048: ChamferBo7
+    4300050: ChamferBo8
+    4300052: ChamferBo9
+    4300054: ChamferB10
+    4300056: ChamferB11
+    4300058: ChamferB12
+    4300060: Landing Pa
+    4300062: Landing P0
+    4300064: Landing P1
+    4300066: Landing P2
+    4300068: Landing P3
+    4300070: Landing P4
+    4300072: Landing P5
+    4300074: Landing P6
+    4300076: Main Conn1
+    4300078: Main Hull2
+    4300080: Main Hull3
+    4300082: Main Hull4
+    4300084: Lower Sph1
+    4300086: Main Conn2
+    4300088: Main Conn3
+    4300090: Main Conn4
+    4300092: Main Conn5
+    4300094: Spike 1 (M
+    4300096: Spike 2 (M
+    4300098: Spike (Mai
+    4300100: Spike (Ma0
+    4300102: Spike (Ma1
+    4300104: Spike (Ma2
+    4300106: 'Shuttlbay '
+    4300108: Shuttlebay
+    4300110: Shuttleba0
+    4300112: Shuttlbay0
+    4300114: Shuttleba1
+    4300116: Shuttleba2
+    4300118: Shuttlbay1
+    4300120: Shuttlbay2
+    4300122: Shuttleba3
+    4300124: Shuttleba4
+    4300126: Shuttleba5
+    4300128: Shuttleba6
+    4300130: Main Hull5
+    4300132: Main Hull6
+    4300134: Main Hull7
+    4300136: Main Hull8
+    4300138: Main Hull9
+    4300140: Main Hul10
+    4300142: Main Hul11
+    4300144: Main Hul12
+    4300146: Main Hul13
+    4300148: Main Hul14
+    4300150: Main Hul15
+    4300152: Main Hul16
+    4300154: Main Conn6
+    4300156: Main Conn7
+    4300158: Main Conn8
+    4300160: Main Hul17
+    4300162: Main Hul18
+    4300164: Main Hul19
+    4300166: Lower Hold
+    4300168: Lower Hol0
+    4300170: 'Drydock 2 '
+    4300172: maincomman
+    4300174: Lower Hol1
+    4300176: Lower Hol2
+    4300178: Lower Hol3
+    4300180: Lower Hol4
+    4300182: Lower Hol5
+    4300184: Lower Hol6
+    4300186: Line69
+    4300188: Line70
+    4300190: Line71
+    4300192: Line10
+    4300194: ChamferB13
+    4300196: Line04
+    4300198: Sphere01
+    4300200: Line02
+    4300202: Line61
+    4300204: Line90
+    4300206: Line33
+    4300208: Line23
+    4300210: Sphere26
+    4300212: Line22
+    4300214: Line54
+    4300216: ChamferB14
+    4300218: ChamferB15
+    4300220: Line53
+    4300222: ChamferB16
+    4300224: ChamferB17
+    4300226: Box02
+    4300228: Line31
+    4300230: Line16
+    4300232: Line17
+    4300234: Sphere02
+    4300236: Line18
+    4300238: Line19
+    4300240: Line20
+    4300242: Line15
+    4300244: Sphere03
+    4300246: Sphere04
+    4300248: Cylinder02
+    4300250: Tube01
+    4300252: Sphere13
+    4300254: Line11
+    4300256: Line13
+    4300258: Line21
+    4300260: Line24
+    4300262: Line25
+    4300264: Line26
+    4300266: Line27
+    4300268: Line28
+    4300270: Line29
+    4300272: Line30
+    4300274: Line32
+    4300276: Line73
+    4300278: Line74
+    4300280: Sphere27
+    4300282: Line75
+    4300284: Line76
+    4300286: Line77
+    4300288: Line78
+    4300290: Sphere28
+    4300292: Sphere29
+    4300294: Tube02
+    4300296: Sphere30
+    4300298: ChamferB18
+    4300300: Line01
+    4300302: bblue
+    4300304: srblue
+    4300306: srblue01
+    4300308: ChamferB19
+    4300310: rfin1
+    4300312: rfin2
+    4300314: rfin3
+    4300316: rfin4
+    4300318: rfin5
+    4300320: rfin6
+    4300322: rfin7
+    4300324: rfin8
+    4300326: rfin9
+    4300328: rfin10
+    4300330: rfin11
+    4300332: rfin12
+    4300334: rfin13
+    4300336: rfin14
+    4300338: rfin15
+    4300340: rfin16
+    4300342: rfin17
+    4300344: rfin18
+    4300346: rfin19
+    4300348: rfin20
+    4300350: rfin21
+    4300352: rfin22
+    4300354: rfin23
+    4300356: Line91
+    4300358: Line92
+    4300360: Line93
+    4300362: rfin24
+    4300364: Line94
+    4300366: Line95
+    4300368: Line96
+    4300370: Line97
+    4300372: Line98
+    4300374: Line99
+    4300376: Line100
+    4300378: Cylinder04
+    4300380: Line101
+    4300382: Line102
+    4300384: Box04
+    4300386: Landing P7
+    4300388: Box49
+    4300390: Box50
+    4300392: Middle Rin
+    4300394: Inner Ring
+    4300396: Line40
+    4300398: Cylinder10
+    4300400: Line41
+    4300402: Line42
+    4300404: Landing Pl
+    4300406: Outer Ring
+    4300408: lp07-1
+    4300410: mh-1
+    4300412: mh-2
+    4300414: mh-3
+    4300416: mh-4
+    4300418: mh-5
+    4300420: mh-6
+    4300422: mh-7
+    4300424: mh-8
+    4300426: mh-9
+    4300428: ccmb-1
+    4300430: ccmb-2
+    4300432: ccmb-3
+    4300434: ccmb-9
+    4300436: ccmb-5
+    4300438: ccmb-6
+    4300440: ccmb-7
+    4300442: ccmb-8
+    4300444: Box47
+    4300446: Box48
+    4300448: Middle Ri0
+    4300450: Inner Rin0
+    4300452: Landing P8
+    4300454: Line37
+    4300456: Cylinder11
+    4300458: Line38
+    4300460: Line39
+    4300462: Landing P9
+    4300464: Outer Rin0
+    4300466: lp6-1
+    4300468: ir7-1
+    4300470: ir6-1
+    4300472: Box51
+    4300474: Middle Ri1
+    4300476: Inner Rin1
+    4300478: Landing 10
+    4300480: Line43
+    4300482: Cylinder12
+    4300484: Line44
+    4300486: Line45
+    4300488: Landing 11
+    4300490: Outer Rin1
+    4300492: Box52
+    4300494: lp8-1
+    4300496: ir8-1
+    4300498: Box16
+    4300500: Middle Ri2
+    4300502: Inner Rin2
+    4300504: Landing 12
+    4300506: Line35
+    4300508: Cylinder21
+    4300510: Line150
+    4300512: Line160
+    4300514: Landing 13
+    4300516: Outer Rin2
+    4300518: Box17
+    4300520: lp5-1
+    4300522: ir5-1
+    4300524: ds2m-1
+    4300526: mh-10
+    4300528: mh-11
+    4300530: mh-12
+    4300532: mh-13
+    4300534: mh-14
+    4300536: Docking Se
+    4300538: Docking S0
+    4300540: ds1m-1
+    4300542: ds1m-2
+    4300544: ds1m-3
+    4300546: ds1m-4
+    4300548: ds1m-5
+    4300550: ds1lsc-2
+    4300552: Box33
+    4300554: Box34
+    4300556: Box35
+    4300558: Box36
+    4300560: Cylinder07
+    4300562: Cylinder71
+    4300564: cylinder71
+    4300566: Cylinder78
+    4300568: cylinder78
+    4300570: Cylinder80
+    4300572: cylinder80
+    4300574: Cylinder82
+    4300576: cylinder82
+    4300578: Docking S1
+    4300580: Docking S2
+    4300582: Docking S3
+    4300584: Docking S4
+    4300586: Docking S5
+    4300588: Docking S6
+    4300590: Docking S7
+    4300592: Docking S8
+    4300594: Docking S9
+    4300596: Docking 10
+    4300598: Docking 11
+    4300600: Docking 12
+    4300602: Docking 13
+    4300604: Docking 14
+    4300606: Docking 15
+    4300608: Docking 16
+    4300610: Docking 17
+    4300612: Docking 18
+    4300614: Docking 19
+    4300616: Docking 20
+    4300618: Docking 21
+    4300620: Docking 22
+    4300622: Docking 23
+    4300624: Docking 24
+    4300626: Docking 25
+    4300628: Docking 26
+    4300630: Docking 27
+    4300632: ds1b-1
+    4300634: ds1b-2
+    4300636: ds1ls-1
+    4300638: ds1s1-1
+    4300640: maincomma0
+    4300642: ds1lscon-1
+    4300644: Docking 28
+    4300646: ds2ccb7
+    4300648: Docking 29
+    4300650: ds2ccb-6
+    4300652: ds2ccb-5
+    4300654: Docking 30
+    4300656: Docking 31
+    4300658: ds2s1-1
+    4300660: Docking 32
+    4300662: ds2lsc-1
+    4300664: ds2ls-1
+    4300666: cylinder10
+    4300668: Box60
+    4300670: Cylinder13
+    4300672: Docking 33
+    4300674: Docking 34
+    4300676: Docking 35
+    4300678: cylinder11
+    4300680: Docking 36
+    4300682: Docking 37
+    4300684: Docking 38
+    4300686: Docking 39
+    4300688: Box61
+    4300690: Cylinder14
+    4300692: ds2m-7
+    4300694: ds2m-4
+    4300696: ds2m-2
+    4300698: ds2ccb-1
+    4300700: Docking 40
+    4300702: Docking 41
+    4300704: Cylinder15
+    4300706: Docking 42
+    4300708: Docking 43
+    4300710: ds2ccb8
+    4300712: Docking 44
+    4300714: ds2m-3
+    4300716: ds2b-1
+    4300718: ds2m-6
+    4300720: Holder Py1
+    4300722: ds2m-8
+    4300724: ds2m-9
+    4300726: Box59
+    4300728: Cylinder16
+    4300730: cylinder12
+    4300732: Holder Py2
+    4300734: Docking 45
+    4300736: Docking 46
+    4300738: Docking 47
+    4300740: Docking 48
+    4300742: Docking 49
+    4300744: Cylinder17
+    4300746: Box63
+    4300748: cylinder13
+    4300750: Docking 50
+    4300752: Docking 51
+    4300754: Docking 52
+    4300756: Docking 53
+    4300758: Docking 54
+    4300760: Docking 55
+    4300762: Docking 56
+    4300764: maincomma1
+    4300766: ChamferB20
+    4300768: ChamferB21
+    4300770: ChamferB22
+    4300772: ChamferB23
+    4300774: ChamferB24
+    4300776: ChamferB25
+    4300778: ChamferB26
+    4300780: ChamferB27
+    4300782: ChamferB28
+    4300784: ChamferB29
+    4300786: ChamferB30
+    4300788: ChamferB31
+    4300790: ChamferB32
+    4300792: ChamferB33
+    4300794: ds2lscon-1
+    4300796: Cylinder76
+    4300798: Cylinder75
+    4300800: Cylinder74
+    4300802: Cylinder73
+    4300804: Cylinder70
+    4300806: Cylinder69
+    4300808: Cylinder68
+    4300810: Cylinder67
+    4300812: Cylinder66
+    4300814: Cylinder65
+    4300816: Cylinder47
+    4300818: Cylinder19
+    4300820: Cylinder39
+    4300822: Cylinder40
+    4300824: Cylinder41
+    4300826: Cylinder42
+    4300828: Cylinder43
+    4300830: Cylinder44
+    4300832: Cylinder45
+    4300834: Cylinder48
+    4300836: Cylinder49
+    4300838: Cylinder50
+    4300840: Cylinder51
+    4300842: Cylinder52
+    4300844: Cylinder53
+    4300846: Cylinder54
+    4300848: Cylinder55
+    4300850: Cylinder56
+    4300852: Cylinder57
+    4300854: Cylinder58
+    4300856: Cylinder59
+    4300858: Cylinder60
+    4300860: Cylinder61
+    4300862: Cylinder46
+    4300864: 'Drydock 1 '
+    4300866: Drydock 10
+    4300868: Drydock 11
+    4300870: Drydock 12
+    4300872: Drydock 13
+    4300874: Drydock 14
+    4300876: Drydock 15
+    4300878: Drydock 16
+    4300880: Drydock 17
+    4300882: Drydock 18
+    4300884: Drydock 19
+    4300886: Drydock 20
+    4300888: Drydock 21
+    4300890: Drydock 22
+    4300892: Drydock 23
+    4300894: Drydock 24
+    4300896: Drydock 25
+    4300898: Drydock 26
+    4300900: Drydock 27
+    4300902: ddbmcon-1
+    4300904: ddbmcon-2
+    4300906: Drydock 28
+    4300908: Drydock 29
+    4300910: Drydock 30
+    4300912: Drydock 31
+    4300914: Drydock 32
+    4300916: Drydock 33
+    4300918: Drydock 34
+    4300920: Drydock 35
+    4300922: Drydock 36
+    4300924: Drydock 37
+    4300926: Drydock 38
+    4300928: Drydock 39
+    4300930: Drydock 40
+    4300932: Drydock 41
+    4300934: Drydock 42
+    4300936: Drydock 43
+    4300938: Drydock 44
+    4300940: Drydock 45
+    4300942: Rectangle4
+    4300944: Rectangle5
+    4300946: Rectangle0
+    4300948: Rectangle7
+    4300950: Rectangle1
+    4300952: Rectangle2
+    4300954: Rectangle3
+    4300956: Rectangle8
+    4300958: Cylinder25
+    4300960: Cylinder26
+    4300962: Cylinder27
+    4300964: Cylinder29
+    4300966: Rectangle6
+    4300968: Rectangle9
+    4300970: Rectangl10
+    4300972: Rectangl11
+    4300974: Rectangl12
+    4300976: Rectangl13
+    4300978: Rectangl14
+    4300980: Rectangl15
+    4300982: Cylinder28
+    4300984: Cylinder30
+    4300986: Cylinder31
+    4300988: Cylinder32
+    4300990: Rectangl16
+    4300992: Rectangl17
+    4300994: Rectangl18
+    4300996: Rectangl19
+    4300998: Rectangl20
+    4301000: Rectangl21
+    4301002: Rectangl22
+    4301004: Rectangl23
+    4301006: Cylinder24
+    4301008: Cylinder36
+    4301010: Cylinder37
+    4301012: Cylinder38
+    4301014: Rectangl24
+    4301016: Rectangl25
+    4301018: Rectangl26
+    4301020: Rectangl27
+    4301022: Rectangl28
+    4301024: Rectangl29
+    4301026: Rectangl30
+    4301028: Rectangl31
+    4301030: Cylinder23
+    4301032: Cylinder33
+    4301034: Cylinder34
+    4301036: Cylinder35
+    4301038: Rectangl32
+    4301040: Rectangl33
+    4301042: Rectangl34
+    4301044: Rectangl35
+    4301046: Rectangl36
+    4301048: Rectangl37
+    4301050: Rectangl38
+    4301052: Rectangl39
+    4301054: Rectangl40
+    4301056: Rectangl41
+    4301058: Rectangl42
+    4301060: Rectangl43
+    4301062: Rectangl44
+    4301064: Rectangl45
+    4301066: Rectangl46
+    4301068: Rectangl47
+    4301070: dd2mbcon-1
+    4301072: dd2bmcon-2
+    4301074: Rectangl48
+    4301076: Rectangl49
+    4301078: Rectangl50
+    4301080: Rectangl51
+    4301082: Rectangl52
+    4301084: Rectangl53
+    4301086: Rectangl54
+    4301088: Rectangl55
+    4301090: Cylinder18
+    4301092: Cylinder03
+    4301094: Cylinder08
+    4301096: Cylinder09
+    4301098: Rectangl56
+    4301100: Rectangl57
+    4301102: Rectangl58
+    4301104: Rectangl59
+    4301106: Rectangl60
+    4301108: Rectangl61
+    4301110: Rectangl62
+    4301112: Rectangl63
+    4301114: Cylinder05
+    4301116: Cylinder01
+    4301118: Cylinder00
+    4301120: Cylinder06
+    4301122: Rectangl64
+    4301124: Rectangl65
+    4301126: Rectangl66
+    4301128: Rectangl67
+    4301130: Rectangl68
+    4301132: Rectangl69
+    4301134: Rectangl70
+    4301136: Rectangl71
+    4301138: Rectangl72
+    4301140: Rectangl73
+    4301142: Rectangl74
+    4301144: Rectangl75
+    4301146: Rectangl76
+    4301148: Rectangl77
+    4301150: Rectangl78
+    4301152: Rectangl79
+    4301154: Rectangl80
+    4301156: Rectangl81
+    4301158: Rectangl82
+    4301160: Rectangl83
+    4301162: Rectangl84
+    4301164: Rectangl85
+    4301166: Rectangl86
+    4301168: Rectangl87
+    4301170: Rectangl88
+    4301172: Rectangl89
+    4301174: Rectangl90
+    4301176: Rectangl91
+    4301178: Rectangl92
+    4301180: Rectangl93
+    4301182: Rectangl94
+    4301184: Rectangl95
+    4301186: Cylinder20
+    4301188: Cylinder22
+    4301190: Cylinder62
+    4301192: Cylinder63
+    4301194: Cylinder64
+    4301196: Cylinder72
+    4301198: Cylinder77
+    4301200: Cylinder79
+    4301202: mhl-1
+    4301204: mcbm-1
+    4301206: mcc-1
+    4301208: mcc-2
+    4301210: mcc-3
+    4301212: lhpo4-1
+    4301214: lhpo1-1
+    4301216: lhpo2-1
+    4301218: lhpo3-1
+    4301220: mcd-1
+    4301222: lhpo1-2
+    4301224: lhpo1-3
+    4301226: lhpo2-2
+    4301228: lhpo2-3
+    4301230: lhpo3-2
+    4301232: lhpo3-3
+    4301234: lhpo4-2
+    4301236: lhpo4-3
+    4301238: mcu-1
+    4301240: mcl-1
+    4301242: lsc-1
+    4301244: lsmb3-1
+    4301246: lsmb3-2
+    4301248: lsm-1
+    4301250: s2m-1
+    4301252: s1m-1
+    4301254: ellbg-1
+    4301256: spacedoor2
+    4301258: spacedoor1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

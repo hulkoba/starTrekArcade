@@ -1,0 +1,511 @@
+fileFormatVersion: 2
+guid: e217835c46e77433cbd71e901c70a9ee
+timeCreated: 1449581323
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Antenna
+    100002: aRoundLef0
+    100004: aRoundLef1
+    100006: aRoundLef2
+    100008: aRoundLef3
+    100010: aRoundLef4
+    100012: aRoundLeft
+    100014: Bridge
+    100016: Bridge1
+    100018: Bridge2
+    100020: Bridge3
+    100022: Camera01
+    100024: Camera01.target
+    100026: Connect
+    100028: Connect1
+    100030: Connect2
+    100032: Connect3
+    100034: ConnectIn
+    100036: ConnectIn1
+    100038: ConnectIn2
+    100040: ConnectIn3
+    100042: Core Hous0
+    100044: Core House
+    100046: //RootNode
+    100048: Habitat 1
+    100050: Habitat 2
+    100052: Habitat 3
+    100054: Habitat l0
+    100056: Habitat l1
+    100058: Habitat lo
+    100060: Habitat s0
+    100062: Habitat s1
+    100064: Habitat si
+    100066: Habitat u0
+    100068: Habitat u1
+    100070: Habitat up
+    100072: Inside Cor
+    100074: Klammer
+    100076: Klammer1
+    100078: Klammer2
+    100080: Klammer3
+    100082: lamp01
+    100084: lamp02
+    100086: lamp03
+    100088: lamp04
+    100090: lamp05
+    100092: lamp06
+    100094: Omni Lamp1
+    100096: Omni Lamp2
+    100098: Omni Lamp3
+    100100: Omni Lamp4
+    100102: Omni Lamp5
+    100104: Omni Lamp6
+    100106: Omni Outsi
+    100108: Omni01
+    100110: OPS
+    100112: 'OPS upper '
+    100114: OPS0
+    100116: OPS0_MeshPart0
+    100118: OPS0_MeshPart1
+    100120: Outer Ri10
+    100122: Outer Ri11
+    100124: Outer Rin0
+    100126: Outer Rin1
+    100128: Outer Rin2
+    100130: Outer Rin3
+    100132: Outer Rin4
+    100134: Outer Rin5
+    100136: Outer Rin6
+    100138: Outer Rin7
+    100140: Outer Rin8
+    100142: Outer Rin9
+    100144: Outer Ring
+    100146: Outside Co
+    100148: Phaser02
+    100150: Phaser03
+    100152: Phaser1
+    100154: Pylon 1
+    100156: Pylon 2
+    100158: Pylon 3
+    100160: Pylon Ins0
+    100162: Pylon Ins1
+    100164: Pylon Insi
+    100166: Pylon Nec0
+    100168: Pylon Nec1
+    100170: Pylon Neck
+    100172: Pylon Sid0
+    100174: Pylon Sid1
+    100176: Pylon Side
+    100178: ring01
+    100180: ring02
+    100182: ring03
+    100184: ring04
+    100186: ring05
+    100188: ring06
+    100190: ring07
+    100192: ring08
+    100194: ring09
+    100196: ring10
+    100198: ring11
+    100200: ring12
+    100202: Spot01
+    100204: Spot01.target
+    100206: Windows
+    400000: Antenna
+    400002: aRoundLef0
+    400004: aRoundLef1
+    400006: aRoundLef2
+    400008: aRoundLef3
+    400010: aRoundLef4
+    400012: aRoundLeft
+    400014: Bridge
+    400016: Bridge1
+    400018: Bridge2
+    400020: Bridge3
+    400022: Camera01
+    400024: Camera01.target
+    400026: Connect
+    400028: Connect1
+    400030: Connect2
+    400032: Connect3
+    400034: ConnectIn
+    400036: ConnectIn1
+    400038: ConnectIn2
+    400040: ConnectIn3
+    400042: Core Hous0
+    400044: Core House
+    400046: //RootNode
+    400048: Habitat 1
+    400050: Habitat 2
+    400052: Habitat 3
+    400054: Habitat l0
+    400056: Habitat l1
+    400058: Habitat lo
+    400060: Habitat s0
+    400062: Habitat s1
+    400064: Habitat si
+    400066: Habitat u0
+    400068: Habitat u1
+    400070: Habitat up
+    400072: Inside Cor
+    400074: Klammer
+    400076: Klammer1
+    400078: Klammer2
+    400080: Klammer3
+    400082: lamp01
+    400084: lamp02
+    400086: lamp03
+    400088: lamp04
+    400090: lamp05
+    400092: lamp06
+    400094: Omni Lamp1
+    400096: Omni Lamp2
+    400098: Omni Lamp3
+    400100: Omni Lamp4
+    400102: Omni Lamp5
+    400104: Omni Lamp6
+    400106: Omni Outsi
+    400108: Omni01
+    400110: OPS
+    400112: 'OPS upper '
+    400114: OPS0
+    400116: OPS0_MeshPart0
+    400118: OPS0_MeshPart1
+    400120: Outer Ri10
+    400122: Outer Ri11
+    400124: Outer Rin0
+    400126: Outer Rin1
+    400128: Outer Rin2
+    400130: Outer Rin3
+    400132: Outer Rin4
+    400134: Outer Rin5
+    400136: Outer Rin6
+    400138: Outer Rin7
+    400140: Outer Rin8
+    400142: Outer Rin9
+    400144: Outer Ring
+    400146: Outside Co
+    400148: Phaser02
+    400150: Phaser03
+    400152: Phaser1
+    400154: Pylon 1
+    400156: Pylon 2
+    400158: Pylon 3
+    400160: Pylon Ins0
+    400162: Pylon Ins1
+    400164: Pylon Insi
+    400166: Pylon Nec0
+    400168: Pylon Nec1
+    400170: Pylon Neck
+    400172: Pylon Sid0
+    400174: Pylon Sid1
+    400176: Pylon Side
+    400178: ring01
+    400180: ring02
+    400182: ring03
+    400184: ring04
+    400186: ring05
+    400188: ring06
+    400190: ring07
+    400192: ring08
+    400194: ring09
+    400196: ring10
+    400198: ring11
+    400200: ring12
+    400202: Spot01
+    400204: Spot01.target
+    400206: Windows
+    2300000: Antenna
+    2300002: aRoundLef0
+    2300004: aRoundLef1
+    2300006: aRoundLef2
+    2300008: aRoundLef3
+    2300010: aRoundLef4
+    2300012: aRoundLeft
+    2300014: Bridge1
+    2300016: Bridge2
+    2300018: Bridge3
+    2300020: Connect1
+    2300022: Connect2
+    2300024: Connect3
+    2300026: ConnectIn1
+    2300028: ConnectIn2
+    2300030: ConnectIn3
+    2300032: Core Hous0
+    2300034: Core House
+    2300036: Habitat l0
+    2300038: Habitat l1
+    2300040: Habitat lo
+    2300042: Habitat s0
+    2300044: Habitat s1
+    2300046: Habitat si
+    2300048: Habitat u0
+    2300050: Habitat u1
+    2300052: Habitat up
+    2300054: Inside Cor
+    2300056: Klammer1
+    2300058: Klammer2
+    2300060: Klammer3
+    2300062: lamp01
+    2300064: lamp02
+    2300066: lamp03
+    2300068: lamp04
+    2300070: lamp05
+    2300072: lamp06
+    2300074: 'OPS upper '
+    2300076: OPS0_MeshPart0
+    2300078: OPS0_MeshPart1
+    2300080: Outer Ri10
+    2300082: Outer Ri11
+    2300084: Outer Rin0
+    2300086: Outer Rin1
+    2300088: Outer Rin2
+    2300090: Outer Rin3
+    2300092: Outer Rin4
+    2300094: Outer Rin5
+    2300096: Outer Rin6
+    2300098: Outer Rin7
+    2300100: Outer Rin8
+    2300102: Outer Rin9
+    2300104: Outside Co
+    2300106: Phaser02
+    2300108: Phaser03
+    2300110: Phaser1
+    2300112: Pylon Ins0
+    2300114: Pylon Ins1
+    2300116: Pylon Insi
+    2300118: Pylon Nec0
+    2300120: Pylon Nec1
+    2300122: Pylon Neck
+    2300124: Pylon Sid0
+    2300126: Pylon Sid1
+    2300128: Pylon Side
+    2300130: ring01
+    2300132: ring02
+    2300134: ring03
+    2300136: ring04
+    2300138: ring05
+    2300140: ring06
+    2300142: ring07
+    2300144: ring08
+    2300146: ring09
+    2300148: ring10
+    2300150: ring11
+    2300152: ring12
+    2300154: Windows
+    3300000: Antenna
+    3300002: aRoundLef0
+    3300004: aRoundLef1
+    3300006: aRoundLef2
+    3300008: aRoundLef3
+    3300010: aRoundLef4
+    3300012: aRoundLeft
+    3300014: Bridge1
+    3300016: Bridge2
+    3300018: Bridge3
+    3300020: Connect1
+    3300022: Connect2
+    3300024: Connect3
+    3300026: ConnectIn1
+    3300028: ConnectIn2
+    3300030: ConnectIn3
+    3300032: Core Hous0
+    3300034: Core House
+    3300036: Habitat l0
+    3300038: Habitat l1
+    3300040: Habitat lo
+    3300042: Habitat s0
+    3300044: Habitat s1
+    3300046: Habitat si
+    3300048: Habitat u0
+    3300050: Habitat u1
+    3300052: Habitat up
+    3300054: Inside Cor
+    3300056: Klammer1
+    3300058: Klammer2
+    3300060: Klammer3
+    3300062: lamp01
+    3300064: lamp02
+    3300066: lamp03
+    3300068: lamp04
+    3300070: lamp05
+    3300072: lamp06
+    3300074: 'OPS upper '
+    3300076: OPS0_MeshPart0
+    3300078: OPS0_MeshPart1
+    3300080: Outer Ri10
+    3300082: Outer Ri11
+    3300084: Outer Rin0
+    3300086: Outer Rin1
+    3300088: Outer Rin2
+    3300090: Outer Rin3
+    3300092: Outer Rin4
+    3300094: Outer Rin5
+    3300096: Outer Rin6
+    3300098: Outer Rin7
+    3300100: Outer Rin8
+    3300102: Outer Rin9
+    3300104: Outside Co
+    3300106: Phaser02
+    3300108: Phaser03
+    3300110: Phaser1
+    3300112: Pylon Ins0
+    3300114: Pylon Ins1
+    3300116: Pylon Insi
+    3300118: Pylon Nec0
+    3300120: Pylon Nec1
+    3300122: Pylon Neck
+    3300124: Pylon Sid0
+    3300126: Pylon Sid1
+    3300128: Pylon Side
+    3300130: ring01
+    3300132: ring02
+    3300134: ring03
+    3300136: ring04
+    3300138: ring05
+    3300140: ring06
+    3300142: ring07
+    3300144: ring08
+    3300146: ring09
+    3300148: ring10
+    3300150: ring11
+    3300152: ring12
+    3300154: Windows
+    4300000: ring12
+    4300002: Windows
+    4300004: aRoundLeft
+    4300006: Pylon Insi
+    4300008: Pylon Side
+    4300010: aRoundLef0
+    4300012: Pylon Neck
+    4300014: Pylon Ins0
+    4300016: aRoundLef1
+    4300018: Pylon Sid0
+    4300020: aRoundLef2
+    4300022: Pylon Nec0
+    4300024: Pylon Ins1
+    4300026: aRoundLef3
+    4300028: Pylon Sid1
+    4300030: aRoundLef4
+    4300032: Pylon Nec1
+    4300034: Outer Rin0
+    4300036: Outer Rin1
+    4300038: Outer Rin2
+    4300040: Outer Rin3
+    4300042: Phaser1
+    4300044: Habitat up
+    4300046: Habitat lo
+    4300048: Habitat si
+    4300050: Habitat u0
+    4300052: Phaser02
+    4300054: Habitat l0
+    4300056: Habitat s0
+    4300058: Habitat u1
+    4300060: Phaser03
+    4300062: Habitat l1
+    4300064: Habitat s1
+    4300066: Connect2
+    4300068: Connect1
+    4300070: Connect3
+    4300072: ConnectIn2
+    4300074: ConnectIn3
+    4300076: ConnectIn1
+    4300078: Bridge1
+    4300080: Bridge2
+    4300082: Bridge3
+    4300084: Klammer2
+    4300086: Klammer3
+    4300088: Klammer1
+    4300090: Outside Co
+    4300092: Core House
+    4300094: Antenna
+    4300096: Core Hous0
+    4300098: Inside Cor
+    4300100: 'OPS upper '
+    4300102: OPS0_MeshPart0
+    4300104: OPS0_MeshPart1
+    4300106: lamp06
+    4300108: lamp01
+    4300110: lamp02
+    4300112: lamp03
+    4300114: lamp04
+    4300116: lamp05
+    4300118: Outer Rin4
+    4300120: Outer Rin5
+    4300122: Outer Rin6
+    4300124: Outer Rin7
+    4300126: Outer Rin8
+    4300128: Outer Rin9
+    4300130: Outer Ri10
+    4300132: Outer Ri11
+    4300134: ring01
+    4300136: ring02
+    4300138: ring03
+    4300140: ring04
+    4300142: ring05
+    4300144: ring06
+    4300146: ring07
+    4300148: ring08
+    4300150: ring09
+    4300152: ring10
+    4300154: ring11
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
