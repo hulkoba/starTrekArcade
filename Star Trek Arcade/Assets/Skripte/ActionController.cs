@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class flyingMovement : MonoBehaviour {
+public class ActionController : MonoBehaviour {
 
-	public float speed;
-	public float laserDamage;
+	//flyingSpeed
+	private float speed;
+
+	private float laserDamage;
+	public Transform torpedo;
+	public Transform torpedoSpawn;
 
 	Rigidbody rb;
 
@@ -21,6 +25,9 @@ public class flyingMovement : MonoBehaviour {
 
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
+
+		speed = 55f;
+		laserDamage = 10f;
 	}
 	
 	// Update is called once per frame
@@ -45,8 +52,11 @@ public class flyingMovement : MonoBehaviour {
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			rotate(15f,0f);
 		}
-		if (Input.GetKey (KeyCode.Space)&&timer >= reloadTime) {
-			shoot();
+		if (Input.GetKey (KeyCode.Space) && timer >= reloadTime) {
+			shootLaser();
+		}
+		if(Input.GetKey(KeyCode.X) && timer >= reloadTime){
+			shootTorpedo();
 		}
 
 		//Senkrecht zueinander ist 0, Parallel 1, genau hinter dir -1,
@@ -74,7 +84,7 @@ public class flyingMovement : MonoBehaviour {
 		rb.AddTorque (new Vector3(0f,0f,1f)*leftRight);
 	}
 
-	void shoot(){
+	void shootLaser(){
 		// Reset the timer.
 		timer = 0f;
 		
@@ -103,6 +113,12 @@ public class flyingMovement : MonoBehaviour {
 		} else {
 			line.SetPosition(1,ray.GetPoint(100));
 		}
+	}
+
+	public void shootTorpedo(){
+		torpedoSpawn.rotation = GameObject.FindGameObjectWithTag("MainCamera").transform.rotation;
+		torpedoSpawn.position = GameObject.FindGameObjectWithTag("MainCamera").transform.forward;
+		Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
 	}
 
 	public void setSpeed(float newSpeed){
