@@ -7,6 +7,8 @@ public class ActionController : MonoBehaviour {
 	private float speed;
 
 	private float laserDamage;
+
+	private float torpedoDamage;
 	public Transform torpedo;
 	public Transform torpedoSpawn;
 
@@ -16,7 +18,8 @@ public class ActionController : MonoBehaviour {
 
 	LineRenderer line;
 	float timer;// Timer for counting up to the next attack.
-	private float reloadTime = 1f;
+	private float reloadLaserTime = 1f;
+	private float reloadTorpedoTime = 5f;
 
 
 	// Use this for initialization
@@ -52,15 +55,16 @@ public class ActionController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			rotate(15f,0f);
 		}
-		if (Input.GetKey (KeyCode.Space) && timer >= reloadTime) {
+		if (Input.GetKey (KeyCode.Space) && timer >= reloadLaserTime) {
 			shootLaser();
 		}
-		if(Input.GetKey(KeyCode.X) && timer >= reloadTime){
+		if(Input.GetKey(KeyCode.X) && timer >= reloadTorpedoTime){
+			Debug.Log("TORPEDO");
 			shootTorpedo();
 		}
 
 		//Senkrecht zueinander ist 0, Parallel 1, genau hinter dir -1,
-		//Es wird ein Kegel aufgezogen damit, mit Vector3.dot wird das Kreuzprodukt von deiner Position - Gegner Position gezogen,
+		//Es wird ein Kegel aufgezogen damit, mit Vector3.dot wird das Skalarprodukt von deiner Position - Gegner Position gezogen,
 		//dann wird mit transform.forward das Kreuzprodukt gebildet und dann kann man halt gucken, je nachdem, wie  man zum Gegner steht ergibt das Kreuzprodukt bestimmte Werte, wie oben genannt
 		//siehe Internet: Vector3.dot das Beispiel erläutert es gut
 		//Damit kann man neben dem Schießen von Zielsuchenden Raketten bestimmt auch den Gegner fliegen lassen, also wenn der Spieler aus diesem
@@ -130,7 +134,11 @@ public class ActionController : MonoBehaviour {
 	}
 
 	public void setReloadTime(float newReloadTime){
-		reloadTime = newReloadTime;
+		reloadLaserTime = newReloadTime;
+	}
+
+	public void setTorpedoDamage(float newTorpedoDamage){
+		torpedoDamage = newTorpedoDamage;
 	}
 
 }
