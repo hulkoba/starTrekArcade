@@ -27,7 +27,10 @@ public class EnemyShooting : MonoBehaviour
 	public void Update(){
 		// Add the time since Update was last called to the timer.
 		timer += Time.deltaTime;
-
+		//To show the laser for a couple of seconds and then disable it
+		if (timer >= 0.2f && line.enabled) {
+			line.enabled = false;
+		}
 		if(timer >= reloadTime && playerInRange /*&& enemyHealth.currentHealth > 0*/){
 			FireLaser ();
 		}
@@ -69,7 +72,7 @@ public class EnemyShooting : MonoBehaviour
 
 		// Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
 		ray.origin = transform.position;
-		ray.direction = transform.forward;
+		ray.direction = transform.forward-new Vector3(0,0.1f,0);
 
 		if(Physics.Raycast(ray, out hit, 100)){
 
@@ -88,8 +91,6 @@ public class EnemyShooting : MonoBehaviour
 		} else {
 			line.SetPosition(1,ray.GetPoint(100));
 		}
-
-		line.enabled = false;
 	}
 
 	// IEnumerator FireLaser(){

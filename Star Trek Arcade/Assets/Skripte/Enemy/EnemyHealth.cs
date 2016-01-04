@@ -41,4 +41,9 @@ public class EnemyHealth : MonoBehaviour {
 			Destroy(other.gameObject);
 		}
 	}
+
+	public float getCurrentHealth(){
+		return health;
+	}
+
 }
