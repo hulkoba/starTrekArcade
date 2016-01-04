@@ -23,7 +23,7 @@ public class EnemyFlying : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("Player").transform;
+		player = GameObject.Find("Enterprise").transform;
 		rb = gameObject.GetComponent<Rigidbody> ();
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;

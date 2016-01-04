@@ -7,7 +7,4 @@ public class DamageFeedback : MonoBehaviour {
 
 	private bool fadeStarter = true;
 
-	void Awake(){
-		GUI.DrawTexture (0f, 0f, Screen.width, Screen.height);
-	}
 }
