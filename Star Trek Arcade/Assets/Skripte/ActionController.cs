@@ -21,9 +21,12 @@ public class ActionController : MonoBehaviour {
 	private float reloadLaserTime = 1f;
 	private float reloadTorpedoTime = 5f;
 
+	private LifePointController lfc;
 
 	// Use this for initialization
 	void Start () {
+		lfc = GameObject.Find ("Game_Controller").GetComponent<LifePointController>();
+
 		rb = gameObject.GetComponent<Rigidbody> ();
 
 		line = gameObject.GetComponent<LineRenderer> ();
@@ -106,9 +109,10 @@ public class ActionController : MonoBehaviour {
 		if(Physics.Raycast(ray, out hit, 100)){
 			
 			// trifft irgendwas
-			//if(hit.collider.gameObject.tag.Equals("Enemy")){
+			if(hit.collider.gameObject.tag.Equals("Enemy")){
 			//	hit.collider.gameObject.GetComponents("EnemyHealth").ApplyDamage(laserDamage);
-			//}
+
+			}
 			//line.SetPosition(1,hit.point);
 			//else if(hit.collider.gameObject.tag.Equals("Station")){
 			//DAMAGE TO SPACESTATION

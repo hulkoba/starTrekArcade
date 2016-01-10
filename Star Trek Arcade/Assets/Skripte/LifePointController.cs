@@ -6,6 +6,11 @@ public class LifePointController : MonoBehaviour {
     //public GUIText lpText;
     private int lifePoints = 0;
 
+	// scores
+	
+	public GUIText Score;
+	private int score;
+
     public int LifePoints
     {
         get
@@ -25,7 +30,8 @@ public class LifePointController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		score = 0;
+		UpdateScore();
 	}
 
     void Awake()
@@ -44,4 +50,14 @@ public class LifePointController : MonoBehaviour {
     {
         PlayerPrefs.SetInt("LPs", lifePoints);
     }
+
+	public void AddScore (int newScore) {
+		score += newScore;
+		UpdateScore ();
+	}
+	
+	void UpdateScore () {
+		Debug.Log ("SCORE" + score);
+		Score.text = score.ToString();
+	}
 }
