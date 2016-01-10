@@ -59,6 +59,6 @@ public class GameController : MonoBehaviour {
     }
 
     void UpdateScore () {
-        Score.text = Score.text + score;
+        Score.text = score.ToString();
     }
 }
