@@ -7,8 +7,10 @@ public class EnemyFlying : MonoBehaviour {
 	bool playerInRange;
 	public Transform player;
 	public float playerDistance;
+	public PlayerHealth playerHealth;
 	
 	public float firingRange;
+	public int damage = 10;
 
 	Rigidbody rb;
 
@@ -24,6 +26,7 @@ public class EnemyFlying : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("Enterprise").transform;
+		playerHealth = player.GetComponent<PlayerHealth> ();
 		rb = gameObject.GetComponent<Rigidbody> ();
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
@@ -97,13 +100,13 @@ public class EnemyFlying : MonoBehaviour {
 		ray.direction = transform.forward;
 		
 		if(Physics.Raycast(ray, out hit, 100)){
-			
+			Debug.Log (hit.collider.name);
 			// trifft irgendwas
-			if(hit.collider.gameObject.name.Equals("Player")){
+			if(hit.collider.gameObject.tag=="MainCamera"){
 				print ("HIT PLAYER");
-				//if(playerHealth.currentHealth > 0) {
-				//	playerHealth.ApplyDamage (damage);
-				//}
+				if(playerHealth.currentHealth > 0) {
+					playerHealth.ApplyDamage (damage);
+				}
 			}
 			line.SetPosition(1,hit.point);
 			//else if(hit.collider.gameObject.tag.Equals("Station")){

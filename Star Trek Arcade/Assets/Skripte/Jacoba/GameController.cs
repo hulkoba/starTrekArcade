@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 		score = 0;
 		UpdateScore();
 		//
-		Enterprise = GameObject.Find("FPSController").transform;
+		Enterprise = GameObject.Find("Enterprise").transform;
 		StartCoroutine (SpawnWaves ());
 	}
 
