@@ -12,16 +12,16 @@ public class PlayerHealth : MonoBehaviour {
 	Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
 	public AudioClip deathSound;
+	AudioSource audioSource;
 
 	//PlayerMovement playerMovement; // Reference to the enterprise's movement.
 	// PlayerShooting playerShooting;
 
 	int startingShield = 100;
 	int startingHealth = 100;
-	int currentHealth = 0;
+	public int currentHealth = 0;
 	int currentShield = 0;
 
-	AudioSource deathAudio;
 	//PlayerMovement playerMovement;                              // Reference to the player's movement.
     //PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
 
@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour {
         currentHealth = startingHealth;
 		currentShield = startingShield;
 
-		//playerAudio = GetComponent <AudioSource> ();
+		audioSource = GetComponent <AudioSource> ();
         //playerMovement = GetComponent <PlayerMovement> ();
         //playerShooting = GetComponentInChildren <PlayerShooting> ();
     }
@@ -90,7 +90,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public void Dying() {
 		Debug.Log("DEATH!!!");
-
+		isDead = true;
 		PlayDeathSound();
 
 		//KAMERA.PARTEN = NULL
@@ -108,7 +108,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 	private void PlayDeathSound() {
-		deathAudio.clip = deathSound;
-		deathAudio.Play();
+		audioSource.clip = deathSound;
+		audioSource.Play();
 	}
 }

@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKey (KeyCode.W)) {
-			move (speed);
+			move (speed * 3);
 		}
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			rotate(0f,-15f);
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
 	void shootLaser(){
 		// Reset the timer.
 		timer = 0f;
-		
+
 	}
 
 	// public void shootTorpedo(){
