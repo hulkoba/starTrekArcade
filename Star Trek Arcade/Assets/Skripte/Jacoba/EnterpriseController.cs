@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Utility;
+
 using Random = UnityEngine.Random;
 
 
@@ -9,9 +8,6 @@ using Random = UnityEngine.Random;
     [RequireComponent(typeof (AudioSource))]
     public class EnterpriseController : MonoBehaviour
     {
-
-        [SerializeField] private bool m_UseFovKick;
-        [SerializeField] private FOVKick m_FovKick = new FOVKick();
 
         [SerializeField] private AudioClip _warpSound;
         [SerializeField] private AudioClip _shotSound;
@@ -46,7 +42,7 @@ using Random = UnityEngine.Random;
             _camera = Camera.main;
             _isMoving = true;
             _originalCamPosition = _camera.transform.localPosition;
-            m_FovKick.Setup(_camera);
+            //m_FovKick.Setup(_camera);
             m_AudioSource = GetComponent<AudioSource>();
 
             m_CharacterTargetRot = transform.localRotation;
@@ -139,9 +135,9 @@ using Random = UnityEngine.Random;
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
-            if (_isMoving != wasflying && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0) {
+            if (_isMoving != wasflying /*&& m_UseFovKick*/ && m_CharacterController.velocity.sqrMagnitude > 0) {
                 StopAllCoroutines();
-                StartCoroutine(!_isMoving ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
+                //StartCoroutine(!_isMoving ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
 
