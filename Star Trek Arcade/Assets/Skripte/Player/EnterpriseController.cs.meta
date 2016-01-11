@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2046596b060374b9b9eb31726ceb6c57
+timeCreated: 1448889450
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - _warpSound: {fileID: 8300000, guid: 7cec1b9d32bf54e999c523d27ac2054b, type: 3}
+  - _explosionSound: {fileID: 8300000, guid: e8b0edd7720c6497f9fee1ee73dfac09, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

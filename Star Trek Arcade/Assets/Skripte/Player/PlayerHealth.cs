@@ -9,24 +9,29 @@ public class PlayerHealth : MonoBehaviour {
 	public Slider shieldUI;
 
 	public Image damageImage;
-	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+
+	public AudioClip deathSound;
 
 	//PlayerMovement playerMovement; // Reference to the enterprise's movement.
 	// PlayerShooting playerShooting;
 
-	public int startingShield = 100;
-	public int startingHealth = 100;
-	public int currentHealth;
-	public int currentShield;
+	int startingShield = 100;
+	int startingHealth = 100;
+	int currentHealth = 0;
+	int currentShield = 0;
 
+	AudioSource deathAudio;
+	//PlayerMovement playerMovement;                              // Reference to the player's movement.
+    //PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
+
+	bool isDead;
 	bool damaged;
 
 	void Awake () {
         // Set the initial health of the player.
         currentHealth = startingHealth;
 		currentShield = startingShield;
-
-		damageImage.color = Color.Lerp (damageImage.color, Color.clear, 1f * Time.deltaTime);
 
 		//playerAudio = GetComponent <AudioSource> ();
         //playerMovement = GetComponent <PlayerMovement> ();
@@ -58,6 +63,7 @@ public class PlayerHealth : MonoBehaviour {
 	public void ShieldDamaging(int damage) {
 		currentShield -= damage;
 		shieldUI.value = currentShield;
+
 		if(currentShield <= 0) {
 			int damageLeft = currentShield*-1;
 			currentShield = 0;
@@ -77,13 +83,15 @@ public class PlayerHealth : MonoBehaviour {
 		currentHealth -= damage;
 		healthUI.value = currentHealth;
 
-		if(currentHealth <= 0) {
+		if(currentHealth <= 0 && !isDead) {
 			Dying();
 		}
 	}
 
     public void Dying() {
 		Debug.Log("DEATH!!!");
+
+		PlayDeathSound();
 
 		//KAMERA.PARTEN = NULL
 		//DANN NACH HINTEN .TransForm UND MAN KÖNNTE DANN EXPLODIEREN
@@ -98,4 +106,9 @@ public class PlayerHealth : MonoBehaviour {
         //playerMovement.enabled = false;
         //playerShooting.enabled = false;
     }
+
+	private void PlayDeathSound() {
+		deathAudio.clip = deathSound;
+		deathAudio.Play();
+	}
 }
