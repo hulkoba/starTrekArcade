@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyFlying : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
 	//Collider benutzen dafuer
 	bool playerInRange;
 	public Transform player;
 	public float playerDistance;
 	public PlayerHealth playerHealth;
-	
+
 	public float firingRange;
 	public int damage = 10;
 
@@ -31,7 +31,7 @@ public class EnemyFlying : MonoBehaviour {
 		line = gameObject.GetComponent<LineRenderer> ();
 		line.enabled = false;
 	}
-	
+
 	// Update is called once per frame
 	//ANGLE KANN FUER FIELDOFVIEW GENUTZT WERDEN, WENN ETWAS DARIN IST, USW.
 	/*
@@ -64,7 +64,7 @@ public class EnemyFlying : MonoBehaviour {
 
 	   //Wenn 0 dann zielt er genau auf den Spieler;
 	   float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
-	   
+
 	   //Shoot
 	   // Add the time since Update was last called to the timer.
 	   timer += Time.deltaTime;
@@ -77,7 +77,7 @@ public class EnemyFlying : MonoBehaviour {
 				Shoot ();
 			}
 		}
-		
+
 	}
 
 	void Move(){
@@ -87,18 +87,18 @@ public class EnemyFlying : MonoBehaviour {
 	void Shoot(){
 		// Reset the timer.
 		timer = 0f;
-		
+
 		line.enabled = true;
 		Ray ray = new Ray(transform.position, transform.forward);
 		RaycastHit hit;
-		
+
 		//line.SetPosition(0,transform.position);
 		line.SetPosition(0,ray.origin);
-		
+
 		// Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
 		ray.origin = transform.position;
 		ray.direction = transform.forward;
-		
+
 		if(Physics.Raycast(ray, out hit, 100)){
 			Debug.Log (hit.collider.name);
 			// trifft irgendwas

@@ -17,7 +17,7 @@ using Random = UnityEngine.Random;
         private bool _isMoving;
         private float _flySpeed = 10;   // left shift for flying
         private float _warpSpeed = 40;  // w for warping
-        //private ArrowLook _ArrowLook;
+
 
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
@@ -42,7 +42,7 @@ using Random = UnityEngine.Random;
             _camera = Camera.main;
             _isMoving = true;
             _originalCamPosition = _camera.transform.localPosition;
-            //m_FovKick.Setup(_camera);
+
             m_AudioSource = GetComponent<AudioSource>();
 
             m_CharacterTargetRot = transform.localRotation;
@@ -76,11 +76,6 @@ using Random = UnityEngine.Random;
 
             forward = Vector3.ProjectOnPlane(forward, hitInfo.normal).normalized;
 
-            //if(speed == _warpSpeed) {
-            //    _moveDir.z = desiredMove.z * speed;
-            //} else {
-            //    _moveDir.z = desiredMove.z * speed;
-            //}
             forward *= speed;
             m_CollisionFlags = m_CharacterController.Move(forward * Time.deltaTime);
 
@@ -135,9 +130,9 @@ using Random = UnityEngine.Random;
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
-            if (_isMoving != wasflying /*&& m_UseFovKick*/ && m_CharacterController.velocity.sqrMagnitude > 0) {
+            if (_isMoving != wasflying && m_CharacterController.velocity.sqrMagnitude > 0) {
                 StopAllCoroutines();
-                //StartCoroutine(!_isMoving ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
+
             }
         }
 

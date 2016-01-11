@@ -1,42 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ActionController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
 	//flyingSpeed
 	private float speed;
 
-	private float laserDamage;
+//	private float laserDamage;
 
-	private float torpedoDamage;
-	public Transform torpedo;
-	public Transform torpedoSpawn;
+//	private float torpedoDamage;
+//	public Transform torpedo;
+//	public Transform torpedoSpawn;
 
 	Rigidbody rb;
 
 	GameObject enemy;
 
-	LineRenderer line;
+
 	float timer;// Timer for counting up to the next attack.
 	private float reloadLaserTime = 1f;
-	private float reloadTorpedoTime = 5f;
+//	private float reloadTorpedoTime = 5f;
 
 	// Use this for initialization
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody> ();
 
-		line = gameObject.GetComponent<LineRenderer> ();
-		line.enabled = false;
-
 		speed = 55f;
-		laserDamage = 10f;
+	//	laserDamage = 10f;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		timer += Time.deltaTime;
-		if (timer >= 0.2f && line.enabled) {
-			line.enabled = false;
+		if (timer >= 0.2f) {
+
 		}
 
 		if (Input.GetKey (KeyCode.W)) {
@@ -57,10 +54,10 @@ public class ActionController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space) && timer >= reloadLaserTime) {
 			shootLaser();
 		}
-		if(Input.GetKey(KeyCode.X) && timer >= reloadTorpedoTime){
-			Debug.Log("TORPEDO");
-			shootTorpedo();
-		}
+		// if(Input.GetKey(KeyCode.X) && timer >= reloadTorpedoTime){
+		// 	Debug.Log("TORPEDO");
+		// 	shootTorpedo();
+		// }
 
 		//Senkrecht zueinander ist 0, Parallel 1, genau hinter dir -1,
 		//Es wird ein Kegel aufgezogen damit, mit Vector3.dot wird das Skalarprodukt von deiner Position - Gegner Position gezogen,
@@ -90,55 +87,29 @@ public class ActionController : MonoBehaviour {
 	void shootLaser(){
 		// Reset the timer.
 		timer = 0f;
-
-		line.enabled = true;
-		Ray ray = new Ray(transform.position, transform.forward);
-		RaycastHit hit;
-
-		//line.SetPosition(0,transform.position);
-		line.SetPosition(0,ray.origin);
-
-		// Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
-		ray.origin = transform.position;
-		ray.direction = transform.forward;
-
-		if(Physics.Raycast(ray, out hit, 100)){
-
-			// trifft irgendwas
-			if(hit.collider.gameObject.tag.Equals("Enemy")){
-			//	hit.collider.gameObject.GetComponents("EnemyHealth").ApplyDamage(laserDamage);
-
-			}
-			//line.SetPosition(1,hit.point);
-			//else if(hit.collider.gameObject.tag.Equals("Station")){
-			//DAMAGE TO SPACESTATION
-			//}
-			//hit.rigidbody.AddForceAtPosition(transform.forward*10,hit.point);
-		} else {
-			line.SetPosition(1,ray.GetPoint(100));
-		}
+		
 	}
 
-	public void shootTorpedo(){
-		torpedoSpawn.rotation = GameObject.FindGameObjectWithTag("MainCamera").transform.rotation;
-		torpedoSpawn.position = GameObject.FindGameObjectWithTag("MainCamera").transform.forward;
-		Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
-	}
+	// public void shootTorpedo(){
+	// 	torpedoSpawn.rotation = GameObject.FindGameObjectWithTag("MainCamera").transform.rotation;
+	// 	torpedoSpawn.position = GameObject.FindGameObjectWithTag("MainCamera").transform.forward;
+	// 	Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
+	// }
 
 	public void setSpeed(float newSpeed){
 		speed = newSpeed;
 	}
 
-	public void setLaserDamage(float newLaserDamage){
-		laserDamage = newLaserDamage;
-	}
+	// public void setLaserDamage(float newLaserDamage){
+	// 	laserDamage = newLaserDamage;
+	// }
 
 	public void setReloadTime(float newReloadTime){
 		reloadLaserTime = newReloadTime;
 	}
 
-	public void setTorpedoDamage(float newTorpedoDamage){
-		torpedoDamage = newTorpedoDamage;
-	}
+	// public void setTorpedoDamage(float newTorpedoDamage){
+	// 	torpedoDamage = newTorpedoDamage;
+	// }
 
 }
