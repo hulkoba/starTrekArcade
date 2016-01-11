@@ -54,8 +54,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void AddScore (int newScore) {
-        score += newScore;
-        UpdateScore ();
+        Score.text = score.ToString();
     }
 
     void UpdateScore () {

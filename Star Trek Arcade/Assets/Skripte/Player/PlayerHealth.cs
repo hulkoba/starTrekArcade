@@ -7,9 +7,9 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject playerExplosion;
 	public Slider healthUI;
 	public Slider shieldUI;
-	// TODO: transparent damageimage
-	//public Image damageImage
-	//public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+
+	public Image damageImage;
+	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
 	//EnterpriseController playerMovement; // Reference to the player's movement.
 
@@ -18,24 +18,26 @@ public class PlayerHealth : MonoBehaviour {
 	public int currentHealth;
 	public int currentShield;
 
+	bool damaged;
+
 	void Awake () {
         // Set the initial health of the player.
         currentHealth = startingHealth;
 		currentShield = startingShield;
     }
 
-	// void Update () {
-    //     // If the player has just been damaged...
-    //     if(damaged) {
-    //         // ... set the colour of the damageImage to the flash colour.
-    //         damageImage.color = flashColour;
-    //     } else {
-    //         // ... transition the colour back to clear.
-    //         damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-    //     }
-    //     // Reset the damaged flag.
-    //     damaged = false;
-    // }
+	void Update () {
+         // If the player has just been damaged...
+         if(damaged) {
+             // ... set the colour of the damageImage to the flash colour.
+             damageImage.color = flashColour;
+         } else {
+             // ... transition the colour back to clear. flashspeed = 5f
+             damageImage.color = Color.Lerp (damageImage.color, Color.clear, 5f * Time.deltaTime);
+         }
+         // Reset the damaged flag.
+         damaged = false;
+    }
 
 
 	public void ApplyDamage(int damage) {
@@ -43,7 +45,7 @@ public class PlayerHealth : MonoBehaviour {
 		if(currentShield > 0){
 			ShieldDamaging(damage);
 		} else{
-			Damaging(damage);
+			ShipDamaging(damage);
 		}
 	}
 
@@ -53,7 +55,7 @@ public class PlayerHealth : MonoBehaviour {
 		if(currentShield <= 0) {
 			int damageLeft = currentShield*-1;
 			currentShield = 0;
-			Damaging(damageLeft);
+			ShipDamaging(damageLeft);
 		}
 	}
 
@@ -64,7 +66,8 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	public void Damaging(int damage) {
+	public void ShipDamaging(int damage) {
+		damaged = true;
 		currentHealth -= damage;
 		healthUI.value = currentHealth;
 

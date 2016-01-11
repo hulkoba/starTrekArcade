@@ -21,12 +21,8 @@ public class ActionController : MonoBehaviour {
 	private float reloadLaserTime = 1f;
 	private float reloadTorpedoTime = 5f;
 
-	private LifePointController lfc;
-
 	// Use this for initialization
 	void Start () {
-		lfc = GameObject.Find ("Game_Controller").GetComponent<LifePointController>();
-
 		rb = gameObject.GetComponent<Rigidbody> ();
 
 		line = gameObject.GetComponent<LineRenderer> ();
@@ -35,7 +31,7 @@ public class ActionController : MonoBehaviour {
 		speed = 55f;
 		laserDamage = 10f;
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		timer += Time.deltaTime;
@@ -74,7 +70,7 @@ public class ActionController : MonoBehaviour {
 		//Bereich raus ist, dann richte dich etwas aus und fliege vorwärts oder so, so ist ein wenig nicht genaues Fliegen drin
 		//Oder fürs schießen ein Random von ein paar Metern, dass man mal vorbei schießt, oder so
 		//if (Vector3.Dot (transform.forward, (transform.position - enemy.transform.position).normalized) > 0.9) {
-		//	
+		//
 		//}
 
 	}
@@ -94,20 +90,20 @@ public class ActionController : MonoBehaviour {
 	void shootLaser(){
 		// Reset the timer.
 		timer = 0f;
-		
+
 		line.enabled = true;
 		Ray ray = new Ray(transform.position, transform.forward);
 		RaycastHit hit;
-		
+
 		//line.SetPosition(0,transform.position);
 		line.SetPosition(0,ray.origin);
-		
+
 		// Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
 		ray.origin = transform.position;
 		ray.direction = transform.forward;
-		
+
 		if(Physics.Raycast(ray, out hit, 100)){
-			
+
 			// trifft irgendwas
 			if(hit.collider.gameObject.tag.Equals("Enemy")){
 			//	hit.collider.gameObject.GetComponents("EnemyHealth").ApplyDamage(laserDamage);
