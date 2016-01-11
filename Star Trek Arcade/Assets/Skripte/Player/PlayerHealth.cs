@@ -11,7 +11,8 @@ public class PlayerHealth : MonoBehaviour {
 	public Image damageImage;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
-	//EnterpriseController playerMovement; // Reference to the player's movement.
+	//PlayerMovement playerMovement; // Reference to the enterprise's movement.
+	// PlayerShooting playerShooting;
 
 	public int startingShield = 100;
 	public int startingHealth = 100;
@@ -24,10 +25,15 @@ public class PlayerHealth : MonoBehaviour {
         // Set the initial health of the player.
         currentHealth = startingHealth;
 		currentShield = startingShield;
+
+		damageImage.color = Color.Lerp (damageImage.color, Color.clear, 1f * Time.deltaTime);
+
+		//playerAudio = GetComponent <AudioSource> ();
+        //playerMovement = GetComponent <PlayerMovement> ();
+        //playerShooting = GetComponentInChildren <PlayerShooting> ();
     }
 
 	void Update () {
-         // If the player has just been damaged...
          if(damaged) {
              // ... set the colour of the damageImage to the flash colour.
              damageImage.color = flashColour;
@@ -86,5 +92,10 @@ public class PlayerHealth : MonoBehaviour {
 		Instantiate(playerExplosion, transform.position, transform.rotation);
 		Destroy(gameObject);
 		//Destroy(other.gameObject); --> if we use Bolt for enemies
+
+
+		// Turn off the movement and shooting scripts.
+        //playerMovement.enabled = false;
+        //playerShooting.enabled = false;
     }
 }

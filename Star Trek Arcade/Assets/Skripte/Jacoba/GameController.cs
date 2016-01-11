@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour {
 	void Start() {
 		score = 0;
 		UpdateScore();
-		//
+
 		Enterprise = GameObject.Find("Enterprise").transform;
 		StartCoroutine (SpawnWaves ());
 	}
