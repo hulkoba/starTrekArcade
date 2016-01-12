@@ -3,61 +3,67 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	//flyingSpeed
-	private float speed;
+	[SerializeField] private AudioClip warpSound;
+	[SerializeField] private AudioClip shotSound;
+	private AudioSource audioSource;
 
-//	private float laserDamage;
+	private Camera cam;
 
-//	private float torpedoDamage;
-//	public Transform torpedo;
-//	public Transform torpedoSpawn;
+	private float flySpeed = 10;   // left shift for flying
+	private float warpSpeed = 40;  // w for warping
+
+
+	// shots:
+	public Transform shot;
+	public Transform shot1;
+	public Transform shotSpawn;
+
+	float nextFire = 0.0f;
+	float fireRate = 0.5f;
 
 	Rigidbody rb;
-
 	GameObject enemy;
 
 
-	float timer;// Timer for counting up to the next attack.
-	private float reloadLaserTime = 1f;
-//	private float reloadTorpedoTime = 5f;
-
 	// Use this for initialization
-	void Start () {
-		rb = gameObject.GetComponent<Rigidbody> ();
+	void Awake () {
 
-		speed = 55f;
-	//	laserDamage = 10f;
+		audioSource = GetComponent<AudioSource>();
+
+		cam = Camera.main;
+		rb = gameObject.GetComponent<Rigidbody> ();
 	}
 
 	// Update is called once per frame
+	private void Update() {
+
+		//pressed the firebutton AND loaded weapons?
+		if(Input.GetButton("Fire1") && Time.time >= nextFire ) {
+			nextFire = Time.time + fireRate;
+
+			shotSpawn.rotation = cam.transform.rotation;
+
+			print("right" + shotSpawn.rotation);
+			//shotSpawn.rotation.y = (cam.transform.rotation + 7f);
+			Vector3 positionLeft = shotSpawn.position;
+			positionLeft.z += 7;
+
+			Vector3 positionRight = shotSpawn.position;
+			positionRight.z -= 7;
+
+			print("left "+ positionLeft);
+			print("right" + positionRight);
+
+			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			//Instantiate(shot1, shotSpawn.position, shotSpawn.rotation);
+
+			PlayShotSound();
+		}
+	}
+
 	void FixedUpdate () {
-		timer += Time.deltaTime;
-		if (timer >= 0.2f) {
-
-		}
-
-		if (Input.GetKey (KeyCode.W)) {
-			move (speed * 3);
-		}
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			rotate(0f,-15f);
-		}
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			rotate(0f,15f);
-		}
-		if (Input.GetKey (KeyCode.UpArrow)) {
-			rotate(-15f,0f);
-		}
-		if (Input.GetKey (KeyCode.DownArrow)) {
-			rotate(15f,0f);
-		}
-		if (Input.GetKey (KeyCode.Space) && timer >= reloadLaserTime) {
-			shootLaser();
-		}
-		// if(Input.GetKey(KeyCode.X) && timer >= reloadTorpedoTime){
-		// 	Debug.Log("TORPEDO");
-		// 	shootTorpedo();
-		// }
+		float speed;
+		GetInput(out speed);
 
 		//Senkrecht zueinander ist 0, Parallel 1, genau hinter dir -1,
 		//Es wird ein Kegel aufgezogen damit, mit Vector3.dot wird das Skalarprodukt von deiner Position - Gegner Position gezogen,
@@ -72,22 +78,48 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	void move(float forwardSpeed){
-		rb.AddForce (GameObject.FindGameObjectWithTag("MainCamera").transform.forward*speed);
+	private void GetInput(out float speed) {
+		speed = 0f;
+
+		// keep track of whether or not the enterprise is moving'
+		//isMoving = !Input.GetKey(KeyCode.LeftShift) || !Input.GetKey(KeyCode.W);
+
+		// set the desired speed to be flying or 'warping'
+		if(Input.GetKeyDown(KeyCode.W)) {
+			PlayWarpSound();
+		}
+		if(Input.GetKey(KeyCode.W)) {
+			//speed = warpSpeed;
+			move(warpSpeed);
+		}
+
+		if(Input.GetKey(KeyCode.LeftShift)) {
+			//speed = flySpeed;
+			move(flySpeed);
+		}
+
+
+		//rotate
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			rotateView(0f,-15f);
+		}
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			rotateView(0f,15f);
+		}
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			rotateView(-15f,0f);
+		}
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			rotateView(15f,0f);
+		}
 	}
 
-	void rotate(float upDown, float leftRight){
-		rb.AddTorque (transform.right*upDown+transform.up*leftRight);
+	void move(float speed){
+		rb.AddForce (GameObject.FindGameObjectWithTag("MainCamera").transform.forward * speed);
 	}
 
-	void torque(float leftRight){
-		rb.AddTorque (new Vector3(0f,0f,1f)*leftRight);
-	}
-
-	void shootLaser(){
-		// Reset the timer.
-		timer = 0f;
-
+	void rotateView(float upDown, float leftRight){
+		rb.AddTorque (transform.right * upDown + transform.up * leftRight);
 	}
 
 	// public void shootTorpedo(){
@@ -96,20 +128,29 @@ public class PlayerController : MonoBehaviour {
 	// 	Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
 	// }
 
-	public void setSpeed(float newSpeed){
-		speed = newSpeed;
+	private void PlayWarpSound() {
+		audioSource.clip = warpSound;
+		audioSource.Play();
 	}
 
-	// public void setLaserDamage(float newLaserDamage){
-	// 	laserDamage = newLaserDamage;
-	// }
-
-	public void setReloadTime(float newReloadTime){
-		reloadLaserTime = newReloadTime;
+	private void PlayShotSound() {
+		audioSource.clip = shotSound;
+		audioSource.volume = 0.1f;
+		audioSource.Play();
 	}
 
-	// public void setTorpedoDamage(float newTorpedoDamage){
-	// 	torpedoDamage = newTorpedoDamage;
-	// }
+	private void OnControllerColliderHit(ControllerColliderHit hit) {
+		print("### Collision!  " + hit);
+		Rigidbody body = hit.collider.attachedRigidbody;
+		//dont move the rigidbody if the character is on top of it
+		// if (m_CollisionFlags == CollisionFlags.Below) {
+		// 	return;
+		// }
+
+		if (body == null || body.isKinematic) {
+			return;
+		}
+		//body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+	}
 
 }

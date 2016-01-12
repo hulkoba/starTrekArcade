@@ -4,7 +4,13 @@ using System.Collections;
 public class DestroyByContact : MonoBehaviour {
 
 	public GameObject explosion;
-	public GameObject playerExplosion;
+
+	public AudioClip explosionSound;
+	AudioSource audioSource;
+
+	void Awake() {
+		audioSource = GetComponent<AudioSource>();
+	}
 
 
 	void OnTriggerEnter(Collider other) {
@@ -26,16 +32,21 @@ public class DestroyByContact : MonoBehaviour {
 		// Increase the score 1 for asteroid
 		ScoreManager.score += 1;
 
+		PlayExplosionSound();
 		//destroy the shot and the asteroid...
 	    Destroy(other.gameObject);
 	    Destroy(gameObject);
 	}
-
 
 	// void OnTriggerStay(Collider other) {
 	// 	if (other.attachedRigidbody) {
 	// 		other.attachedRigidbody.AddForce (Vector3.up * 10);
 	// 	}
 	// }
+
+	private void PlayExplosionSound() {
+		audioSource.clip = explosionSound;
+		audioSource.Play();
+	}
 
 }

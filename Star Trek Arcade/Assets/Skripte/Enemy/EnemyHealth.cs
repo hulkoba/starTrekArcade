@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void Dying() {
 		isDead = true;
-		PlayDeathSound();
+		PlayExplosionSound();
 
 		//instantiate an enemyExplosion at the same position as the asteroid
 		Instantiate(enemyExplosion, transform.position, transform.rotation);
@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
-	private void PlayDeathSound() {
+	private void PlayExplosionSound() {
 		enemyAudio.clip = enemyDeathSound;
         enemyAudio.Play ();
 	}
