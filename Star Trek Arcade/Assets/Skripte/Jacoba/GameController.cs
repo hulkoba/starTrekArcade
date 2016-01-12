@@ -6,23 +6,24 @@ public class GameController : MonoBehaviour {
 	public GameObject Astroid;
 	public GameObject Enemy;
 	private Transform Enterprise;
+
 	private float range = 20f;
 
 	public int hazardCount;
-    public float spawnWait; // wait time value
-    public float startWait;
+    public float spawnWait = 2f; // wait time value
     public float waveWait;
+
 
 	void Start() {
 		Enterprise = GameObject.Find("Enterprise").transform;
 		StartCoroutine (SpawnWaves ());
+
 	}
 
-	//spawning the hazards in game
+	//spawning the hazards in game	
 	IEnumerator SpawnWaves () {
-
 		// short pause at gamestart
-		yield return new WaitForSeconds (startWait);
+		yield return new WaitForSeconds (spawnWait);
         while (true) {
             for (int i = 0; i < hazardCount; i++) {
 				// create a hazard(Asteroid or enemy) in a random position in given range
@@ -33,8 +34,7 @@ public class GameController : MonoBehaviour {
 				if(chooser < 1){
 					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), 0, Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
 					Instantiate(Enemy, spawnPosition, spawnRotation);
-				}
-				else{
+				} else{
 					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), Random.Range(Enterprise.position.y -range, Enterprise.position.y + range), Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
 					Instantiate(Astroid, spawnPosition, spawnRotation);
 				}
