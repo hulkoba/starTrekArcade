@@ -6,20 +6,9 @@ public class DestroyByContact : MonoBehaviour {
 	public GameObject explosion;
 	public GameObject playerExplosion;
 
-	//script
-	private GameController gameController;
-
-	void Start () {
-        GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-        if (gameControllerObject != null) {
-            gameController = gameControllerObject.GetComponent <GameController>();
-        } else {
-			Debug.Log ("Cannot find 'GameController' script");
-		}
-    }
 
 	void OnTriggerEnter(Collider other) {
-	    // not destroying the Boundary!
+	    // not destroying the Boundary or an enemy!
 		if (other.tag == "Boundary" || other.tag == "Enemy") {
 	            return;
 	    }
@@ -34,29 +23,19 @@ public class DestroyByContact : MonoBehaviour {
             //gameController.GameOver ();
         //}
 
+		// Increase the score 1 for asteroid
+		ScoreManager.score += 1;
 
-		gameController.AddScore(1);
 		//destroy the shot and the asteroid...
 	    Destroy(other.gameObject);
 	    Destroy(gameObject);
-
-		// 	if (other.tag == "Enemy") {
-		//
-		// 	}
-		// 	else if(other.tag == "Astroid"){
-		//
-		// 	}
 	}
 
 
 	// void OnTriggerStay(Collider other) {
-	// 	//if (other.attachedRigidbody) {
-	// 	//	other.attachedRigidbody.AddForce (Vector3.up * 10);
-	// 	//}
+	// 	if (other.attachedRigidbody) {
+	// 		other.attachedRigidbody.AddForce (Vector3.up * 10);
+	// 	}
 	// }
-	//
-	// void OnTriggerExit(Collider other) {
-	// 	// Destroy everything that leaves the trigger
-	// 	//Destroy(other.gameObject);
-	// }
+
 }

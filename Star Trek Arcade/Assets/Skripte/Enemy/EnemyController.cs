@@ -107,8 +107,6 @@ public class EnemyController : MonoBehaviour {
 		// Reset the timer.
 		timer = 0f;
 
-		print ("enemy shoot");
-
 		line.enabled = true;
 		Ray ray = new Ray(transform.position, transform.forward);
 		RaycastHit hit;

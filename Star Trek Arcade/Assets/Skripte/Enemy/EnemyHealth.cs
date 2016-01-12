@@ -4,32 +4,42 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
 
 	public GameObject enemyExplosion;
-	private float health = 100;
+	int health = 90;
+	public int currentHealth = 0;
 
-	private GameController gameController;
+	int scoreValue = 30;
 
-	public void Start(){
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-		if (gameControllerObject != null) {
-			gameController = gameControllerObject.GetComponent <GameController>();
-		} else {
-			Debug.Log ("Cannot find 'GameController' script");
-		}
+	public AudioClip enemyDeathSound;
+	AudioSource enemyAudio;
+
+	bool isDead;
+
+	void Awake() {
+		enemyAudio = GetComponent <AudioSource> ();
+		currentHealth = health;
 	}
 
-	//VLLT hier Update aus LifePointController einbauen, damit
-	//es beim Multiplayer einfacher ist zu trennen möglicherweise.
-	public void ApplyDamage(float damage) {
+	public void ApplyDamage(int damage) {
+		if(isDead) {
+			return;
+		}
+
 		health -= damage;
-		if(health <= 0) {
+		if(currentHealth <= 0) {
 			Dying();
 		}
 	}
 
 	public void Dying() {
+		isDead = true;
+		PlayDeathSound();
+
 		//instantiate an enemyExplosion at the same position as the asteroid
 		Instantiate(enemyExplosion, transform.position, transform.rotation);
-		gameController.AddScore(10);
+
+		// Increase the score by the enemy's score value.
+		ScoreManager.score += scoreValue;
+
 		//destroy the enemy
 		Destroy(gameObject, 1f);
 	}
@@ -42,8 +52,13 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
+	private void PlayDeathSound() {
+		enemyAudio.clip = enemyDeathSound;
+        enemyAudio.Play ();
+	}
+
+	// TODO: brauchen wir das?
 	public float getCurrentHealth(){
 		return health;
 	}
-
 }

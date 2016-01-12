@@ -13,15 +13,7 @@ public class GameController : MonoBehaviour {
     public float startWait;
     public float waveWait;
 
-	// scores
-
-	public GUIText Score;
-	private int score;
-
 	void Start() {
-		score = 0;
-		UpdateScore();
-
 		Enterprise = GameObject.Find("Enterprise").transform;
 		StartCoroutine (SpawnWaves ());
 	}
@@ -52,12 +44,4 @@ public class GameController : MonoBehaviour {
             yield return new WaitForSeconds (waveWait);
         }
 	}
-
-	public void AddScore (int newScore) {
-        Score.text = score.ToString();
-    }
-
-    void UpdateScore () {
-        Score.text = score.ToString();
-    }
 }
