@@ -23,6 +23,12 @@ public class PlayerHealth : MonoBehaviour {
 	public int currentHealth = 0;
 	int currentShield = 0;
 
+	float shieldReloadTime = 2.0f;
+	float lastDamageTime = 0.0f;
+
+	float shieldReloadWaitingTime = 0.5f;
+	float timeBetweenShieldRecharge = 0.0f;
+
 	//PlayerMovement playerMovement;                              // Reference to the player's movement.
     //PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
 
@@ -43,9 +49,16 @@ public class PlayerHealth : MonoBehaviour {
          if(damaged) {
              // ... set the colour of the damageImage to the flash colour.
              damageImage.color = flashColour;
+			lastDamageTime = Time.time;
          } else {
              // ... transition the colour back to clear. flashspeed = 5f
              damageImage.color = Color.Lerp (damageImage.color, Color.clear, 5f * Time.deltaTime);
+			if(currentShield <= 100 && Time.time > shieldReloadTime+lastDamageTime){
+				if(Time.time > timeBetweenShieldRecharge+shieldReloadWaitingTime){
+					RechargeShield();
+					timeBetweenShieldRecharge = Time.time; 
+				}
+			}
          }
          // Reset the damaged flag.
          damaged = false;
@@ -75,9 +88,10 @@ public class PlayerHealth : MonoBehaviour {
 
 	//SIEHE ENEMYHEALTH FUER IDEEN
 	public virtual void RechargeShield(){
-		while (currentShield <=100) {
-			currentShield += 5;
-		}
+		//while (currentShield <=100) {
+		currentShield += 5;
+		shieldUI.value = currentShield;
+		//}
 	}
 
 	public void ShipDamaging(int damage) {
