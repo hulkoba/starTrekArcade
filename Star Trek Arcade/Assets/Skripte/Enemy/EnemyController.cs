@@ -14,10 +14,6 @@ public class EnemyController : MonoBehaviour {
 
 	public int damage = 10;
 
-	//Collider benutzen dafuer
-	bool playerInRange;
-
-	PlayerHealth playerHealth;
 	EnemyHealth enemyHealth;
 
 	public Transform shot;
@@ -35,26 +31,10 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
-		playerHealth = player.GetComponent<PlayerHealth> ();
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
 
 		audioSource = GetComponent<AudioSource>();
-	}
-
-	// enterprise is in collider range?
-	void OnTriggerEnter(Collider other) {
-		if(other.tag == "Enterprise") {
-			print ("player in range " + other.tag);
-			playerInRange = true;
-		}
-	}
-
-	//enterprise is gone away
-	void OnTriggerExit(Collider other) {
-		if(other.tag == "Enterprise") {
-			playerInRange = false;
-		}
 	}
 
 	// Update is called once per frame
@@ -107,11 +87,6 @@ public class EnemyController : MonoBehaviour {
 
 		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 		PlayShotSound();
-
-
-		// if(playerHealth.currentHealth > 0) {
-		// 	playerHealth.ApplyDamage (damage);
-		// }
 	}
 
 	private void PlayShotSound() {

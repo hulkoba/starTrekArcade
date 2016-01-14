@@ -17,10 +17,9 @@ public class GameController : MonoBehaviour {
 	void Start() {
 		Enterprise = GameObject.Find("Enterprise").transform;
 		StartCoroutine (SpawnWaves ());
-
 	}
 
-	//spawning the hazards in game	
+	//spawning the hazards in game
 	IEnumerator SpawnWaves () {
 		// short pause at gamestart
 		yield return new WaitForSeconds (spawnWait);
