@@ -119,10 +119,10 @@ public class EnemyController : MonoBehaviour {
 		ray.direction = transform.forward;
 
 		if(Physics.Raycast(ray, out hit, 100)){
-			Debug.Log ("hit collider name" + hit.collider.name);
+		//	Debug.Log ("hit collider name" + hit.collider.name);
 			// trifft irgendwas
 			if(hit.collider.gameObject.name == "Enterprise"){
-				print ("HIT PLAYER");
+		//		print ("HIT PLAYER");
 				if(playerHealth.currentHealth > 0) {
 					playerHealth.ApplyDamage (damage);
 				}

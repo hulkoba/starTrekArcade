@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
 
 	// shots:
 	public Transform shot;
-	public Transform shot1;
 	public Transform shotSpawn;
 
 	float nextFire = 0.0f;
@@ -24,12 +23,9 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody rb;
 	GameObject enemy;
 
-
 	// Use this for initialization
 	void Awake () {
-
 		audioSource = GetComponent<AudioSource>();
-
 		cam = Camera.main;
 		rb = gameObject.GetComponent<Rigidbody> ();
 	}
@@ -43,20 +39,7 @@ public class PlayerController : MonoBehaviour {
 
 			shotSpawn.rotation = cam.transform.rotation;
 
-			print("right" + shotSpawn.rotation);
-			//shotSpawn.rotation.y = (cam.transform.rotation + 7f);
-			Vector3 positionLeft = shotSpawn.position;
-			positionLeft.z += 7;
-
-			Vector3 positionRight = shotSpawn.position;
-			positionRight.z -= 7;
-
-			print("left "+ positionLeft);
-			print("right" + positionRight);
-
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			//Instantiate(shot1, shotSpawn.position, shotSpawn.rotation);
-
 			PlayShotSound();
 		}
 	}

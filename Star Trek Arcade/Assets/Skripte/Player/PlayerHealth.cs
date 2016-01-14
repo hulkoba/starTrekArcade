@@ -52,8 +52,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 
-	public void ApplyDamage(int damage) {
-		Debug.Log("Apply damage: " + damage);
+	public void ApplyDamage(int damage) {		
 		damaged = true;
 		if(currentShield > 0){
 			ShieldDamaging(damage);
