@@ -38,12 +38,6 @@ public class DestroyByContact : MonoBehaviour {
 	    Destroy(gameObject);
 	}
 
-	// void OnTriggerStay(Collider other) {
-	// 	if (other.attachedRigidbody) {
-	// 		other.attachedRigidbody.AddForce (Vector3.up * 10);
-	// 	}
-	// }
-
 	private void PlayExplosionSound() {
 		audioSource.clip = explosionSound;
 		audioSource.Play();

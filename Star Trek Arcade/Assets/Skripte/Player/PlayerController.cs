@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private AudioClip shotSound;
 	private AudioSource audioSource;
 
-	private Camera cam;
-
 	private float flySpeed = 10;   // left shift for flying
 	private float warpSpeed = 40;  // w for warping
 
@@ -26,7 +24,6 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		audioSource = GetComponent<AudioSource>();
-		cam = Camera.main;
 		rb = gameObject.GetComponent<Rigidbody> ();
 	}
 
@@ -37,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetButton("Fire1") && Time.time >= nextFire ) {
 			nextFire = Time.time + fireRate;
 
-			shotSpawn.rotation = cam.transform.rotation;
+			shotSpawn.rotation = gameObject.transform.rotation;
 
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			PlayShotSound();

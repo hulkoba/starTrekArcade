@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public Transform player;
-	Transform klingon;
 
 	[SerializeField] private AudioClip shotSound;
 	private AudioSource audioSource;
@@ -39,7 +38,7 @@ public class EnemyController : MonoBehaviour {
 		playerHealth = player.GetComponent<PlayerHealth> ();
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
-		klingon = gameObject.GetComponent<Transform>();
+
 		audioSource = GetComponent<AudioSource>();
 	}
 
@@ -104,7 +103,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Shoot(){
-		shotSpawn.rotation = klingon.transform.rotation;
+		shotSpawn.rotation = gameObject.transform.rotation;
 
 		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 		PlayShotSound();
