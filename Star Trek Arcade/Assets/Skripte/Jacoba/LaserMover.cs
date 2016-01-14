@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class LaserMover : MonoBehaviour {
-	int moveSpeed = 20;
+	public int moveSpeed;
 
 	void Start () {
 		GetComponent<Rigidbody>().velocity = transform.forward * moveSpeed;
