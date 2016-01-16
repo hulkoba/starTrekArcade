@@ -1,4 +1,7 @@
-Ben:1
-Ben:5
-Ben:17
-Jacoba:100
+Jacoba:15
+Ben:7
+Jacoba:22
+Ben:20
+Ben:28
+Jacoba:36
+Ben:10
