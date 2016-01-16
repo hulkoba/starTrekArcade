@@ -9,9 +9,9 @@ using System.Collections.Generic;
 public class Score : MonoBehaviour {
 
 	private string[] scoreboard;
-	List<string> scores = new List<string>();
 	public GUISkin menuSkin;   //custom GUIskin reference
 	private GameObject m_TextObject;
+	private SortedDictionary<string,KeyValuePair<string,int>> highscoreDict = new SortedDictionary<string,KeyValuePair<string,int>> ();
 
 	public float fontSize = 27; //preferred fontsize for this screen size
 	public int value = 20;  //factor value for changing fontsize if needed
@@ -33,7 +33,7 @@ public class Score : MonoBehaviour {
 
 			string path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
 			StreamReader theReader = new StreamReader(path, Encoding.Default);
-
+			int position = 2;
 			using (theReader)
 			{
 				do
@@ -42,19 +42,22 @@ public class Score : MonoBehaviour {
 					
 					if (line != null)
 					{
-						scores.Add(line);
+						string[] stringArray = line.Split(':');
+						highscoreDict.Add(position.ToString(),new KeyValuePair<string, int>(stringArray[0],int.Parse(stringArray[1])));
+						position++;
 					}
 				}
 				while (line != null);
 				// Done reading, close the reader and return true to broadcast success    
 				theReader.Close();
+				highscoreDict.Add("1",new KeyValuePair<string, int>("SortiertVonSelbst!",13));
 			}
 		}
 		// If anything broke in the try block, we throw an exception with information
 		// on what didn't work
 		catch 
 		{
-			Debug.Log("error in fileload");
+			Debug.Log("error in fileload in LOADING");
 		}
 
 	}
@@ -65,14 +68,13 @@ public class Score : MonoBehaviour {
 		GUI.skin = menuSkin;   //use the custom GUISkin
 		menuSkin.button.fontSize = (int)fontSize; //set the fontsize of the button 
 		menuSkin.box.fontSize = (int)fontSize; //set the font size of box
-		string [] scoreArray = scores.ToArray();
-		if (scoreArray.Length == 0) {
-			Debug.Log ("HIGHSCORE LEER");
-		} else {
-			for (int position = 0; position < scoreArray.Length; position++) {
-				GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 155, 2 * Screen.width / 16, Screen.height / 16), "" + (position + 1) + ". " + scoreArray [position]);
-			}
+		int position = 1;
+		foreach(KeyValuePair<string,KeyValuePair<string,int>> entry in highscoreDict)
+		{
+			GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Value.Value.ToString());
+			position++;
 		}
+
 
 	}
 
@@ -93,7 +95,7 @@ public class Score : MonoBehaviour {
 					
 					if (line != null)
 					{
-						scores.Add(line);
+
 					}
 					else {
 						Debug.Log ("Noch kein Highscore erstellt");
@@ -109,8 +111,7 @@ public class Score : MonoBehaviour {
 			Debug.Log("error in fileload");
 		}
 
-		string[] helper = scores.ToArray ();
-		System.IO.File.WriteAllLines (path,helper);
+		//System.IO.File.WriteAllLines (path,stringLine);
 	}
 }
 //Dictionary<TKey, TValue>() auch zum Sortieren wird passen.
