@@ -56,24 +56,24 @@ public class EnemyController : MonoBehaviour {
 			print ("Object is directly ahead");
 	 */
 	void Update () {
-		playerDistance = Vector3.Distance(player.position, transform.position);
-		Vector3 newEnemyVector = player.position-gameObject.transform.position;
+		if(player) {
+			playerDistance = Vector3.Distance(player.position, transform.position);
+			Vector3 newEnemyVector = player.position-gameObject.transform.position;
 
-		var newRotation = Quaternion.LookRotation(player.position-transform.position, Vector3.up);
-		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
-		if (playerDistance >= 7f) {
-			Move ();
-		}
+			var newRotation = Quaternion.LookRotation(player.position-transform.position, Vector3.up);
+			transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
+			if (playerDistance >= 7f) {
+				Move ();
+			}
 
-	   //Wenn 0 dann zielt er genau auf den Spieler;
-	   float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
+		   //Wenn 0 dann zielt er genau auf den Spieler;
+		   float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
 
-		//print ("player in range " + playerInRange);
-		if (Angle <= 15f) {
-
-			if(Time.time >= nextFire /* && playerInRange*/  && enemyHealth.currentHealth > 0){
-				nextFire = Time.time + timeBetweenAttacks;
-				Shoot ();
+			if (Angle <= 15f) {
+				if(Time.time >= nextFire && enemyHealth.currentHealth > 0){
+					nextFire = Time.time + timeBetweenAttacks;
+					Shoot ();
+				}
 			}
 		}
 	}

@@ -29,8 +29,8 @@ public class PlayerHealth : MonoBehaviour {
 	float shieldReloadWaitingTime = 0.5f;
 	float timeBetweenShieldRecharge = 0.0f;
 
-	//PlayerMovement playerMovement;                              // Reference to the player's movement.
-    //PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
+	PlayerMovement playerMovement; // Reference to the player's movement.
+    PlayerShooting playerShooting; // Reference to the PlayerShooting script.
 
 	bool isDead;
 	bool damaged;
@@ -41,8 +41,8 @@ public class PlayerHealth : MonoBehaviour {
 		currentShield = startingShield;
 
 		audioSource = GetComponent <AudioSource> ();
-        //playerMovement = GetComponent <PlayerMovement> ();
-        //playerShooting = GetComponentInChildren <PlayerShooting> ();
+        playerMovement = GetComponent <PlayerMovement> ();
+        playerShooting = GetComponentInChildren <PlayerShooting> ();
     }
 
 	void Update () {
@@ -53,10 +53,11 @@ public class PlayerHealth : MonoBehaviour {
          } else {
              // ... transition the colour back to clear. flashspeed = 5f
              damageImage.color = Color.Lerp (damageImage.color, Color.clear, 5f * Time.deltaTime);
+
 			if(currentShield <= 100 && Time.time > shieldReloadTime+lastDamageTime){
 				if(Time.time > timeBetweenShieldRecharge+shieldReloadWaitingTime){
 					RechargeShield();
-					timeBetweenShieldRecharge = Time.time; 
+					timeBetweenShieldRecharge = Time.time;
 				}
 			}
          }
@@ -64,8 +65,19 @@ public class PlayerHealth : MonoBehaviour {
          damaged = false;
     }
 
+	void OnTriggerEnter(Collider other){
+		if(other.tag == "EnterpriseBolt") {
+			return;
+		}
+		if (other.tag == "Bolt") {
+		
+			ApplyDamage(5);
+			//Zerstoere Schuss
+			Destroy(other.gameObject);
+		}
+	}
 
-	public void ApplyDamage(int damage) {		
+	public void ApplyDamage(int damage) {
 		damaged = true;
 		if(currentShield > 0){
 			ShieldDamaging(damage);
@@ -104,22 +116,20 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
     public void Dying() {
-		Debug.Log("DEATH!!!");
+		Debug.Log("Game Over!!!");
 		isDead = true;
 		PlayDeathSound();
 
 		//KAMERA.PARTEN = NULL
 		//DANN NACH HINTEN .TransForm UND MAN KÖNNTE DANN EXPLODIEREN
 		//DRAN DENKEN, DASS DIE KAMERA DANN GELÖSCHT WERDEN MUSS, WENN NEUES SPIEL GESTARTET WIRD
+
 		//instantiate an playerExplosion at the same position as the ship
 		Instantiate(playerExplosion, transform.position, transform.rotation);
-		Destroy(gameObject);
-		//Destroy(other.gameObject); --> if we use Bolt for enemies
-
 
 		// Turn off the movement and shooting scripts.
-        //playerMovement.enabled = false;
-        //playerShooting.enabled = false;
+        playerMovement.enabled = false;
+        playerShooting.enabled = false;
     }
 
 	private void PlayDeathSound() {

@@ -23,9 +23,8 @@ public class EnemyHealth : MonoBehaviour {
 		if(isDead) {
 			return;
 		}
-
-		health -= damage;
-		if(currentHealth <= 0) {
+		currentHealth -= damage;
+		if(currentHealth <= 0 && !isDead) {
 			Dying();
 		}
 	}
@@ -36,16 +35,15 @@ public class EnemyHealth : MonoBehaviour {
 
 		//instantiate an enemyExplosion at the same position as the asteroid
 		Instantiate(enemyExplosion, transform.position, transform.rotation);
+		//destroy the enemy
+		Destroy(gameObject);
 
 		// Increase the score by the enemy's score value.
 		ScoreManager.score += scoreValue;
-
-		//destroy the enemy
-		Destroy(gameObject, 1f);
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Bolt") {
+		if (other.tag == "EnterpriseBolt" || other.tag == "Bolt") {			
 			ApplyDamage(20);
 			//Zerstoere Schuss
 			Destroy(other.gameObject);

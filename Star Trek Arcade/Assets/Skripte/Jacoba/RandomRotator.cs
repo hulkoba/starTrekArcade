@@ -8,7 +8,7 @@ public class RandomRotator : MonoBehaviour {
 		GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * Random.Range(-1, 1);
 
 		//move
-		GetComponent<Rigidbody>().velocity = Vector3.forward * Random.Range(-5, 5);
+		GetComponent<Rigidbody>().velocity = Vector3.forward * Random.Range(-2, 2);
 	}
 
 }
