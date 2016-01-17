@@ -44,14 +44,15 @@ public class EnemyHealth : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "EnterpriseBolt") {
-			Debug.Log("hit enemy ");
+
 			ApplyDamage(20);
 			//Zerstoere Schuss
 			Destroy(other.gameObject);
 		}
 		if(other.tag == "Bolt") {
-			ApplyDamage(2);
-			Destroy(other.gameObject);
+			Debug.Log("hit enemy ");
+			//ApplyDamage(2);
+			//Destroy(other.gameObject);
 		}
 	}
 
