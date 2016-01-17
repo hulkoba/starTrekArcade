@@ -12,8 +12,6 @@ public class EnemyController : MonoBehaviour {
 	float timeBetweenAttacks = 2f;
 	float nextFire = 0.0f;
 
-	public int damage = 10;
-
 	EnemyHealth enemyHealth;
 
 	public Transform shot;
@@ -24,7 +22,7 @@ public class EnemyController : MonoBehaviour {
 	//0.5 usw. sorgt für langsames Drehen!!!
 	public float dragTime;
 	//Speed sollte sich an dragTime orientieren, der Gegner ist sonst sehr schwerfällig sich zu drehen
-	public float speed;
+	float speed;
 
 
 
@@ -33,28 +31,23 @@ public class EnemyController : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
-
 		audioSource = GetComponent<AudioSource>();
+
+		speed = dragTime * 10;
 	}
 
 	// Update is called once per frame
 	//ANGLE KANN FUER FIELDOFVIEW GENUTZT WERDEN, WENN ETWAS DARIN IST, USW.
 	/*
 	 * 	float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
-		//Debug.Log ("BASED POSITION" + Angle);
 		var relativePoint = transform.InverseTransformPoint(player.position);
 		if (relativePoint.x < 0.0){
-			//print ("Object is to the left");
-			//print ("AllTogether:"+relativePoint);
 			//Torque(relativePoint);
 		}
 		else if (relativePoint.x > 0.0){
-			print ("Object is to the right");
-			Torque(new Vector3(0,0,0));
-			       }
+			Torque(new Vector3(0,0,0));  }
 		else
-			print ("Object is directly ahead");
-	 */
+			print ("Object is directly ahead"); */
 	void Update () {
 		if(player) {
 			playerDistance = Vector3.Distance(player.position, transform.position);
