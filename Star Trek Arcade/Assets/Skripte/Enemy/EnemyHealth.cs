@@ -10,12 +10,12 @@ public class EnemyHealth : MonoBehaviour {
 	int scoreValue = 30;
 
 	public AudioClip enemyDeathSound;
-	AudioSource enemyAudio;
+	AudioSource audioSource;
 
 	bool isDead;
 
 	void Awake() {
-		enemyAudio = GetComponent <AudioSource> ();
+		audioSource = GetComponent <AudioSource> ();
 		currentHealth = health;
 	}
 
@@ -43,20 +43,25 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "EnterpriseBolt" || other.tag == "Bolt") {			
+		if (other.tag == "EnterpriseBolt") {
+			Debug.Log("hit enemy ");
 			ApplyDamage(20);
 			//Zerstoere Schuss
+			Destroy(other.gameObject);
+		}
+		if(other.tag == "Bolt") {
+			ApplyDamage(2);
 			Destroy(other.gameObject);
 		}
 	}
 
 	private void PlayExplosionSound() {
-		enemyAudio.clip = enemyDeathSound;
-        enemyAudio.Play ();
+		audioSource.clip = enemyDeathSound;
+        audioSource.Play ();
 	}
 
 	// TODO: brauchen wir das?
 	public float getCurrentHealth(){
-		return health;
+		return currentHealth;
 	}
 }
