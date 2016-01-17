@@ -35,6 +35,9 @@ public class PlayerHealth : MonoBehaviour {
 	bool isDead;
 	bool damaged;
 
+	private GameObject gameOverScreen2;
+	private Canvas gameOverScreen;
+
 	void Awake () {
         // Set the initial health of the player.
         currentHealth = startingHealth;
@@ -43,6 +46,7 @@ public class PlayerHealth : MonoBehaviour {
 		audioSource = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
+		gameOverScreen = gameObject.GetComponent<Canvas> ();
     }
 
 	void Update () {
@@ -130,6 +134,7 @@ public class PlayerHealth : MonoBehaviour {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
+		gameOverScreen.enabled = true;
     }
 
 	private void PlayDeathSound() {
