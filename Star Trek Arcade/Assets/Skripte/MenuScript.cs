@@ -25,13 +25,12 @@ public class MenuScript : MonoBehaviour {
 		}
 	}
 
-	private void OnGUI()
-	{
+	private void OnGUI() {
 
-		Debug.Log ("_>" + menuSkin.font);
+
 		playButton.onClick.AddListener(() => StartGame());
 		/*GUI.skin = menuSkin;   //use the custom GUISkin
-		menuSkin.button.fontSize = (int)fontSize; //set the fontsize of the button 
+		menuSkin.button.fontSize = (int)fontSize; //set the fontsize of the button
 		menuSkin.box.fontSize = (int)fontSize; //set the font size of box
 
 		//create a menu
@@ -44,7 +43,7 @@ public class MenuScript : MonoBehaviour {
 		if (GUI.Button(new Rect(Screen.width/4, 3*Screen.height/8+10, 2*Screen.width/4, Screen.height/8), "HIGHSCORE")){
 			Application.LoadLevel(highscorePage); // open the credits scene
 		}
-		
+
 		if (GUI.Button(new Rect(Screen.width/4, 4*Screen.height/8+10, 2*Screen.width/4, Screen.height/8), "EXIT")){
 			Application.Quit(); // exit the game
 		}*/

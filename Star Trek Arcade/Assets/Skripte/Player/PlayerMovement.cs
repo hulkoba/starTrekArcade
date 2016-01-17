@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour {
 	private AudioSource audioSource;
 
 	private float flySpeed = 10;   // left shift for flying
-	private float warpSpeed = 40;  // w for warping
+	private float warpSpeed = 50;  // w for warping
+
+	Transform enterprise;
 
 	Rigidbody rb;
 
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Awake () {
 		audioSource = GetComponent<AudioSource>();
 		rb = gameObject.GetComponent<Rigidbody> ();
+		enterprise = GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
 
 	void FixedUpdate () {
@@ -68,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void move(float speed){
-		rb.AddForce (GameObject.FindGameObjectWithTag("MainCamera").transform.forward * speed);
+		rb.AddForce (enterprise.forward * speed);
 	}
 
 	void rotateView(float upDown, float leftRight){
