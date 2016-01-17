@@ -11,29 +11,38 @@ public class Score : MonoBehaviour {
 	private string[] scoreboard;
 	public GUISkin menuSkin;   //custom GUIskin reference
 	private GameObject m_TextObject;
-	private SortedDictionary<string,KeyValuePair<string,int>> highscoreDict = new SortedDictionary<string,KeyValuePair<string,int>> ();
+	private List<KeyValuePair<int,KeyValuePair<string,string>>> highscoreList = new List<KeyValuePair<int,KeyValuePair<string,string>>> ();
 
 	public float fontSize = 27; //preferred fontsize for this screen size
 	public int value = 20;  //factor value for changing fontsize if needed
 
+	public string fileName;
+	private string path;
+
+	private bool isNew = true;
+
 	// Use this for initialization
 	void Start () {
-		Load ("test.txt");
+		fileName = "test.txt";
+		path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
+		Load ();
 		//writeHighscore ("test.txt");
 
 		fontSize = Mathf.Min(Screen.width, Screen.height) / value;
 	}
 
-	private void Load(string fileName)
+	private void Load()
 	{
+
+		SortedList<int,KeyValuePair<string,string>> helperList = new SortedList<int, KeyValuePair<string,string>> ();
 
 		try
 		{
 			string line;
 
-			string path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
+
 			StreamReader theReader = new StreamReader(path, Encoding.Default);
-			int position = 2;
+			int position = 1;
 			using (theReader)
 			{
 				do
@@ -43,14 +52,18 @@ public class Score : MonoBehaviour {
 					if (line != null)
 					{
 						string[] stringArray = line.Split(':');
-						highscoreDict.Add(position.ToString(),new KeyValuePair<string, int>(stringArray[0],int.Parse(stringArray[1])));
+						helperList.Add(int.Parse(stringArray[1]),new KeyValuePair<string, string>(stringArray[0],stringArray[2]));
 						position++;
 					}
 				}
 				while (line != null);
 				// Done reading, close the reader and return true to broadcast success    
 				theReader.Close();
-				highscoreDict.Add("1",new KeyValuePair<string, int>("SortiertVonSelbst!",13));
+
+				for(int i = 0; i < 7; i++){
+					highscoreList.Add(new KeyValuePair<int,KeyValuePair<string,string>>(helperList.Keys[helperList.Count-1],new KeyValuePair<string,string>(helperList.Values[helperList.Count-1].Key,helperList.Values[helperList.Count-1].Value)));
+					helperList.RemoveAt(helperList.Count-1);
+				}
 			}
 		}
 		// If anything broke in the try block, we throw an exception with information
@@ -69,49 +82,39 @@ public class Score : MonoBehaviour {
 		menuSkin.button.fontSize = (int)fontSize; //set the fontsize of the button 
 		menuSkin.box.fontSize = (int)fontSize; //set the font size of box
 		int position = 1;
-		foreach(KeyValuePair<string,KeyValuePair<string,int>> entry in highscoreDict)
+		foreach(KeyValuePair<int,KeyValuePair<string,string>> entry in highscoreList)
 		{
-			GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Value.Value.ToString());
+			if(entry.Value.Value == "new"){
+				GUI.contentColor = Color.magenta;
+				isNew = false;
+			}
+			else{
+				GUI.contentColor = Color.black;
+			}
+			GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
 			position++;
 		}
 
-
+		writeHighscore ();
 	}
 
-	private void writeHighscore(string fileName){
-
-		string path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
-
-		try
-		{
-			string line;
-			StreamReader theReader = new StreamReader(path, Encoding.Default);
-			
-			using (theReader)
-			{
-				do
-				{
-					line = theReader.ReadLine();
-					
-					if (line != null)
-					{
-
-					}
-					else {
-						Debug.Log ("Noch kein Highscore erstellt");
-					}
-				}
-				while (line != null);
-				// Done reading, close the reader and return true to broadcast success    
-				theReader.Close();
-			}
+	private void overwriteNew(){
+		for (int i = 0; i < 7; i++) {
+			highscoreList[i] = new KeyValuePair<int, KeyValuePair<string, string>>(highscoreList[i].Key,new KeyValuePair<string, string>(highscoreList[i].Value.Key,"null"));
 		}
-				catch 
-		{
-			Debug.Log("error in fileload");
+	}
+
+	private void writeHighscore(){
+
+		if (!isNew) {
+			overwriteNew();
+		}
+		string[] stringLine = new string[7];
+		for (int i = 0; i < 7; i++) {
+			stringLine[i] = highscoreList[i].Value.Key+":"+highscoreList[i].Key.ToString()+":"+highscoreList[i].Value.Value;
 		}
 
-		//System.IO.File.WriteAllLines (path,stringLine);
+		System.IO.File.WriteAllLines (path,stringLine);
 	}
 }
 //Dictionary<TKey, TValue>() auch zum Sortieren wird passen.
