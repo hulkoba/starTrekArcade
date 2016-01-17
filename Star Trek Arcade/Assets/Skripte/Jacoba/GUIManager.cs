@@ -5,6 +5,8 @@ public class GUIManager : MonoBehaviour {
 
 	public RenderTexture MiniMapTexture;
 	public Material MiniMapMaterial;
+	public float size;
+	
 	float offset;
 
 	// Use this for initialization
@@ -14,7 +16,7 @@ public class GUIManager : MonoBehaviour {
 
 	void OnGUI () {
 		if(Event.current.type == EventType.Repaint) {
-			Graphics.DrawTexture(new Rect(Screen.width - 256 - offset, offset, 256, 256), MiniMapTexture, MiniMapMaterial);
+			Graphics.DrawTexture(new Rect(Screen.width - size - offset, offset, size, size), MiniMapTexture, MiniMapMaterial);
 		}
 	}
 }
