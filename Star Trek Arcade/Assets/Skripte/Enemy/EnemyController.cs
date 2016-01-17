@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour {
 		else
 			print ("Object is directly ahead"); */
 	void Update () {
-		if(player) {
+		if(player != null) {
 			playerDistance = Vector3.Distance(player.position, transform.position);
 			Vector3 newEnemyVector = player.position-gameObject.transform.position;
 
