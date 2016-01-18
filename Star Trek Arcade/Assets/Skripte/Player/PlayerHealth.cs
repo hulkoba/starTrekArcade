@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	public AudioClip deathSound;
 	public AudioClip damageSound;
+	public AudioClip alertSound;
 	AudioSource audioSource;
 
 	//PlayerMovement playerMovement; // Reference to the enterprise's movement.
@@ -53,6 +54,7 @@ public class PlayerHealth : MonoBehaviour {
          if(damaged) {
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
+			PlayDamageSound();
 			lastDamageTime = Time.time;
          } else {
              // ... transition the colour back to clear. flashspeed = 5f
@@ -84,6 +86,8 @@ public class PlayerHealth : MonoBehaviour {
 		shieldUI.value = currentShield;
 
 		if(currentShield <= 0) {
+			PlayAlertSound();
+
 			int damageLeft = currentShield*-1;
 			currentShield = 0;
 			ShipDamaging(damageLeft);
@@ -99,7 +103,9 @@ public class PlayerHealth : MonoBehaviour {
 	public void ShipDamaging(int damage) {
 		currentHealth -= damage;
 		healthUI.value = currentHealth;
-
+		if(currentHealth <= 10 && currentHealth > 0) {
+			PlayAlertSound();
+		}
 		if(currentHealth <= 0 && !isDead) {
 			GameOver();
 		}
@@ -136,6 +142,12 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	private void PlayDamageSound() {
 		audioSource.clip = damageSound;
+		audioSource.volume = 0.2f;
+		audioSource.Play();
+	}
+
+	private void PlayAlertSound() {
+		audioSource.clip = alertSound;
 		audioSource.Play();
 	}
 
