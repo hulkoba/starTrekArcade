@@ -33,7 +33,7 @@ public class PlayerCollider : MonoBehaviour {
 		}
 		if (other.gameObject.name == "Asteroid(Clone)") {
 			Vector3 helper = gameObject.transform.forward;
-			other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(helper.x*20f,helper.y*20f,helper.z*20f),ForceMode.Impulse);
+			other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(helper.x*5f,helper.y*5f,helper.z*5f),ForceMode.Impulse);
 		}
 	}
 }

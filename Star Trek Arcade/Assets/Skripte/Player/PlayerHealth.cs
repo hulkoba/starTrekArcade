@@ -35,9 +35,9 @@ public class PlayerHealth : MonoBehaviour {
 	bool isDead;
 	bool damaged;
 
-	private RawImage background;
-
 	public GameObject GameOverScreen;
+	public GameObject HUDObject;
+	public GameObject gameController;
 
 	void Awake () {
         // Set the initial health of the player.
@@ -122,6 +122,12 @@ public class PlayerHealth : MonoBehaviour {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
+		damageImage.enabled = false;
+		int score = ScoreManager.score;
+		HUDObject.SetActive (false);
+		gameController.GetComponent<GameController> ().enabled = false;
+		DestroyAll("Enemy");
+		DestroyAll ("Asteroid");
 		GameOverScreen.SetActive (true);
     }
 
@@ -132,5 +138,14 @@ public class PlayerHealth : MonoBehaviour {
 	private void PlayDamageSound() {
 		audioSource.clip = damageSound;
 		audioSource.Play();
+	}
+
+	private void DestroyAll(string type){
+		GameObject [] gameObjects = GameObject.FindGameObjectsWithTag (type);
+		
+		for(var i = 0 ; i < gameObjects.Length ; i ++)
+		{
+			Destroy(gameObjects[i]);
+		}
 	}
 }
