@@ -37,6 +37,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	private RawImage background;
 
+	public GameObject GameOverScreen;
+
 	void Awake () {
         // Set the initial health of the player.
         currentHealth = startingHealth;
@@ -66,18 +68,6 @@ public class PlayerHealth : MonoBehaviour {
          // Reset the damaged flag.
          damaged = false;
     }
-
-	void OnTriggerEnter(Collider other){
-		if(other.tag == "EnterpriseBolt") {
-			return;
-		}
-		if (other.tag == "Bolt") {
-		
-			ApplyDamage(5);
-			//Zerstoere Schuss
-			Destroy(other.gameObject);
-		}
-	}
 
 	public void ApplyDamage(int damage) {
 		damaged = true;
@@ -132,6 +122,7 @@ public class PlayerHealth : MonoBehaviour {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
+		GameOverScreen.SetActive (true);
     }
 
 	private void PlayDeathSound() {

@@ -82,20 +82,20 @@ public class Score : MonoBehaviour {
 		menuSkin.button.fontSize = (int)fontSize; //set the fontsize of the button 
 		menuSkin.box.fontSize = (int)fontSize; //set the font size of box
 		int position = 1;
+		GUIStyle highlite = menuSkin.GetStyle ("highlite");
 		foreach(KeyValuePair<int,KeyValuePair<string,string>> entry in highscoreList)
 		{
 			if(entry.Value.Value == "new"){
-				GUI.contentColor = Color.magenta;
+				GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString(),highlite);
 				isNew = false;
 			}
 			else{
-				GUI.contentColor = Color.black;
+				GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
 			}
-			GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
 			position++;
 		}
 
-		writeHighscore ();
+		//writeHighscore ();
 	}
 
 	private void overwriteNew(){

@@ -18,17 +18,19 @@ public class DestroyByContact : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 	    // not destroying the Boundary!
 		if (other.tag == "Boundary") {
+			Debug.Log ("COLLISION DESTROY:"+other.tag);
 	        return;
 	    }
 
 		if(other.tag == "Asteroid") {
+			Debug.Log ("COLLISION DESTROY:"+other.tag);
 			body.AddForce((transform.forward *-1) * 5);
 		}
 
 		if (other.tag == "Enemy" || other.tag == "MainCamera") {
 			//instantiate an explosion at the same position as the asteroid
 			Instantiate(asteroidExplosion, transform.position, transform.rotation);
-
+			Debug.Log ("COLLISION DESTROY:"+other.tag);
 			PlayExplosionSound();
 			Destroy(gameObject);
 		}

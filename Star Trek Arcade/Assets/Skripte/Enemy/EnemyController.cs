@@ -77,7 +77,6 @@ public class EnemyController : MonoBehaviour {
 
 	void Shoot(){
 		shotSpawn.rotation = gameObject.transform.rotation;
-
 		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 		PlayShotSound();
 	}
