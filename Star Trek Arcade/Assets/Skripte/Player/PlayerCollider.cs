@@ -10,11 +10,6 @@ public class PlayerCollider : MonoBehaviour {
 		playerHealth = transform.parent.GetComponent<PlayerHealth> ();
 	}
 
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	void OnTriggerEnter(Collider other){
 
 		if(other.tag == "EnterpriseBolt") {
@@ -34,6 +29,7 @@ public class PlayerCollider : MonoBehaviour {
 		if (other.gameObject.name == "Asteroid(Clone)") {
 			Vector3 helper = gameObject.transform.forward;
 			other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(helper.x*10f,helper.y*10f,helper.z*10f),ForceMode.Impulse);
+
 		}
 	}
 }
