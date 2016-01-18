@@ -24,7 +24,16 @@ public class DestroyByContact : MonoBehaviour {
 
 		if(other.tag == "Asteroid" || other.tag == "Enemy") {
 			// Asteroiden prallen aneinander ab
-			body.AddForce((transform.forward *-1) * 5);
+			body.AddForce((transform.forward * -1) * 10);
+		}
+
+		if (other.tag == "MainCamera") {
+			Vector3 helper = other.gameObject.transform.forward;
+			body.AddForce(new Vector3(helper.x * 10f,
+				helper.y * 10f,
+				helper.z * 10f),
+				ForceMode.Impulse);
+
 		}
 
 		if(other.tag == "Bolt" || other.tag == "EnterpriseBolt") {

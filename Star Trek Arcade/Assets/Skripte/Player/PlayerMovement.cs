@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.W)) {
 			//speed = warpSpeed;
-			warpMove(warpSpeed);
+			move(warpSpeed);
 		}
 
 		if(Input.GetKey(KeyCode.LeftShift)) {
@@ -73,22 +73,8 @@ public class PlayerMovement : MonoBehaviour {
 		rb.AddForce (enterprise.forward * speed);
 	}
 
-	void warpMove(float speed){
-		rb.AddForce (enterprise.forward * speed,ForceMode.Impulse);
-	}
-
 	void rotateView(float upDown, float leftRight){
 		rb.AddTorque (transform.right * upDown + transform.up * leftRight);
-	}
-
-	private void OnControllerColliderHit(ControllerColliderHit hit) {
-		print("### Collision!  " + hit.gameObject.name);
-		Rigidbody body = hit.collider.attachedRigidbody;
-
-		if (body == null || body.isKinematic) {
-			return;
-		}
-		body.AddForceAtPosition(rb.velocity*0.1f, hit.point, ForceMode.Impulse);
 	}
 
 	private void PlayWarpSound() {
