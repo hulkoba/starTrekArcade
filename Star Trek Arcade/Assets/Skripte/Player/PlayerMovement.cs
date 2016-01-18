@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] private AudioClip warpSound;
 	private AudioSource audioSource;
 
-	private float flySpeed = 10;   // left shift for flying
-	private float warpSpeed = 50;  // w for warping
+	private float flySpeed = 40;   // left shift for flying
+	private float warpSpeed = 100;  // w for warping
 
 	Transform enterprise;
 	Rigidbody rb;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.W)) {
 			//speed = warpSpeed;
-			move(warpSpeed);
+			warpMove(warpSpeed);
 		}
 
 		if(Input.GetKey(KeyCode.LeftShift)) {
@@ -71,6 +71,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void move(float speed){
 		rb.AddForce (enterprise.forward * speed);
+	}
+
+	void warpMove(float speed){
+		rb.AddForce (enterprise.forward * speed,ForceMode.Impulse);
 	}
 
 	void rotateView(float upDown, float leftRight){
