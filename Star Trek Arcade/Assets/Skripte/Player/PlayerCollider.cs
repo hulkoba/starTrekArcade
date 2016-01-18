@@ -9,10 +9,10 @@ public class PlayerCollider : MonoBehaviour {
 	void Start () {
 		playerHealth = transform.parent.GetComponent<PlayerHealth> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -20,10 +20,10 @@ public class PlayerCollider : MonoBehaviour {
 			return;
 		}
 		if (other.tag == "Bolt") {
-			
+
 			playerHealth.ApplyDamage(5);
 			//Zerstoere Schuss
-			Debug.Log ("PLAYERHEALTH:"+other.gameObject.name);
+			//Debug.Log ("PLAYERHEALTH:"+other.gameObject.name);
 			Destroy(other.gameObject);
 		}
 	}

@@ -8,11 +8,11 @@ public class PlayerShooting : MonoBehaviour {
 	public Transform shotSpawn;
 
 	float nextFire = 0.0f;
-	float fireRate = 0.5f;
+	float fireRate = 0.3f;
 
 	[SerializeField] private AudioClip shotSound;
 	private AudioSource audioSource;
-	
+
 	// Use this for initialization
 	void Awake () {
 		audioSource = GetComponent<AudioSource>();
@@ -43,19 +43,4 @@ public class PlayerShooting : MonoBehaviour {
 		audioSource.volume = 0.1f;
 		audioSource.Play();
 	}
-
-	private void OnControllerColliderHit(ControllerColliderHit hit) {
-		print("### Collision!  " + hit);
-		Rigidbody body = hit.collider.attachedRigidbody;
-		//dont move the rigidbody if the character is on top of it
-		// if (m_CollisionFlags == CollisionFlags.Below) {
-		// 	return;
-		// }
-
-		if (body == null || body.isKinematic) {
-			return;
-		}
-		//body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
-	}
-
 }

@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour {
 	private float warpSpeed = 50;  // w for warping
 
 	Transform enterprise;
-
 	Rigidbody rb;
 
 	// Use this for initialization
@@ -76,6 +75,16 @@ public class PlayerMovement : MonoBehaviour {
 
 	void rotateView(float upDown, float leftRight){
 		rb.AddTorque (transform.right * upDown + transform.up * leftRight);
+	}
+
+	private void OnControllerColliderHit(ControllerColliderHit hit) {
+		print("### Collision!  " + hit.gameObject.name);
+		Rigidbody body = hit.collider.attachedRigidbody;
+
+		if (body == null || body.isKinematic) {
+			return;
+		}
+		body.AddForceAtPosition(rb.velocity*0.1f, hit.point, ForceMode.Impulse);
 	}
 
 	private void PlayWarpSound() {
