@@ -51,8 +51,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	void Update () {
          if(damaged) {
-             // ... set the colour of the damageImage to the flash colour.
-             damageImage.color = flashColour;
+            // ... set the colour of the damageImage to the flash colour.
+            damageImage.color = flashColour;
 			lastDamageTime = Time.time;
          } else {
              // ... transition the colour back to clear. flashspeed = 5f
@@ -70,6 +70,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 	public void ApplyDamage(int damage) {
+
 		damaged = true;
 		if(currentShield > 0){
 			ShieldDamaging(damage);
@@ -90,25 +91,21 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
 	//SIEHE ENEMYHEALTH FUER IDEEN
-	public virtual void RechargeShield(){
-		//while (currentShield <=100) {
+	public virtual void RechargeShield() {
 		currentShield += 5;
 		shieldUI.value = currentShield;
-		//}
 	}
 
 	public void ShipDamaging(int damage) {
-
 		currentHealth -= damage;
 		healthUI.value = currentHealth;
 
 		if(currentHealth <= 0 && !isDead) {
-			Dying();
+			GameOver();
 		}
 	}
 
-    public void Dying() {
-		Debug.Log("Game Over!!!");
+    public void GameOver() {
 		isDead = true;
 		PlayDeathSound();
 
@@ -123,9 +120,11 @@ public class PlayerHealth : MonoBehaviour {
         playerMovement.enabled = false;
         playerShooting.enabled = false;
 		damageImage.enabled = false;
+		// ???
 		int score = ScoreManager.score;
 		HUDObject.SetActive (false);
 		gameController.GetComponent<GameController> ().enabled = false;
+
 		DestroyAll("Enemy");
 		DestroyAll ("Asteroid");
 		GameOverScreen.SetActive (true);
@@ -142,9 +141,8 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void DestroyAll(string type){
 		GameObject [] gameObjects = GameObject.FindGameObjectsWithTag (type);
-		
-		for(var i = 0 ; i < gameObjects.Length ; i ++)
-		{
+
+		for(var i = 0 ; i < gameObjects.Length ; i ++) {
 			Destroy(gameObjects[i]);
 		}
 	}

@@ -8,11 +8,11 @@ public class DestroyByContact : MonoBehaviour {
 
 	Rigidbody body;
 
-	public AudioClip explosionSound;
-	AudioSource audioSource;
+//	public AudioClip explosionSound;
+//	AudioSource audioSource;
 
 	void Awake() {
-		audioSource = GetComponent<AudioSource>();
+//		audioSource = GetComponent<AudioSource>();
 		body = gameObject.GetComponent<Rigidbody> ();
 	}
 
@@ -22,17 +22,9 @@ public class DestroyByContact : MonoBehaviour {
 	        return;
 	    }
 
-		if(other.tag == "Asteroid") {
+		if(other.tag == "Asteroid" || other.tag == "Enemy") {
 			// Asteroiden prallen aneinander ab
 			body.AddForce((transform.forward *-1) * 5);
-		}
-
-		if (other.tag == "Enemy" || other.tag == "MainCamera") {
-			//instantiate an explosion at the same position as the asteroid
-			Instantiate(asteroidExplosion, transform.position, transform.rotation);
-			//Debug.Log ("COLLISION DESTROY:"+other.tag);
-			PlayExplosionSound();
-			Destroy(gameObject);
 		}
 
 		if(other.tag == "Bolt" || other.tag == "EnterpriseBolt") {
@@ -57,9 +49,9 @@ public class DestroyByContact : MonoBehaviour {
 		}
 	}
 
-	private void PlayExplosionSound() {
-		audioSource.clip = explosionSound;
-		audioSource.volume = 0.2f;
-		audioSource.Play();
-	}
+	// private void PlayExplosionSound() {
+	// 	audioSource.clip = explosionSound;
+	// 	audioSource.volume = 0.2f;
+	// 	audioSource.Play();
+	// }
 }
