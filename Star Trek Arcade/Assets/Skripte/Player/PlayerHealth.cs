@@ -125,11 +125,13 @@ public class PlayerHealth : MonoBehaviour {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
-		damageImage.enabled = false;
+
 		// ???
 		int score = ScoreManager.score;
+
+
 		HUDObject.SetActive (false);
-		gameController.GetComponent<GameController> ().enabled = false;
+		//gameController.GetComponent<GameController> ().enabled = false;
 
 		DestroyAll("Enemy");
 		DestroyAll ("Asteroid");

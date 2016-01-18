@@ -32,12 +32,7 @@ public class GameController : MonoBehaviour {
 				var chooser = Random.Range(0,2);
 				if(chooser < 1){
 					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), 0, Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
-					//Instantiate(Enemy, spawnPosition, spawnRotation);
-
-					GameObject asteroid = Instantiate(Enemy, spawnPosition, spawnRotation) as GameObject;
-					float scale = Random.Range(4,8);
-					asteroid.transform.localScale = new Vector3(scale, scale, scale);
-
+					Instantiate(Enemy, spawnPosition, spawnRotation);
 				} else{
 					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), Random.Range(Enterprise.position.y -range, Enterprise.position.y + range), Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
 

@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField] private AudioClip shotSound;
 	private AudioSource audioSource;
 
-	public float playerDistance = 22;
+	public float playerDistance = 20;
 	float timeBetweenAttacks = 2f;
 	float nextFire = 0.0f;
 
