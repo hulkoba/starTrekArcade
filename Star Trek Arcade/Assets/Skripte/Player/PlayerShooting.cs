@@ -18,6 +18,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	[SerializeField] private AudioClip shotSound;
 	[SerializeField] private AudioClip torpedoSound;
+	[SerializeField] private AudioClip readyToFireSound;
 	private AudioSource audioSource;
 
 	// Use this for initialization
@@ -37,6 +38,7 @@ public class PlayerShooting : MonoBehaviour {
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			PlayShotSound(shotSound);
 		}
+
 		if(Input.GetButton("Fire2") && Time.time >= nextTorpedo ) {
 			nextTorpedo = Time.time + torpedoRate;
 			//torpedoSlider.value -= 10;
@@ -48,11 +50,17 @@ public class PlayerShooting : MonoBehaviour {
 		}
 	}
 
-	// public void shootTorpedo(){
-	// 	torpedoSpawn.rotation = GameObject.FindGameObjectWithTag("MainCamera").transform.rotation;
-	// 	torpedoSpawn.position = GameObject.FindGameObjectWithTag("MainCamera").transform.forward;
-	// 	Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
-	// }
+	public void RechargeTorpedos() {
+		//torpedoSlider.value += 1;
+	//	if(torpedoSlider.value == 100) {
+	//		PlayReadySound();
+	//	}
+	}
+
+	private void PlayReadySound() {
+		audioSource.clip = readyToFireSound;
+		audioSource.Play();
+	}
 
 	private void PlayShotSound(AudioClip sound) {
 		audioSource.clip = sound;

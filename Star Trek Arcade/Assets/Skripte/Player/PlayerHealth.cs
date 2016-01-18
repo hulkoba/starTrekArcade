@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 	float shieldReloadTime = 2.0f;
 	float lastDamageTime = 0.0f;
 
-	float shieldReloadWaitingTime = 0.5f;
+	float shieldReloadWaitingTime = 1f;
 	float timeBetweenShieldRecharge = 0.0f;
 
 	PlayerMovement playerMovement; // Reference to the player's movement.
@@ -90,9 +90,9 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	//SIEHE ENEMYHEALTH FUER IDEEN
-	public virtual void RechargeShield() {
-		currentShield += 5;
+
+	public void RechargeShield() {
+		currentShield += 2;
 		shieldUI.value = currentShield;
 	}
 
