@@ -4,6 +4,8 @@ using System.Collections;
 public class DestroyByContact : MonoBehaviour {
 
 	public GameObject asteroidExplosion;
+	public GameObject Asteroid;
+
 	Rigidbody body;
 
 	public AudioClip explosionSound;
@@ -17,12 +19,11 @@ public class DestroyByContact : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 	    // not destroying the Boundary!
 		if (other.tag == "Boundary") {
-			//Debug.Log ("COLLISION DESTROY:"+other.tag);
 	        return;
 	    }
 
 		if(other.tag == "Asteroid") {
-			//Debug.Log ("COLLISION DESTROY:"+other.tag);
+			// Asteroiden prallen aneinander ab
 			body.AddForce((transform.forward *-1) * 5);
 		}
 
@@ -35,26 +36,30 @@ public class DestroyByContact : MonoBehaviour {
 		}
 
 		if(other.tag == "Bolt" || other.tag == "EnterpriseBolt") {
+			//PlayExplosionSound();
+
 			//instantiate an explosion at the same position as the asteroid
-		//	Instantiate(asteroidExplosion, transform.position, transform.rotation);
-			PlayExplosionSound();
+			Instantiate(asteroidExplosion, transform.position, transform.rotation);
 			Destroy(gameObject);
 			Destroy(other.gameObject);
-		}
-	}
 
-	private void OnControllerColliderHit(ControllerColliderHit hit) {
-		print("### Collision! in destroybycontact  " + hit.gameObject.name);
-		//Rigidbody body = hit.collider.attachedRigidbody;
+			// if a huge asteroid is shot, it splits into 2
+			if(transform.localScale.x >= 4) {
+				float scale = transform.localScale.x / 2;
+				Vector3 position = new Vector3(transform.position.x + 0.4f, transform.position.y + 0.4f, transform.position.z + 0.4f);
+				Vector3 position1 = new Vector3(transform.position.x - 0.4f, transform.position.y - 0.4f, transform.position.z - 0.4f);
 
-		if (body == null || body.isKinematic) {
-			return;
+				GameObject asteroidChild = Instantiate(Asteroid, position,  Quaternion.identity) as GameObject;
+				GameObject asteroidSndChild = Instantiate(Asteroid, position1,  Quaternion.identity) as GameObject;
+				asteroidChild.transform.localScale = new Vector3(scale, scale, scale);
+				asteroidSndChild.transform.localScale = new Vector3(scale, scale, scale);
+			}
 		}
-		//body.AddForceAtPosition(gameObject.velocity*0.1f, hit.point, ForceMode.Impulse);
 	}
 
 	private void PlayExplosionSound() {
 		audioSource.clip = explosionSound;
+		audioSource.volume = 0.2f;
 		audioSource.Play();
 	}
 }
