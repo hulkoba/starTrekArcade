@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour {
 	int startingShield = 100;
 	int startingHealth = 100;
 	public int currentHealth = 0;
-	int currentShield = 0;
+	public int currentShield = 0;
 
 	float shieldReloadTime = 2.0f;
 	float lastDamageTime = 0.0f;
@@ -33,8 +33,7 @@ public class PlayerHealth : MonoBehaviour {
 	bool isDead;
 	bool damaged;
 
-	public GameObject GameOverScreen;
-	public GameObject HUDObject;
+	GameController gameController;
 
 	void Awake () {
         // Set the initial health of the player.
@@ -44,6 +43,7 @@ public class PlayerHealth : MonoBehaviour {
 		audioSource = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
+		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
     }
 
 	void Update () {
@@ -121,11 +121,7 @@ public class PlayerHealth : MonoBehaviour {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
-		HUDObject.SetActive (false);
-
-		DestroyAll("Enemy");
-		DestroyAll ("Asteroid");
-		GameOverScreen.SetActive (true);
+		gameController.EndSequence ();
     }
 
 	private void PlayDeathSound() {
@@ -141,13 +137,5 @@ public class PlayerHealth : MonoBehaviour {
 	private void PlayAlertSound() {
 		audioSource.clip = alertSound;
 		audioSource.Play();
-	}
-
-	private void DestroyAll(string type){
-		GameObject [] gameObjects = GameObject.FindGameObjectsWithTag (type);
-
-		for(var i = 0 ; i < gameObjects.Length ; i ++) {
-			Destroy(gameObjects[i]);
-		}
 	}
 }
