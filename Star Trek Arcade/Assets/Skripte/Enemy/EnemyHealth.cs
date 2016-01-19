@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour {
 		//instantiate an enemyExplosion at the same position as the asteroid
 		Instantiate(enemyExplosion, transform.position, transform.rotation);
 		//destroy the enemy
-		Destroy(gameObject);
+		Destroy(gameObject, 0.1f);
 
 		// Increase the score by the enemy's score value.
 		ScoreManager.score += scoreValue;
@@ -44,26 +44,24 @@ public class EnemyHealth : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "EnterpriseBolt") {
-			//Debug.Log ("ENEMYHEALTH:"+other.gameObject.name);
 			ApplyDamage(20);
 			//Zerstoere Schuss
 			Destroy(other.gameObject);
 		}
 		if(other.tag == "Bolt") {
-			Debug.Log("hit enemy ");
-		//	Debug.Log ("ENEMYHEALTH:"+other.gameObject.name);
+			return;
 			//ApplyDamage(2);
 			//Destroy(other.gameObject);
+		}
+		if (other.tag == "Torpedo") {
+			ApplyDamage(30);
+			//Zerstoere Schuss
+			Destroy(other.gameObject);
 		}
 	}
 
 	private void PlayExplosionSound() {
 		audioSource.clip = enemyDeathSound;
         audioSource.Play ();
-	}
-
-	// TODO: brauchen wir das?
-	public float getCurrentHealth(){
-		return currentHealth;
 	}
 }

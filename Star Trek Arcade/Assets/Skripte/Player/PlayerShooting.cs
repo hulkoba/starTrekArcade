@@ -44,11 +44,11 @@ public class PlayerShooting : MonoBehaviour {
 			PlayShotSound(shotSound, 0.1f);
 		}
 
-		if(Input.GetButton("Fire2") && Time.time >= nextTorpedo ) {
+		if(Input.GetButton("Fire2") && Time.time >= nextTorpedo && torpedoSlider.value >= 10) {
 			torpedoFired = true;
 
 			nextTorpedo = Time.time + torpedoRate;
-			torpedoSlider.value -= 20;
+			torpedoSlider.value -= 10;
 
 			shotSpawn.rotation = gameObject.transform.rotation;
 

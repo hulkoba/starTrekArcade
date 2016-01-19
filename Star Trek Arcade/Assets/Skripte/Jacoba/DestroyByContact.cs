@@ -5,7 +5,6 @@ public class DestroyByContact : MonoBehaviour {
 
 	public GameObject asteroidExplosion;
 	public GameObject Asteroid;
-
 	Rigidbody body;
 
 //	public AudioClip explosionSound;
@@ -38,11 +37,7 @@ public class DestroyByContact : MonoBehaviour {
 
 		if(other.tag == "Bolt" || other.tag == "EnterpriseBolt") {
 			//PlayExplosionSound();
-
-			//instantiate an explosion at the same position as the asteroid
-			Instantiate(asteroidExplosion, transform.position, transform.rotation);
-			Destroy(gameObject);
-			Destroy(other.gameObject);
+			Explode(other);
 
 			// if a huge asteroid is shot, it splits into 2
 			if(transform.localScale.x >= 4) {
@@ -56,6 +51,17 @@ public class DestroyByContact : MonoBehaviour {
 				asteroidSndChild.transform.localScale = new Vector3(scale, scale, scale);
 			}
 		}
+
+		if(other.tag == "Torpedo") {		
+			Explode(other);
+		}
+	}
+
+	void Explode(Collider other) {
+		//instantiate an explosion at the same position as the asteroid
+		Instantiate(asteroidExplosion, transform.position, transform.rotation);
+		Destroy(gameObject);
+		Destroy(other.gameObject);
 	}
 
 	// private void PlayExplosionSound() {
