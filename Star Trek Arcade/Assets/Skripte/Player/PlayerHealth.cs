@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour {
 	public Slider shieldUI;
 
 	public Image damageImage;
-	Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	Color flashColour = new Color(1f, 0f, 0f, 0.3f);
 
 	public AudioClip deathSound;
 	public AudioClip damageSound;
@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour {
              damageImage.color = Color.Lerp (damageImage.color, Color.clear, 5f * Time.deltaTime);
 
 			if(currentShield <= 100 && Time.time > shieldReloadTime+lastDamageTime){
-				if(Time.time > timeBetweenShieldRecharge+shieldReloadWaitingTime){
+				if(Time.time > timeBetweenShieldRecharge + shieldReloadWaitingTime){
 					RechargeShield();
 					timeBetweenShieldRecharge = Time.time;
 				}

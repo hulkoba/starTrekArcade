@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour {
 			Torque(new Vector3(0,0,0));  }
 		else
 			print ("Object is directly ahead"); */
-	void Update () {
+	void FixedUpdate () {
 
 		playerDistance = Vector3.Distance(player.position, transform.position);
 		Vector3 newEnemyVector = player.position-gameObject.transform.position;
