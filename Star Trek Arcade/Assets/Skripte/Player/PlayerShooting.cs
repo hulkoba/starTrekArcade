@@ -35,7 +35,7 @@ public class PlayerShooting : MonoBehaviour {
 	private void Update() {
 
 		//pressed the firebutton AND loaded weapons?
-		if(Input.GetButton("Fire1") && Time.time >= nextFire ) {
+		if((Input.GetButton("Fire1")||Input.GetKey(KeyCode.Space)) && Time.time >= nextFire ) {
 			nextFire = Time.time + fireRate;
 
 			shotSpawn.rotation = gameObject.transform.rotation;
@@ -44,7 +44,7 @@ public class PlayerShooting : MonoBehaviour {
 			PlayShotSound(shotSound, 0.1f);
 		}
 
-		if(Input.GetButton("Fire2") && Time.time >= nextTorpedo && torpedoSlider.value >= 10) {
+		if((Input.GetButton("Fire2")||Input.GetKey(KeyCode.LeftAlt)) && Time.time >= nextTorpedo && torpedoSlider.value >= 10) {
 			torpedoFired = true;
 
 			nextTorpedo = Time.time + torpedoRate;
