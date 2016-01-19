@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField] private AudioClip shotSound;
 	private AudioSource audioSource;
 
-	public float playerDistance = 20;
+	float playerDistance;
 	float timeBetweenAttacks = 2f;
 	float nextFire = 0.0f;
 
@@ -23,8 +23,6 @@ public class EnemyController : MonoBehaviour {
 	public float dragTime;
 	//Speed sollte sich an dragTime orientieren, der Gegner ist sonst sehr schwerfällig sich zu drehen
 	float speed;
-
-
 
 	// Use this for initialization
 	void Awake () {
@@ -55,20 +53,19 @@ public class EnemyController : MonoBehaviour {
 
 		var newRotation = Quaternion.LookRotation(player.position-transform.position, Vector3.up);
 		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
-		if (playerDistance >= 7f) {
+		if (playerDistance >= 10) {
 			Move ();
 		}
 
 		  //Wenn 0 dann zielt er genau auf den Spieler;
 		  float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
 
-		if (Angle <= 15f) {
+		if (Angle <= 15f && playerDistance <= 30) {
 			if(Time.time >= nextFire && enemyHealth.currentHealth > 0){
 				nextFire = Time.time + timeBetweenAttacks;
 				Shoot ();
 			}
 		}
-
 	}
 
 	void Move(){

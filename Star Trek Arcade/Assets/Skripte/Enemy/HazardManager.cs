@@ -18,7 +18,7 @@ public class HazardManager : MonoBehaviour {
     }
 
     void Spawn () {
-        if(playerHealth.currentHealth <= 0f) {            
+        if(playerHealth.currentHealth <= 0f) {
             return;
         }
 
@@ -29,7 +29,7 @@ public class HazardManager : MonoBehaviour {
             Instantiate (Hazard, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         } else {
             GameObject asteroid = Instantiate(Hazard, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
-            float scale = Random.Range(4,8);
+            float scale = Random.Range(1,8);
             asteroid.transform.localScale = new Vector3(scale, scale, scale);
         }
     }

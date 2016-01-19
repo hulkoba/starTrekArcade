@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
 					Vector3 spawnPosition = new Vector3(Random.Range(Enterprise.position.x -range, Enterprise.position.x + range), Random.Range(Enterprise.position.y -range, Enterprise.position.y + range), Random.Range(Enterprise.position.z -range, Enterprise.position.z + range));
 
 					GameObject asteroid = Instantiate(Asteroid, spawnPosition, spawnRotation) as GameObject;
-					float scale = Random.Range(4,8);
+					float scale = Random.Range(1,8);
 					asteroid.transform.localScale = new Vector3(scale, scale, scale);
 				}
 
