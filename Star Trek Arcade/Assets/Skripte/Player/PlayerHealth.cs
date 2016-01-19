@@ -16,9 +16,6 @@ public class PlayerHealth : MonoBehaviour {
 	public AudioClip alertSound;
 	AudioSource audioSource;
 
-	//PlayerMovement playerMovement; // Reference to the enterprise's movement.
-	// PlayerShooting playerShooting;
-
 	int startingShield = 100;
 	int startingHealth = 100;
 	public int currentHealth = 0;
@@ -38,7 +35,6 @@ public class PlayerHealth : MonoBehaviour {
 
 	public GameObject GameOverScreen;
 	public GameObject HUDObject;
-	public GameObject gameController;
 
 	void Awake () {
         // Set the initial health of the player.
@@ -72,7 +68,6 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 	public void ApplyDamage(int damage) {
-
 		damaged = true;
 		if(currentShield > 0){
 			ShieldDamaging(damage);
@@ -94,7 +89,6 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-
 	public void RechargeShield() {
 		currentShield += 2;
 		shieldUI.value = currentShield;
@@ -115,6 +109,8 @@ public class PlayerHealth : MonoBehaviour {
 		isDead = true;
 		PlayDeathSound();
 
+		damageImage.color = flashColour;
+
 		//KAMERA.PARTEN = NULL
 		//DANN NACH HINTEN .TransForm UND MAN KÖNNTE DANN EXPLODIEREN
 		//DRAN DENKEN, DASS DIE KAMERA DANN GELÖSCHT WERDEN MUSS, WENN NEUES SPIEL GESTARTET WIRD
@@ -125,13 +121,7 @@ public class PlayerHealth : MonoBehaviour {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
-
-		// ???
-		int score = ScoreManager.score;
-
-
 		HUDObject.SetActive (false);
-		//gameController.GetComponent<GameController> ().enabled = false;
 
 		DestroyAll("Enemy");
 		DestroyAll ("Asteroid");

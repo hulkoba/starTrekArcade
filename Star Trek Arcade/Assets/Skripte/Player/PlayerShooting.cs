@@ -41,7 +41,7 @@ public class PlayerShooting : MonoBehaviour {
 			shotSpawn.rotation = gameObject.transform.rotation;
 
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			PlayShotSound(shotSound, 0.1f);
+			PlayShotSound(shotSound, 0.2f);
 		}
 
 		if(Input.GetButton("Fire2") && Time.time >= nextTorpedo && torpedoSlider.value >= 10) {
@@ -53,7 +53,7 @@ public class PlayerShooting : MonoBehaviour {
 			shotSpawn.rotation = gameObject.transform.rotation;
 
 			Instantiate(torpedo, shotSpawn.position, shotSpawn.rotation);
-			PlayShotSound(torpedoSound, 1f);
+			PlayShotSound(torpedoSound, 0.9f);
 		}
 	}
 
