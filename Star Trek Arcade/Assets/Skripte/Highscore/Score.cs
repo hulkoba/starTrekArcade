@@ -20,6 +20,7 @@ public class Score : MonoBehaviour {
 	private string path;
 
 	private bool isNew = true;
+	private bool emptyScore = false;
 
 	public Button backToMainmenuButton;
 
@@ -28,7 +29,7 @@ public class Score : MonoBehaviour {
 		backToMainmenuButton.onClick.AddListener (() => backToMainMenu ());
 
 		fileName = "score.txt";
-		path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
+		path = Application.dataPath+@"/"+fileName;
 		Load ();
 		//writeHighscore ("test.txt");
 
@@ -39,43 +40,40 @@ public class Score : MonoBehaviour {
 	{
 
 		SortedList<int,KeyValuePair<string,string>> helperList = new SortedList<int, KeyValuePair<string,string>> ();
+		if (System.IO.File.Exists (path)) {
+			try {
+				string line;
 
-		try
-		{
-			string line;
-
-
-			StreamReader theReader = new StreamReader(path, Encoding.Default);
-			int position = 1;
-			using (theReader)
-			{
-				do
-				{
-					line = theReader.ReadLine();
+				StreamReader theReader = new StreamReader (path, Encoding.Default);
+				int position = 1;
+				using (theReader) {
+					do {
+						line = theReader.ReadLine ();
+						
+						if (line != null) {
+							string[] stringArray = line.Split (':');
+							helperList.Add (int.Parse (stringArray [1]), new KeyValuePair<string, string> (stringArray [0], stringArray [2]));
+							position++;
+						}
+					} while (line != null);
+					// Done reading, close the reader and return true to broadcast success    
+					theReader.Close ();
 					
-					if (line != null)
-					{
-						string[] stringArray = line.Split(':');
-						helperList.Add(int.Parse(stringArray[1]),new KeyValuePair<string, string>(stringArray[0],stringArray[2]));
-						position++;
+					for (int i = 0; i < 7; i++) {
+						highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
+						helperList.RemoveAt (helperList.Count - 1);
 					}
 				}
-				while (line != null);
-				// Done reading, close the reader and return true to broadcast success    
-				theReader.Close();
-
-				for(int i = 0; i < 7; i++){
-					highscoreList.Add(new KeyValuePair<int,KeyValuePair<string,string>>(helperList.Keys[helperList.Count-1],new KeyValuePair<string,string>(helperList.Values[helperList.Count-1].Key,helperList.Values[helperList.Count-1].Value)));
-					helperList.RemoveAt(helperList.Count-1);
-				}
 			}
+			// If anything broke in the try block, we throw an exception with information
+			// on what didn't work
+			catch {
+				Debug.Log ("error in fileload in LOADING");
+			}
+		} else {
+			emptyScore = true;
 		}
-		// If anything broke in the try block, we throw an exception with information
-		// on what didn't work
-		catch 
-		{
-			Debug.Log("error in fileload in LOADING");
-		}
+
 
 	}
 
@@ -87,17 +85,21 @@ public class Score : MonoBehaviour {
 		menuSkin.box.fontSize = (int)fontSize; //set the font size of box
 		int position = 1;
 		GUIStyle highlite = menuSkin.GetStyle ("highlite");
-		foreach(KeyValuePair<int,KeyValuePair<string,string>> entry in highscoreList)
-		{
-			if(entry.Value.Value == "new"){
-				GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString(),highlite);
-			}
-			else{
-				GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
-			}
-			position++;
+		if (emptyScore) {
+			GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "No highscore created. Play more.");
 		}
-
+		else{
+			foreach(KeyValuePair<int,KeyValuePair<string,string>> entry in highscoreList)
+			{
+				if(entry.Value.Value == "new"){
+					GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString(),highlite);
+				}
+				else{
+					GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
+				}
+				position++;
+			}
+		}
 		//writeHighscore ();
 	}
 

@@ -18,7 +18,6 @@ public class GameOverScreen : MonoBehaviour {
 
 	private string path;
 	private int endScore;
-	private bool nameEnterd = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,62 +25,124 @@ public class GameOverScreen : MonoBehaviour {
 		restartButton.onClick.AddListener (() => RestartGame ());
 
 		fileName = "score.txt";
-		path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
+		path = Application.dataPath+@"/"+fileName;
 
 		endScore = PlayerPrefs.GetInt ("endScore");
 		scoreShow.text = "Score: "+endScore;
 	}
 	
 	void WriteScore(){
-		if (playerName.text != "") {
-			SortedList<int,KeyValuePair<string,string>> helperList = new SortedList<int, KeyValuePair<string,string>> ();		
-			try {
-				string line;
-				StreamReader theReader = new StreamReader (path, Encoding.Default);
-				int position = 1;
-				using (theReader) {
-					do {
-						line = theReader.ReadLine ();				
-						if (line != null) {
-							string[] stringArray = line.Split (':');
-							helperList.Add (int.Parse (stringArray [1]), new KeyValuePair<string, string> (stringArray [0], stringArray [2]));
-							position++;
+		SortedList<int,KeyValuePair<string,string>> helperList = new SortedList<int, KeyValuePair<string,string>> ();		
+		string[] stringLine = new string[7];
+		if (System.IO.File.Exists (path)) {
+			if (playerName.text != "") {
+				try {
+					string line;
+					StreamReader theReader = new StreamReader (path, Encoding.Default);
+					int position = 1;
+					using (theReader) {
+						do {
+							line = theReader.ReadLine ();				
+							if (line != null) {
+								string[] stringArray = line.Split (':');
+								helperList.Add (int.Parse (stringArray [1]), new KeyValuePair<string, string> (stringArray [0], stringArray [2]));
+								position++;
+							}
+						} while (line != null);
+						// Done reading, close the reader and return true to broadcast success    
+						theReader.Close ();
+						helperList.Add (endScore, new KeyValuePair<string, string> (playerName.text, "new"));
+						for (int i = 0; i < helperList.Count; i++) {
+							highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
+							helperList.RemoveAt (helperList.Count - 1);
 						}
-					} while (line != null);
-					// Done reading, close the reader and return true to broadcast success    
-					theReader.Close ();
+					}
+				} catch {
+					Debug.Log ("error in fileload in LOADING");
+				}
+				for (int i = 0; i < highscoreList.Count; i++) {
+					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
+				}
+				
+				System.IO.File.WriteAllLines (path, stringLine);
+			} else {
+				//Empty InputField
+				try {
+					string line;
+					StreamReader theReader = new StreamReader (path, Encoding.Default);
+					int position = 1;
+					using (theReader) {
+						do {
+							line = theReader.ReadLine ();				
+							if (line != null) {
+								string[] stringArray = line.Split (':');
+								helperList.Add (int.Parse (stringArray [1]), new KeyValuePair<string, string> (stringArray [0], stringArray [2]));
+								position++;
+							}
+						} while (line != null);
+						// Done reading, close the reader and return true to broadcast success    
+						theReader.Close ();
+						helperList.Add (endScore, new KeyValuePair<string, string> ("Player", "new"));
+						for (int i = 0; i < helperList.Count; i++) {
+							highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
+							helperList.RemoveAt (helperList.Count - 1);
+						}
+					}
+				} catch {
+					Debug.Log ("error in fileload in LOADING");
+				}
+				for (int i = 0; i < highscoreList.Count; i++) {
+					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
+				}
+				
+				System.IO.File.WriteAllLines (path, stringLine);
+			}
+		}
+		//File does not exists Test
+		else {
+			if (playerName.text != "") {
+				try {
 					helperList.Add (endScore, new KeyValuePair<string, string> (playerName.text, "new"));
-					for (int i = 0; i < 7; i++) {
+					for (int i = 0; i < helperList.Count; i++) {
 						highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
 						helperList.RemoveAt (helperList.Count - 1);
 					}
+				} catch {
+					Debug.Log ("error in fileload in LOADING");
 				}
-			} catch {
-				Debug.Log ("error in fileload in LOADING");
+				for (int i = 0; i < highscoreList.Count; i++) {
+					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
+				}
+				
+				System.IO.File.WriteAllLines (path, stringLine);
+			} else {
+				//Empty InputField
+				try {
+					helperList.Add (endScore, new KeyValuePair<string, string> ("Player", "new"));
+					for (int i = 0; i < helperList.Count; i++) {
+						highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
+						helperList.RemoveAt (helperList.Count - 1);
+					}
+				} catch {
+					Debug.Log ("error in fileload in LOADING");
+				}
+				for (int i = 0; i < highscoreList.Count; i++) {
+					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
+				}
+				
+				System.IO.File.WriteAllLines (path, stringLine);
 			}
-			string[] stringLine = new string[7];
-			for (int i = 0; i < 7; i++) {
-				stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
-			}
-			
-			System.IO.File.WriteAllLines (path, stringLine);
-			nameEnterd = true;
-		} else {
-			Debug.Log ("EMPTY INPUTFIELD!");
 		}
 	}
 
 	void RestartGame(){
 		WriteScore ();
-		if (nameEnterd) {
-			Application.LoadLevel (1);
-		}
+		Application.LoadLevel (1);
+
 	}
 
 	void SubmitMainmenu(){
 		WriteScore ();
-		if (nameEnterd) {
-			Application.LoadLevel (2);
-		}
+		Application.LoadLevel (0);
 	}
 }
