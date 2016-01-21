@@ -21,8 +21,12 @@ public class Score : MonoBehaviour {
 
 	private bool isNew = true;
 
+	public Button backToMainmenuButton;
+
 	// Use this for initialization
 	void Start () {
+		backToMainmenuButton.onClick.AddListener (() => backToMainMenu ());
+
 		fileName = "test.txt";
 		path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
 		Load ();
@@ -86,11 +90,10 @@ public class Score : MonoBehaviour {
 		foreach(KeyValuePair<int,KeyValuePair<string,string>> entry in highscoreList)
 		{
 			if(entry.Value.Value == "new"){
-				GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString(),highlite);
-				isNew = false;
+				GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString(),highlite);
 			}
 			else{
-				GUI.TextField (new Rect (Screen.width / 3, position * Screen.height / 12 + 115, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
+				GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
 			}
 			position++;
 		}
@@ -106,7 +109,7 @@ public class Score : MonoBehaviour {
 
 	private void writeHighscore(){
 
-		if (!isNew) {
+		if (isNew) {
 			overwriteNew();
 		}
 		string[] stringLine = new string[7];
@@ -115,6 +118,11 @@ public class Score : MonoBehaviour {
 		}
 
 		System.IO.File.WriteAllLines (path,stringLine);
+	}
+
+	private void backToMainMenu(){
+		writeHighscore ();
+		Application.LoadLevel ("mainScene");
 	}
 }
 //Dictionary<TKey, TValue>() auch zum Sortieren wird passen.
