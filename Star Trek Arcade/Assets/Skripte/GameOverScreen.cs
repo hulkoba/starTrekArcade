@@ -25,7 +25,7 @@ public class GameOverScreen : MonoBehaviour {
 		submitButton.onClick.AddListener (() => SubmitMainmenu ());
 		restartButton.onClick.AddListener (() => RestartGame ());
 
-		fileName = "test.txt";
+		fileName = "score.txt";
 		path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
 
 		endScore = PlayerPrefs.GetInt ("endScore");
@@ -74,14 +74,14 @@ public class GameOverScreen : MonoBehaviour {
 	void RestartGame(){
 		WriteScore ();
 		if (nameEnterd) {
-			Application.LoadLevel ("ego");
+			Application.LoadLevel (1);
 		}
 	}
 
 	void SubmitMainmenu(){
 		WriteScore ();
 		if (nameEnterd) {
-			Application.LoadLevel ("mainScene");
+			Application.LoadLevel (2);
 		}
 	}
 }

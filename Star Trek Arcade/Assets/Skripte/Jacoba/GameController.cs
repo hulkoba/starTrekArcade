@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour {
 		DestroyAll ("Asteroid");
 		endScore = ScoreManager.score;
 		PlayerPrefs.SetInt ("endScore", endScore);
-		Application.LoadLevel ("GameOverScreen");
+		Application.LoadLevel (2);
 	}
 
 	private void DestroyAll(string type){

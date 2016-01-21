@@ -27,7 +27,7 @@ public class Score : MonoBehaviour {
 	void Start () {
 		backToMainmenuButton.onClick.AddListener (() => backToMainMenu ());
 
-		fileName = "test.txt";
+		fileName = "score.txt";
 		path = Application.dataPath+@"/Skripte/Highscore/scores/"+fileName;
 		Load ();
 		//writeHighscore ("test.txt");
@@ -122,7 +122,7 @@ public class Score : MonoBehaviour {
 
 	private void backToMainMenu(){
 		writeHighscore ();
-		Application.LoadLevel ("mainScene");
+		Application.LoadLevel ("menuScene");
 	}
 }
 //Dictionary<TKey, TValue>() auch zum Sortieren wird passen.
