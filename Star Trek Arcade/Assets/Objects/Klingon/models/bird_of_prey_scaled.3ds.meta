@@ -1,0 +1,241 @@
+fileFormatVersion: 2
+guid: 4a72cc5fda5df4c408bd1c0ed5ef8d0b
+timeCreated: 1453544520
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bridge
+    100004: d7 front b
+    100006: d7 front t
+    100008: ENGINES01
+    100010: ENGINES02
+    100012: enginesglo
+    100014: GRILLS
+    100016: hull back
+    100018: hull front
+    100020: IMPULSE IN
+    100022: impulseout
+    100024: kd7navlits
+    100026: m grills
+    100028: neck
+    100030: Object01
+    100032: Object02
+    100034: Object03
+    100036: Object04
+    100038: Object05
+    100040: Object06
+    100042: Object07
+    100044: Object08
+    100046: Object09
+    100048: Object10
+    100050: Object11
+    100052: Object12
+    100054: Object13
+    100056: Object14
+    100058: Object15
+    100060: Object16
+    100062: Omni01
+    100064: Omni02
+    100066: r hull
+    100068: TOP POD
+    400000: //RootNode
+    400002: bridge
+    400004: d7 front b
+    400006: d7 front t
+    400008: ENGINES01
+    400010: ENGINES02
+    400012: enginesglo
+    400014: GRILLS
+    400016: hull back
+    400018: hull front
+    400020: IMPULSE IN
+    400022: impulseout
+    400024: kd7navlits
+    400026: m grills
+    400028: neck
+    400030: Object01
+    400032: Object02
+    400034: Object03
+    400036: Object04
+    400038: Object05
+    400040: Object06
+    400042: Object07
+    400044: Object08
+    400046: Object09
+    400048: Object10
+    400050: Object11
+    400052: Object12
+    400054: Object13
+    400056: Object14
+    400058: Object15
+    400060: Object16
+    400062: Omni01
+    400064: Omni02
+    400066: r hull
+    400068: TOP POD
+    2300000: bridge
+    2300002: d7 front b
+    2300004: d7 front t
+    2300006: ENGINES01
+    2300008: ENGINES02
+    2300010: enginesglo
+    2300012: GRILLS
+    2300014: hull back
+    2300016: hull front
+    2300018: IMPULSE IN
+    2300020: impulseout
+    2300022: kd7navlits
+    2300024: m grills
+    2300026: neck
+    2300028: Object01
+    2300030: Object02
+    2300032: Object03
+    2300034: Object04
+    2300036: Object05
+    2300038: Object06
+    2300040: Object07
+    2300042: Object08
+    2300044: Object09
+    2300046: Object10
+    2300048: Object11
+    2300050: Object12
+    2300052: Object13
+    2300054: Object14
+    2300056: Object15
+    2300058: Object16
+    2300060: Omni01
+    2300062: Omni02
+    2300064: r hull
+    2300066: TOP POD
+    3300000: bridge
+    3300002: d7 front b
+    3300004: d7 front t
+    3300006: ENGINES01
+    3300008: ENGINES02
+    3300010: enginesglo
+    3300012: GRILLS
+    3300014: hull back
+    3300016: hull front
+    3300018: IMPULSE IN
+    3300020: impulseout
+    3300022: kd7navlits
+    3300024: m grills
+    3300026: neck
+    3300028: Object01
+    3300030: Object02
+    3300032: Object03
+    3300034: Object04
+    3300036: Object05
+    3300038: Object06
+    3300040: Object07
+    3300042: Object08
+    3300044: Object09
+    3300046: Object10
+    3300048: Object11
+    3300050: Object12
+    3300052: Object13
+    3300054: Object14
+    3300056: Object15
+    3300058: Object16
+    3300060: Omni01
+    3300062: Omni02
+    3300064: r hull
+    3300066: TOP POD
+    4300000: Object16
+    4300002: Object15
+    4300004: Omni02
+    4300006: Object14
+    4300008: Object13
+    4300010: Object12
+    4300012: Object11
+    4300014: Object07
+    4300016: Object06
+    4300018: Object10
+    4300020: Object09
+    4300022: Object08
+    4300024: Object03
+    4300026: Object05
+    4300028: Object04
+    4300030: Object02
+    4300032: Object01
+    4300034: Omni01
+    4300036: enginesglo
+    4300038: m grills
+    4300040: bridge
+    4300042: d7 front t
+    4300044: d7 front b
+    4300046: kd7navlits
+    4300048: impulseout
+    4300050: neck
+    4300052: hull front
+    4300054: hull back
+    4300056: ENGINES02
+    4300058: ENGINES01
+    4300060: IMPULSE IN
+    4300062: TOP POD
+    4300064: GRILLS
+    4300066: r hull
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00079999998
+    meshCompression: 1
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
