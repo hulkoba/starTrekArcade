@@ -5,6 +5,13 @@ public class GameController : MonoBehaviour {
 
 	int endScore;
 
+	public GameObject Starbase;
+
+	void Start() {
+		Vector3 pos = new Vector3(Random.Range(-33, 33), Random.Range(-33, 33), Random.Range(-33, 33));
+		Instantiate (Starbase, pos, Quaternion.identity);
+	}
+
 	public void EndSequence(){
 
 		DestroyAll("Enemy");
