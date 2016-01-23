@@ -11,7 +11,7 @@ public class Score : MonoBehaviour {
 	private string[] scoreboard;
 	public GUISkin menuSkin;   //custom GUIskin reference
 	private GameObject m_TextObject;
-	private List<KeyValuePair<int,KeyValuePair<string,string>>> highscoreList = new List<KeyValuePair<int,KeyValuePair<string,string>>> ();
+	private List<KeyValuePair<string,KeyValuePair<string,string>>> highscoreList = new List<KeyValuePair<string,KeyValuePair<string,string>>> ();
 
 	public float fontSize = 27; //preferred fontsize for this screen size
 	public int value = 20;  //factor value for changing fontsize if needed
@@ -20,7 +20,7 @@ public class Score : MonoBehaviour {
 	private string path;
 
 	private bool isNew = true;
-	private bool emptyScore = false;
+	private bool emptyScore = true;
 
 	public Button backToMainmenuButton;
 
@@ -30,51 +30,34 @@ public class Score : MonoBehaviour {
 
 		fileName = "score.txt";
 		path = Application.dataPath+@"/"+fileName;
-		Load ();
-		//writeHighscore ("test.txt");
-
 		fontSize = Mathf.Min(Screen.width, Screen.height) / value;
-	}
 
-	private void Load()
-	{
-
-		SortedList<int,KeyValuePair<string,string>> helperList = new SortedList<int, KeyValuePair<string,string>> ();
-		if (System.IO.File.Exists (path)) {
-			try {
-				string line;
-
-				StreamReader theReader = new StreamReader (path, Encoding.Default);
-				int position = 1;
-				using (theReader) {
-					do {
-						line = theReader.ReadLine ();
-						
-						if (line != null) {
-							string[] stringArray = line.Split (':');
-							helperList.Add (int.Parse (stringArray [1]), new KeyValuePair<string, string> (stringArray [0], stringArray [2]));
-							position++;
-						}
-					} while (line != null);
-					// Done reading, close the reader and return true to broadcast success    
-					theReader.Close ();
-					
-					for (int i = 0; i < 7; i++) {
-						highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
-						helperList.RemoveAt (helperList.Count - 1);
-					}
-				}
-			}
-			// If anything broke in the try block, we throw an exception with information
-			// on what didn't work
-			catch {
-				Debug.Log ("error in fileload in LOADING");
-			}
-		} else {
+		if(System.IO.File.Exists(path)){
+			readerOfFile (path);
+		}
+		else{
 			emptyScore = true;
 		}
+	}
 
-
+	void readerOfFile(string filePath){
+		string line;
+		StreamReader theReader = new StreamReader (path, Encoding.Default);
+		using (theReader) {
+			do {
+				line = theReader.ReadLine ();				
+				if (line != null) {
+					string[] stringArray = line.Split (':');
+					if(stringArray.Length == 3){
+						KeyValuePair<string,KeyValuePair<string,string>> helper = new KeyValuePair<string,KeyValuePair<string,string>>(stringArray[0],new KeyValuePair<string,string>(stringArray[1],stringArray[2]));
+						highscoreList.Add(helper);
+						emptyScore = false;
+					}
+				}
+			} while (line != null);
+			// Done reading, close the reader and return true to broadcast success    
+			theReader.Close ();
+		}
 	}
 
 	private void OnGUI()
@@ -86,50 +69,46 @@ public class Score : MonoBehaviour {
 		int position = 1;
 		GUIStyle highlite = menuSkin.GetStyle ("highlite");
 		if (emptyScore) {
-			GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "No highscore created. Play more.");
+			GUI.TextField (new Rect (7*Screen.width / 20, position * 3 * Screen.height / 12 + 155, 2 * Screen.width / 6, Screen.height / 16), "No highscore created. Play more.");
 		}
 		else{
-			foreach(KeyValuePair<int,KeyValuePair<string,string>> entry in highscoreList)
+			foreach(KeyValuePair<string,KeyValuePair<string,string>> entry in highscoreList)
 			{
 				if(entry.Value.Value == "new"){
-					GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString(),highlite);
+					GUI.TextField (new Rect (11*Screen.width / 25, position * Screen.height / 12 + 155, 2 * Screen.width / 6, Screen.height / 16), "" + position + ". " + entry.Key +" : "+entry.Value.Key,highlite);
+					isNew = true;
 				}
 				else{
-					GUI.TextField (new Rect (11*Screen.width / 24, position * Screen.height / 12 + 155, 2 * Screen.width / 12, Screen.height / 16), "" + position + ". " + entry.Value.Key +" : "+entry.Key.ToString());
+					GUI.TextField (new Rect (11*Screen.width / 25, position * Screen.height / 12 + 155, 2 * Screen.width / 6, Screen.height / 16), "" + position + ". " + entry.Key +" : "+entry.Value.Key);
 				}
 				position++;
 			}
 		}
-		//writeHighscore ();
 	}
 
 	private void overwriteNew(){
-		for (int i = 0; i < 7; i++) {
-			highscoreList[i] = new KeyValuePair<int, KeyValuePair<string, string>>(highscoreList[i].Key,new KeyValuePair<string, string>(highscoreList[i].Value.Key,"null"));
+		for (int i = 0; i < highscoreList.Count; i++) {
+			highscoreList[i] = new KeyValuePair<string, KeyValuePair<string, string>>(highscoreList[i].Key,new KeyValuePair<string, string>(highscoreList[i].Value.Key,"null"));
 		}
 	}
 
 	private void writeHighscore(){
 
-		if (isNew) {
-			overwriteNew();
+		if (!emptyScore) {
+			if (isNew) {
+				overwriteNew();
+			}
+			string[] stringLine = new string[7];
+			for (int i = 0; i < highscoreList.Count; i++) {
+				stringLine[i] = highscoreList[i].Key+":"+highscoreList[i].Value.Key+":"+highscoreList[i].Value.Value;
+			}
+			
+			System.IO.File.WriteAllLines (path,stringLine);
 		}
-		string[] stringLine = new string[7];
-		for (int i = 0; i < 7; i++) {
-			stringLine[i] = highscoreList[i].Value.Key+":"+highscoreList[i].Key.ToString()+":"+highscoreList[i].Value.Value;
-		}
-
-		System.IO.File.WriteAllLines (path,stringLine);
 	}
 
 	private void backToMainMenu(){
 		writeHighscore ();
-		Application.LoadLevel ("menuScene");
+		Application.LoadLevel (0);
 	}
 }
-//Dictionary<TKey, TValue>() auch zum Sortieren wird passen.
-/*Debug.Log (line);
-		Debug.Log (line.IndexOf(":"));
-		Debug.Log (line.Substring(line.IndexOf (":")+1,line.Length-line.IndexOf(":")-1));
-		Debug.Log (int.Parse(line.Substring(line.IndexOf (":")+1,line.Length-line.IndexOf(":")-1)));
-		*/

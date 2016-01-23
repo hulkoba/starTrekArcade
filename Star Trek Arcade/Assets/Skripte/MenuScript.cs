@@ -5,8 +5,6 @@ using System.Collections;
 public class MenuScript : MonoBehaviour {
 
 	public GUISkin menuSkin;   //custom GUIskin reference
-	public string gameLevel = "ego"; //level to open on clicking Play button
-	public string highscorePage = "Highscore";
 	float virtualWidth = 960.0f; //width of the device you're using
 	float virtualHeight = 540.0f; //height of the device
 	public float fontSize = 27; //preferred fontsize for this screen size
