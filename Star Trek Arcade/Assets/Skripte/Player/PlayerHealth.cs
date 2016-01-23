@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour {
 	Color flashColour = new Color(1f, 0f, 0f, 0.3f);
 
 	public AudioClip deathSound;
-	public AudioClip damageSound;
 	public AudioClip alertSound;
 	AudioSource audioSource;
 
@@ -50,7 +49,6 @@ public class PlayerHealth : MonoBehaviour {
          if(damaged) {
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
-			//PlayDamageSound();
 			lastDamageTime = Time.time;
          } else {
              // ... transition the colour back to clear. flashspeed = 5f
@@ -97,9 +95,9 @@ public class PlayerHealth : MonoBehaviour {
 	public void ShipDamaging(int damage) {
 		currentHealth -= damage;
 		healthUI.value = currentHealth;
-		// if(currentHealth <= 10 && currentHealth > 0) {
-		// 	PlayAlertSound();
-		// }
+		if(currentHealth <= 5 && currentHealth > 0) {
+			PlayAlertSound();
+		}
 		if(currentHealth <= 0 && !isDead) {
 			GameOver();
 		}
@@ -107,7 +105,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public void GameOver() {
 		isDead = true;
-		PlayDeathSound();
+		//PlayDeathSound();
 
 		damageImage.color = flashColour;
 
@@ -128,14 +126,8 @@ public class PlayerHealth : MonoBehaviour {
 		audioSource.clip = deathSound;
 		audioSource.Play();
 	}
-	private void PlayDamageSound() {
-		audioSource.clip = damageSound;
-		audioSource.volume = 0.1f;
-		audioSource.Play();
-	}
 
 	private void PlayAlertSound() {
-		Debug.Log("play alert ");
 		audioSource.clip = alertSound;
 		audioSource.Play();
 	}
