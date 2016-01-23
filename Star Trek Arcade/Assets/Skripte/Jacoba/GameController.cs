@@ -8,7 +8,12 @@ public class GameController : MonoBehaviour {
 	public GameObject Starbase;
 
 	void Start() {
-		Vector3 pos = new Vector3(Random.Range(-33, 33), Random.Range(-33, 33), Random.Range(-33, 33));
+
+		// CREATE ONE STARBASE
+		Vector3 pos = new Vector3(
+			Random.Range(-66, 66),
+			Random.Range(-66, 66),
+			Random.Range(-66, 66));
 		Instantiate (Starbase, pos, Quaternion.identity);
 	}
 

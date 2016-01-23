@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	//ANGLE KANN FUER FIELDOFVIEW GENUTZT WERDEN, WENN ETWAS DARIN IST, USW.
 	/*
-	 * 	float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
+	 * 	float Angle = Vector3.Angle (newEnterpriseVector, gameObject.transform.forward);
 		var relativePoint = transform.InverseTransformPoint(player.position);
 		if (relativePoint.x < 0.0){
 			//Torque(relativePoint);
@@ -49,18 +49,18 @@ public class EnemyController : MonoBehaviour {
 	void FixedUpdate () {
 
 		playerDistance = Vector3.Distance(player.position, transform.position);
-		Vector3 newEnemyVector = player.position-gameObject.transform.position;
+		Vector3 newEnterpriseVector = player.position - gameObject.transform.position;
 
-		var newRotation = Quaternion.LookRotation(player.position-transform.position, Vector3.up);
+		var newRotation = Quaternion.LookRotation(player.position - transform.position, Vector3.up);
 		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
 		if (playerDistance >= 10) {
 			Move ();
 		}
 
-		  //Wenn 0 dann zielt er genau auf den Spieler;
-		  float Angle = Vector3.Angle (newEnemyVector, gameObject.transform.forward);
+		//Wenn 0 dann zielt er genau auf den Spieler;
+		float Angle = Vector3.Angle (newEnterpriseVector, gameObject.transform.forward);
 
-		if (Angle <= 15f && playerDistance <= 30) {
+		if (Angle <= 15f && playerDistance <= 20) {
 			if(Time.time >= nextFire && enemyHealth.currentHealth > 0){
 				nextFire = Time.time + timeBetweenAttacks;
 				Shoot ();
