@@ -51,19 +51,18 @@ public class GameOverScreen : MonoBehaviour {
 						} while (line != null);
 						// Done reading, close the reader and return true to broadcast success    
 						theReader.Close ();
-						helperList.Add (endScore, new KeyValuePair<string, string> (playerName.text, "new"));
-						for (int i = 0; i < helperList.Count; i++) {
-							highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
-							helperList.RemoveAt (helperList.Count - 1);
-						}
 					}
 				} catch {
-					Debug.Log ("error in fileload in LOADING");
+					Debug.Log ("error in fileload in LOADING file exists and player is not empty");
+				}
+				helperList.Add (endScore, new KeyValuePair<string, string> (playerName.text, "new"));
+				for (int i = 0; i < helperList.Count; i++) {
+					highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
+					helperList.RemoveAt (helperList.Count - 1);
 				}
 				for (int i = 0; i < highscoreList.Count; i++) {
 					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
 				}
-				
 				System.IO.File.WriteAllLines (path, stringLine);
 			} else {
 				//Empty InputField
@@ -82,19 +81,18 @@ public class GameOverScreen : MonoBehaviour {
 						} while (line != null);
 						// Done reading, close the reader and return true to broadcast success    
 						theReader.Close ();
-						helperList.Add (endScore, new KeyValuePair<string, string> ("Player", "new"));
-						for (int i = 0; i < helperList.Count; i++) {
-							highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
-							helperList.RemoveAt (helperList.Count - 1);
-						}
 					}
 				} catch {
-					Debug.Log ("error in fileload in LOADING");
+					Debug.Log ("error in fileload in LOADING GameoverScreen Empty Playername");
+				}
+				helperList.Add (endScore, new KeyValuePair<string, string> ("Player", "new"));
+				for (int i = 0; i < helperList.Count; i++) {
+					highscoreList.Add (new KeyValuePair<int,KeyValuePair<string,string>> (helperList.Keys [helperList.Count - 1], new KeyValuePair<string,string> (helperList.Values [helperList.Count - 1].Key, helperList.Values [helperList.Count - 1].Value)));
+					helperList.RemoveAt (helperList.Count - 1);
 				}
 				for (int i = 0; i < highscoreList.Count; i++) {
 					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
 				}
-				
 				System.IO.File.WriteAllLines (path, stringLine);
 			}
 		}
@@ -108,7 +106,7 @@ public class GameOverScreen : MonoBehaviour {
 						helperList.RemoveAt (helperList.Count - 1);
 					}
 				} catch {
-					Debug.Log ("error in fileload in LOADING");
+					Debug.Log ("error in fileload in LOADING File does not Exist but PlayerInput is not empty");
 				}
 				for (int i = 0; i < highscoreList.Count; i++) {
 					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
@@ -124,7 +122,7 @@ public class GameOverScreen : MonoBehaviour {
 						helperList.RemoveAt (helperList.Count - 1);
 					}
 				} catch {
-					Debug.Log ("error in fileload in LOADING");
+					Debug.Log ("error in fileload in LOADING File does not Exist and PlayerInput is empty");
 				}
 				for (int i = 0; i < highscoreList.Count; i++) {
 					stringLine [i] = highscoreList [i].Value.Key + ":" + highscoreList [i].Key.ToString () + ":" + highscoreList [i].Value.Value;
