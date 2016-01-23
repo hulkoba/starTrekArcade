@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using System.Text;
+using System.IO;
 
 public class GameController : MonoBehaviour {
 
@@ -13,14 +16,15 @@ public class GameController : MonoBehaviour {
     public float spawnWait = 2f; // wait time value
     public float waveWait;
 
+	private int endScore;
 
 	void Start() {
 		Enterprise = GameObject.Find("Enterprise").transform;
-		StartCoroutine (SpawnWaves ());
+		//StartCoroutine (SpawnWaves ());
 	}
 
 	//spawning the hazards in game
-	IEnumerator SpawnWaves () {
+	/*IEnumerator SpawnWaves () {
 		// short pause at gamestart
 		yield return new WaitForSeconds (spawnWait);
         while (true) {
@@ -45,5 +49,23 @@ public class GameController : MonoBehaviour {
             }
             yield return new WaitForSeconds (waveWait);
         }
+	}*/
+
+	public void EndSequence(){
+		
+		DestroyAll("Enemy");
+		DestroyAll ("Asteroid");
+		endScore = ScoreManager.score;
+		PlayerPrefs.SetInt ("endScore", endScore);
+		Application.LoadLevel (2);
 	}
+
+	private void DestroyAll(string type){
+		GameObject [] gameObjects = GameObject.FindGameObjectsWithTag (type);
+		
+		for(var i = 0 ; i < gameObjects.Length ; i ++) {
+			Destroy(gameObjects[i]);
+		}
+	}
+
 }

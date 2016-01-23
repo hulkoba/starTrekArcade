@@ -56,16 +56,16 @@ public class PlayerMovement : MonoBehaviour {
 
 		//rotate
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			rotateView(0f,-15f);
+			rotateView(0f,-5f);
 		}
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			rotateView(0f,15f);
+			rotateView(0f,5f);
 		}
 		if (Input.GetKey (KeyCode.UpArrow)) {
-			rotateView(-15f,0f);
+			rotateView(-5f,0f);
 		}
 		if (Input.GetKey (KeyCode.DownArrow)) {
-			rotateView(15f,0f);
+			rotateView(5f,0f);
 		}
 	}
 
