@@ -29,7 +29,8 @@ public class Score : MonoBehaviour {
 		backToMainmenuButton.onClick.AddListener (() => backToMainMenu ());
 
 		fileName = "score.txt";
-		path = Application.dataPath+@"/"+fileName;
+		//path = Application.dataPath+@"/"+fileName;
+		path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)+ @"/StarTrekHighscore/"+ fileName;
 		fontSize = Mathf.Min(Screen.width, Screen.height) / value;
 
 		if(System.IO.File.Exists(path)){

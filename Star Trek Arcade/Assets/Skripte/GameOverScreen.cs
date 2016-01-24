@@ -27,7 +27,12 @@ public class GameOverScreen : MonoBehaviour {
 		restartButton.onClick.AddListener (() => RestartGame ());
 
 		fileName = "score.txt";
-		path = Application.dataPath+@"/"+fileName;
+		//path = Application.dataPath+@"/"+fileName;
+		path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)+ @"/StarTrekHighscore";
+		if (!Directory.Exists (path)) {
+			Directory.CreateDirectory (path);
+		}
+		path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)+ @"/StarTrekHighscore/"+ fileName;
 
 		endScore = PlayerPrefs.GetInt ("endScore");
 		scoreShow.text = "Score: "+endScore;

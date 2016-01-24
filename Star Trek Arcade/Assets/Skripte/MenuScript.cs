@@ -29,17 +29,14 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	private void StartGame(){
-		Debug.Log ("Start Game");
 		Application.LoadLevel(1); //open the game scene
 	}
 
 	private void ShowHighscore(){
-		Debug.Log ("ShowHighscore");
 		Application.LoadLevel(3); // open the credits scene
 	}
 
 	private void ExitGame(){
-		Debug.Log ("Exit Game");
 		Application.Quit(); // exit the game
 	}
 }
