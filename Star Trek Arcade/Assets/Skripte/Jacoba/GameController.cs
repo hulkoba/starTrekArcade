@@ -12,12 +12,21 @@ public class GameController : MonoBehaviour {
 	void Start() {
 		frozen = false;
 
-		// CREATE ONE STARBASE
-		Vector3 pos = new Vector3(
-			Random.Range(-66, 66),
-			Random.Range(-66, 66),
-			Random.Range(-66, 66));
-		Instantiate (Starbase, pos, Quaternion.identity);
+		//create a starbase (2nd minute)
+		InvokeRepeating ("CreateStarbase", 120f, 120f);
+	}
+
+	void CreateStarbase() {
+
+		if(GameObject.Find("Starbase(Clone)") != null) {
+			// CREATE ONE STARBASE :: 66=Boundary size
+			Vector3 pos = new Vector3(
+				Random.Range(-66, 66),
+				Random.Range(-66, 66),
+				Random.Range(-66, 66));
+
+			Instantiate (Starbase, pos, Quaternion.identity);
+		}
 	}
 
 	public void EndSequence(){
