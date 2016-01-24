@@ -49,7 +49,6 @@ public class EnemyController : MonoBehaviour {
 
 		speed = dragTime * 10;
 	}
-
 	// Update is called once per frame
 	//ANGLE KANN FUER FIELDOFVIEW GENUTZT WERDEN, WENN ETWAS DARIN IST, USW.
 	/*
