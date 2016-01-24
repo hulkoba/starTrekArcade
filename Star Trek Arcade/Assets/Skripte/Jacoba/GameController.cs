@@ -5,9 +5,12 @@ public class GameController : MonoBehaviour {
 
 	int endScore;
 
+	public bool frozen;
+
 	public GameObject Starbase;
 
 	void Start() {
+		frozen = false;
 
 		// CREATE ONE STARBASE
 		Vector3 pos = new Vector3(
@@ -18,9 +21,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void EndSequence(){
-
-		DestroyAll("Enemy");
-		DestroyAll ("Asteroid");
+		frozen = true;
+	//	DestroyAll("Enemy");
+	//	DestroyAll ("Asteroid");
 		endScore = ScoreManager.score;
 		PlayerPrefs.SetInt ("endScore", endScore);
 		Application.LoadLevel (2);

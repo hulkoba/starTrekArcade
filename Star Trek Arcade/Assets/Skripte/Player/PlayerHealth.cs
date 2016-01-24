@@ -65,6 +65,11 @@ public class PlayerHealth : MonoBehaviour {
          damaged = false;
     }
 
+	public void Docked() {
+		Debug.Log(" docked on starbase ");
+		gameController.frozen = true;
+	}
+
 	public void ApplyDamage(int damage) {
 		damaged = true;
 		if(currentShield > 0){
@@ -74,7 +79,7 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	public void ShieldDamaging(int damage) {
+	void ShieldDamaging(int damage) {
 		currentShield -= damage;
 		shieldUI.value = currentShield;
 
@@ -87,12 +92,12 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	public void RechargeShield() {
+	void RechargeShield() {
 		currentShield += 2;
 		shieldUI.value = currentShield;
 	}
 
-	public void ShipDamaging(int damage) {
+	void ShipDamaging(int damage) {
 		currentHealth -= damage;
 		healthUI.value = currentHealth;
 		if(currentHealth <= 5 && currentHealth > 0) {

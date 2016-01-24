@@ -23,6 +23,10 @@ public class PlayerCollider : MonoBehaviour {
 			Destroy(other.gameObject);
 		}
 
+		if(other.tag == "Starbase") {
+			playerHealth.Docked();
+		}
+
 		if (other.gameObject.name == "Enemy(Clone)") {
 			Vector3 helper = gameObject.transform.forward;
 			other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(helper.x*20f,helper.y*20f,helper.z*20f),ForceMode.Impulse);
