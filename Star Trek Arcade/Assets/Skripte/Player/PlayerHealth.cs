@@ -72,7 +72,9 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void Docked() {
 		DockedText.enabled = true;
+
 	//	gameController.frozen = true;
+	
 		DisableScripts();
 
 		playerShooting.torpedoSlider.value = 100;
