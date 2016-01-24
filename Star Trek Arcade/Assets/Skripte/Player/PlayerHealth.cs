@@ -30,6 +30,8 @@ public class PlayerHealth : MonoBehaviour {
 	PlayerMovement playerMovement; // Reference to the player's movement.
     PlayerShooting playerShooting; // Reference to the PlayerShooting script.
 
+	public int dockingReload = 10;
+
 	bool isDead;
 	bool damaged;
 
@@ -68,29 +70,24 @@ public class PlayerHealth : MonoBehaviour {
          }
          // Reset the damaged flag.
          damaged = false;
+
+		if(currentHealth >= 100 && currentShield >= 80) {
+			DockedText.enabled = false;
+			CancelInvoke();
+			playerMovement.enabled = true;
+			playerShooting.enabled = true;
+		}
     }
 
 	public void Docked() {
 		DockedText.enabled = true;
 
-	//	gameController.frozen = true;
-		if (currentHealth < 100) {
-			playerMovement.enabled = false;
-			playerShooting.enabled = false;
+		if (currentHealth < 100 || currentShield < 100) {
+			DisablePlayerScripts();
 			
 			playerShooting.torpedoSlider.value = 100;
-			while(currentShield < 100){
-				RechargeShield(5);
-			}
-			while(currentHealth < 100){
-				RechargeHealth(5);
-			}
-		}
-
-		if(currentHealth >= 100 && currentShield >= 100) {
-			DockedText.enabled = false;
-			//playerMovement.enabled = true;
-	        //playerShooting.enabled = true;
+			InvokeRepeating("RepairShield",0.5f,0.5f);
+			InvokeRepeating("RepairHealth",0.5f,0.5f);
 		}
 	}
 
@@ -123,12 +120,21 @@ public class PlayerHealth : MonoBehaviour {
 		}
 		shieldUI.value = currentShield;
 	}
-	void RechargeHealth(int num) {
-		currentHealth += num;
+
+	void RepairHealth() {
+		currentHealth += dockingReload;
 		if(currentHealth > 100) {
 			currentHealth = 100;
 		}
 		healthUI.value = currentHealth;
+	}
+
+	void RepairShield() {
+		currentShield += dockingReload;
+		if(currentShield > 100) {
+			currentShield = 100;
+		}
+		shieldUI.value = currentShield;
 	}
 
 	void ShipDamaging(int damage) {
@@ -155,11 +161,11 @@ public class PlayerHealth : MonoBehaviour {
 		//instantiate an playerExplosion at the same position as the ship
 		Instantiate(playerExplosion, transform.position, transform.rotation);
 
-		DisableScripts();
+		DisablePlayerScripts();
 		gameController.EndSequence ();
     }
 
-	void DisableScripts () {
+	void DisablePlayerScripts () {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;

@@ -5,8 +5,7 @@ public class EnemyController : MonoBehaviour {
 
 	public Transform player;
 	Rigidbody rb;
-
-	GameController gameController;
+	
 	EnemyHealth enemyHealth;
 
 	[SerializeField] private AudioClip shotSound;
@@ -38,7 +37,6 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 
-		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
 		if (GameObject.Find ("Starbase(Clone)") != null) {
 			spaceStation = GameObject.Find ("Starbase(Clone)").transform;
@@ -84,7 +82,7 @@ public class EnemyController : MonoBehaviour {
 		var newRotation = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
 		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
 		var targetDistance = Vector3.Distance (target.position, transform.position);
-		if (targetDistance >= distanceToTarget  && gameController.frozen == false) {			
+		if (targetDistance >= distanceToTarget) {			
 			Move ();
 		}
 
@@ -93,7 +91,7 @@ public class EnemyController : MonoBehaviour {
 		float Angle = Vector3.Angle (newTargetVector, gameObject.transform.forward);
 		
 		if (Angle <= angleOfEnemy && targetDistance <= distanceToFire) {
-			if(Time.time >= nextFire && gameController.frozen == false && enemyHealth.currentHealth > 0){
+			if(Time.time >= nextFire && enemyHealth.currentHealth > 0){
 				nextFire = Time.time + timeBetweenAttacks;
 				Shoot ();
 			}

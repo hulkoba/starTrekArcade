@@ -3,16 +3,13 @@ using System.Collections;
 
 public class StationHealth : MonoBehaviour {
 
-	public int stationHealt = 100;
+	public int stationHealth = 100;
+
+	public GameObject stationExplosion;
 
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("addStarbaseScore", 30f, 30f);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -40,20 +37,20 @@ public class StationHealth : MonoBehaviour {
 	}
 
 	void applyDamage(int damage){
-		if (stationHealt >= 0) {
-			stationHealt = stationHealt - damage;
+		if (stationHealth >= 0) {
+			stationHealth -= damage;
 		} else {
 			dying();
 		}
 	}
 
 	void dying(){
-		Debug.Log ("Station is dying");
+		Instantiate(stationExplosion, transform.position, transform.rotation);
 		Destroy (gameObject);
 	}
 
-	void changeScore(int scoreChange){
-		ScoreManager.score = ScoreManager.score + scoreChange;
+	void changeScore(int score){
+		ScoreManager.score += score;
 	}
 
 	void addStarbaseScore(){

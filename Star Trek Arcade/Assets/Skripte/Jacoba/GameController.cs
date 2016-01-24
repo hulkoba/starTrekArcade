@@ -5,12 +5,9 @@ public class GameController : MonoBehaviour {
 
 	int endScore;
 
-	public bool frozen;
-
 	public GameObject Starbase;
 
 	void Start() {
-		frozen = false;
 
 		//create a starbase (2nd minute)
 		CreateStarbase();
@@ -31,7 +28,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void EndSequence(){
-		frozen = true;
 	//	DestroyAll("Enemy");
 	//	DestroyAll ("Asteroid");
 		endScore = ScoreManager.score;
