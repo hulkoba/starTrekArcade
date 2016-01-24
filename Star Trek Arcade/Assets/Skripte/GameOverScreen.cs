@@ -80,7 +80,7 @@ public class GameOverScreen : MonoBehaviour {
 				position++;
 			}
 		}
-		System.IO.File.WriteAllLines (path, stringLine);
+		System.IO.File.WriteAllLines(path, stringLine);
 	}
 
 	void ListSorting(KeyValuePair<string,KeyValuePair<int,string>> values){
