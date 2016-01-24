@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour {
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
+		spaceStation = GameObject.Find ("Starbase");
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
 		audioSource = GetComponent<AudioSource>();
@@ -57,7 +58,7 @@ public class EnemyController : MonoBehaviour {
 		playerDistance = Vector3.Distance(player.position, transform.position);
 		Vector3 newEnterpriseVector = player.position - gameObject.transform.position;
 
-
+		targetLook ();
 
 		//Wenn 0 dann zielt er genau auf den Spieler;
 		float Angle = Vector3.Angle (newEnterpriseVector, gameObject.transform.forward);
