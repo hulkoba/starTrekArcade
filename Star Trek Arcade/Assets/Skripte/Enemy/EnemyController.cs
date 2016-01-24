@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour {
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
-		spaceStation = GameObject.Find ("Starbase").transform;
+		spaceStation = GameObject.Find ("Starbase(Clone)").transform;
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
 		audioSource = GetComponent<AudioSource>();
