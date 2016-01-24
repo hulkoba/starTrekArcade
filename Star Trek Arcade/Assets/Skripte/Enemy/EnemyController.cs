@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour {
 	public Transform shot;
 	public Transform shotSpawn;
 
+	public Transform spaceStation;
+
 	Rigidbody rb;
 
 	//0.5 usw. sorgt für langsames Drehen!!!
