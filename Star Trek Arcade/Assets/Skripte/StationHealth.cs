@@ -4,11 +4,9 @@ using System.Collections;
 public class StationHealth : MonoBehaviour {
 
 	public int stationHealt = 100;
-	private CapsuleCollider capCollider;
 
 	// Use this for initialization
 	void Start () {
-		capCollider = gameObject.GetComponent<CapsuleCollider> ();
 		InvokeRepeating ("addStarbaseScore", 30f, 30f);
 	}
 	

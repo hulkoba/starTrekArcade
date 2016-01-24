@@ -41,8 +41,8 @@ public class PlayerHealth : MonoBehaviour {
 		currentShield = startingShield;
 
 		audioSource = GetComponent <AudioSource> ();
-        playerMovement = GetComponent <PlayerMovement> ();
-        playerShooting = GetComponentInChildren <PlayerShooting> ();
+        playerMovement = GetComponent<PlayerMovement> ();
+        playerShooting = GetComponent<PlayerShooting> ();
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 
 		DockedText.enabled = false;
@@ -74,21 +74,23 @@ public class PlayerHealth : MonoBehaviour {
 		DockedText.enabled = true;
 
 	//	gameController.frozen = true;
-
-		DisableScripts();
-
-		playerShooting.torpedoSlider.value = 100;
-		while(currentShield < 100){
-			RechargeShield(5);
-		}
-		while(currentHealth < 100){
-			RechargeHealth(5);
+		if (currentHealth < 100) {
+			playerMovement.enabled = false;
+			playerShooting.enabled = false;
+			
+			playerShooting.torpedoSlider.value = 100;
+			while(currentShield < 100){
+				RechargeShield(5);
+			}
+			while(currentHealth < 100){
+				RechargeHealth(5);
+			}
 		}
 
 		if(currentHealth >= 100 && currentShield >= 100) {
 			DockedText.enabled = false;
-			playerMovement.enabled = true;
-	        playerShooting.enabled = true;
+			//playerMovement.enabled = true;
+	        //playerShooting.enabled = true;
 		}
 	}
 
