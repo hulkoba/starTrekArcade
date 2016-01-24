@@ -73,9 +73,11 @@ public class PlayerHealth : MonoBehaviour {
 	public void Docked() {
 		DockedText.enabled = true;
 
+		Debug.Log("docking mode");
+
 	//	gameController.frozen = true;
 
-		DisableScripts();
+		DisablePlayerScripts();
 
 		playerShooting.torpedoSlider.value = 100;
 		while(currentShield < 100){
@@ -154,11 +156,11 @@ public class PlayerHealth : MonoBehaviour {
 		//instantiate an playerExplosion at the same position as the ship
 		Instantiate(playerExplosion, transform.position, transform.rotation);
 
-		DisableScripts();
+		DisablePlayerScripts();
 		gameController.EndSequence ();
     }
 
-	void DisableScripts () {
+	void DisablePlayerScripts () {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
