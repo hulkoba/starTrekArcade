@@ -26,7 +26,7 @@ public class DestroyByContact : MonoBehaviour {
 			body.AddForce((transform.forward * -1) * 10);
 		}
 
-		if (other.tag == "MainCamera") {
+		if (other.tag == "MainCamera" || other.tag == "Starbase") {
 			Vector3 helper = other.gameObject.transform.forward;
 			body.AddForce(new Vector3(helper.x * 10f,
 				helper.y * 10f,
@@ -52,7 +52,7 @@ public class DestroyByContact : MonoBehaviour {
 			}
 		}
 
-		if(other.tag == "Torpedo") {		
+		if(other.tag == "Torpedo") {
 			Explode(other);
 		}
 	}

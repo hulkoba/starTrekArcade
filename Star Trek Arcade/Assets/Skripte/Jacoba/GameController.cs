@@ -13,12 +13,13 @@ public class GameController : MonoBehaviour {
 		frozen = false;
 
 		//create a starbase (2nd minute)
+		CreateStarbase();
 		InvokeRepeating ("CreateStarbase", 120f, 120f);
 	}
 
 	void CreateStarbase() {
 
-		if(GameObject.Find("Starbase(Clone)") != null) {
+		if(GameObject.Find("Starbase(Clone)") == null) {
 			// CREATE ONE STARBASE :: 66=Boundary size
 			Vector3 pos = new Vector3(
 				Random.Range(-66, 66),

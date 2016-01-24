@@ -9,7 +9,6 @@ public class ScoreManager : MonoBehaviour {
 
     void Awake () {
         text = GetComponent <Text> ();
-        // Reset the score.
         score = 0;
     }
 

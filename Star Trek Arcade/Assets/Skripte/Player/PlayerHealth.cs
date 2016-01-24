@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject playerExplosion;
 	public Slider healthUI;
 	public Slider shieldUI;
+	public Text DockedText;
 
 	public Image damageImage;
 	Color flashColour = new Color(1f, 0f, 0f, 0.3f);
@@ -43,9 +44,13 @@ public class PlayerHealth : MonoBehaviour {
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
-    }
+
+		DockedText.enabled = false;
+	}
 
 	void Update () {
+		DockedText.text = "Docked";
+
          if(damaged) {
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
@@ -56,7 +61,7 @@ public class PlayerHealth : MonoBehaviour {
 
 			if(currentShield <= 100 && Time.time > shieldReloadTime+lastDamageTime){
 				if(Time.time > timeBetweenShieldRecharge + shieldReloadWaitingTime){
-					RechargeShield();
+					RechargeShield(1);
 					timeBetweenShieldRecharge = Time.time;
 				}
 			}
@@ -66,8 +71,23 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 	public void Docked() {
-		Debug.Log(" docked on starbase ");
-		gameController.frozen = true;
+		DockedText.enabled = true;
+	//	gameController.frozen = true;
+		DisableScripts();
+
+		playerShooting.torpedoSlider.value = 100;
+		while(currentShield < 100){
+			RechargeShield(5);
+		}
+		while(currentHealth < 100){
+			RechargeHealth(5);
+		}
+
+		if(currentHealth == 100 && currentShield == 100) {
+			DockedText.enabled = false;
+			playerMovement.enabled = true;
+	        playerShooting.enabled = true;
+		}
 	}
 
 	public void ApplyDamage(int damage) {
@@ -92,9 +112,13 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	void RechargeShield() {
-		currentShield += 2;
+	void RechargeShield(int num) {
+		currentShield += num;
 		shieldUI.value = currentShield;
+	}
+	void RechargeHealth(int num) {
+		currentHealth += num;
+		healthUI.value = currentHealth;
 	}
 
 	void ShipDamaging(int damage) {
@@ -121,11 +145,15 @@ public class PlayerHealth : MonoBehaviour {
 		//instantiate an playerExplosion at the same position as the ship
 		Instantiate(playerExplosion, transform.position, transform.rotation);
 
+		DisableScripts();
+		gameController.EndSequence ();
+    }
+
+	void DisableScripts () {
 		// Turn off the movement and shooting scripts.
         playerMovement.enabled = false;
         playerShooting.enabled = false;
-		gameController.EndSequence ();
-    }
+	}
 
 	private void PlayDeathSound() {
 		audioSource.clip = deathSound;
