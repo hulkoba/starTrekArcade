@@ -17,6 +17,11 @@ public class EnemyController : MonoBehaviour {
 	float timeBetweenAttacks = 2f;
 	float nextFire = 0.0f;
 
+	//die nachfolgenden drei Werte beschreiben, ab wann er feuert und wie weit er fliegt
+	public float distanceToTarget;
+	public float distanceToFire;
+	public float angleOfEnemy;
+
 	public Transform shot;
 	public Transform shotSpawn;
 
@@ -35,7 +40,9 @@ public class EnemyController : MonoBehaviour {
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
-		spaceStation = GameObject.Find ("Starbase(Clone)").transform;
+		if (GameObject.Find ("Starbase(Clone)") != null) {
+			spaceStation = GameObject.Find ("Starbase(Clone)").transform;
+		}
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
 		audioSource = GetComponent<AudioSource>();
@@ -57,22 +64,26 @@ public class EnemyController : MonoBehaviour {
 			print ("Object is directly ahead"); */
 	void FixedUpdate () {
 
-		playerDistance = Vector3.Distance(player.position, transform.position);
-		stationDistance = Vector3.Distance (spaceStation.position, transform.position);
-
-		if(playerDistance*playerPrio<stationDistance*stationPrio){
-			targetLook (player);
-		} else{
-			targetLook (spaceStation);
+		if (GameObject.Find ("Starbase(Clone)") != null) {
+			playerDistance = Vector3.Distance(player.position, transform.position);
+			stationDistance = Vector3.Distance (spaceStation.position, transform.position);
+			
+			if(playerDistance*playerPrio<stationDistance*stationPrio){
+				targetLook (player);
+			} else{
+				targetLook (spaceStation);
+			}
+		} else {
+			targetLook(player);
 		}
-
 	}
 
 	void targetLook(Transform target){
 		//Erst Bewegung dann schießen
 		var newRotation = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
 		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
-		if (playerDistance >= 10  && gameController.frozen == false) {			
+		var targetDistance = Vector3.Distance (target.position, transform.position);
+		if (targetDistance >= distanceToTarget  && gameController.frozen == false) {			
 			Move ();
 		}
 
@@ -80,7 +91,7 @@ public class EnemyController : MonoBehaviour {
 		//Wenn 0 dann zielt er genau auf den Spieler;
 		float Angle = Vector3.Angle (newTargetVector, gameObject.transform.forward);
 		
-		if (Angle <= 15f && playerDistance <= 20) {
+		if (Angle <= angleOfEnemy && targetDistance <= distanceToFire) {
 			if(Time.time >= nextFire && gameController.frozen == false && enemyHealth.currentHealth > 0){
 				nextFire = Time.time + timeBetweenAttacks;
 				Shoot ();
