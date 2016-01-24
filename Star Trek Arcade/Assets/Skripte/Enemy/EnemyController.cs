@@ -21,8 +21,6 @@ public class EnemyController : MonoBehaviour {
 
 	public Transform spaceStation;
 
-	Rigidbody rb;
-
 	//0.5 usw. sorgt für langsames Drehen!!!
 	public float dragTime;
 	//Speed sollte sich an dragTime orientieren, der Gegner ist sonst sehr schwerfällig sich zu drehen
@@ -33,7 +31,7 @@ public class EnemyController : MonoBehaviour {
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
-		spaceStation = GameObject.Find ("Starbase");
+		spaceStation = GameObject.Find ("Starbase").transform;
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
 		audioSource = GetComponent<AudioSource>();
