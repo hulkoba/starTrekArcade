@@ -116,6 +116,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	void RechargeShield(int num) {
 		currentShield += num;
+		Debug.Log(" recharge " + num);
 		if(currentShield > 100) {
 			currentShield = 100;
 		}
