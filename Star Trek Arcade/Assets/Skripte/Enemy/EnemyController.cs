@@ -62,7 +62,9 @@ public class EnemyController : MonoBehaviour {
 		else
 			print ("Object is directly ahead"); */
 	void FixedUpdate () {
-
+		if (GameObject.Find ("Starbase(Clone)") != null) {
+			spaceStation = GameObject.Find ("Starbase(Clone)").transform;
+		}
 		if (GameObject.Find ("Starbase(Clone)") != null) {
 			playerDistance = Vector3.Distance(player.position, transform.position);
 			stationDistance = Vector3.Distance (spaceStation.position, transform.position);
