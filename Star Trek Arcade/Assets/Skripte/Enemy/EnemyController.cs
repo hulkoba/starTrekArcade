@@ -4,6 +4,10 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public Transform player;
+	Rigidbody rb;
+
+	GameController gameController;
+	EnemyHealth enemyHealth;
 
 	[SerializeField] private AudioClip shotSound;
 	private AudioSource audioSource;
@@ -12,12 +16,9 @@ public class EnemyController : MonoBehaviour {
 	float timeBetweenAttacks = 2f;
 	float nextFire = 0.0f;
 
-	EnemyHealth enemyHealth;
-
 	public Transform shot;
 	public Transform shotSpawn;
 
-	Rigidbody rb;
 
 	//0.5 usw. sorgt für langsames Drehen!!!
 	public float dragTime;
@@ -26,6 +27,8 @@ public class EnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+
+		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		player = GameObject.FindGameObjectWithTag("MainCamera").transform;
 		enemyHealth = GetComponent<EnemyHealth>();
 		rb = gameObject.GetComponent<Rigidbody> ();
@@ -53,7 +56,7 @@ public class EnemyController : MonoBehaviour {
 
 		var newRotation = Quaternion.LookRotation(player.position - transform.position, Vector3.up);
 		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
-		if (playerDistance >= 10) {
+		if (playerDistance >= 10  && gameController.frozen == false) {			
 			Move ();
 		}
 
@@ -61,7 +64,7 @@ public class EnemyController : MonoBehaviour {
 		float Angle = Vector3.Angle (newEnterpriseVector, gameObject.transform.forward);
 
 		if (Angle <= 15f && playerDistance <= 20) {
-			if(Time.time >= nextFire && enemyHealth.currentHealth > 0){
+			if(Time.time >= nextFire && gameController.frozen == false && enemyHealth.currentHealth > 0){
 				nextFire = Time.time + timeBetweenAttacks;
 				Shoot ();
 			}
