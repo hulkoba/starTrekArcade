@@ -19,6 +19,7 @@ public class GameOverScreen : MonoBehaviour {
 	private string path;
 	private int endScore;
 	private string playerName;
+	private bool changed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -48,13 +49,13 @@ public class GameOverScreen : MonoBehaviour {
 	void readerOfFile(string filePath){
 		string line;
 		StreamReader theReader = new StreamReader (path, Encoding.Default);
-		Debug.Log(""+path);
 		using (theReader) {
 			do {
-				line = theReader.ReadLine ();				
+				line = theReader.ReadLine ();
 				if (line != null) {
 					string[] stringArray = line.Split (':');
 					if(stringArray.Length == 3){
+						changed = false;
 						KeyValuePair<string,KeyValuePair<int,string>> helper = new KeyValuePair<string,KeyValuePair<int,string>>(stringArray[0],new KeyValuePair<int,string>(int.Parse(stringArray[1]),stringArray[2]));
 						ListSorting(helper);
 					}
@@ -86,15 +87,18 @@ public class GameOverScreen : MonoBehaviour {
 		if (highscoreList.Count == 0) {
 			highscoreList.Add(new KeyValuePair<string, KeyValuePair<string, string>>(values.Key,new KeyValuePair<string, string>(values.Value.Key.ToString (),values.Value.Value)));
 		} else {
-			int index = 8;
+			int index = highscoreList.Count;
 			foreach (var oldValue in highscoreList) {
-				if(int.Parse(oldValue.Value.Key) <= values.Value.Key){
-					if(index == 8){
-						index = highscoreList.IndexOf(oldValue);
-					}
+				if(int.Parse(oldValue.Value.Key) <= values.Value.Key && !changed){
+					index = highscoreList.IndexOf(oldValue);
+					changed = true;
 				}
 			}
-			highscoreList.Insert(index,new KeyValuePair<string, KeyValuePair<string, string>>(values.Key,new KeyValuePair<string, string>(values.Value.Key.ToString (),values.Value.Value)));
+			if(changed){
+				highscoreList.Insert(index,new KeyValuePair<string, KeyValuePair<string, string>>(values.Key,new KeyValuePair<string, string>(values.Value.Key.ToString (),values.Value.Value)));
+			} else{
+				highscoreList.Add(new KeyValuePair<string, KeyValuePair<string, string>>(values.Key,new KeyValuePair<string, string>(values.Value.Key.ToString (),values.Value.Value)));
+			}
 		}
 	}
 
