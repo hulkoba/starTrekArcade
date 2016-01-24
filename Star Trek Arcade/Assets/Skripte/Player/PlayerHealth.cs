@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject playerExplosion;
 	public Slider healthUI;
 	public Slider shieldUI;
+	public Text DockedText;
 
 	public Image damageImage;
 	Color flashColour = new Color(1f, 0f, 0f, 0.3f);
@@ -43,9 +44,13 @@ public class PlayerHealth : MonoBehaviour {
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
-    }
+
+		DockedText.enabled = false;
+	}
 
 	void Update () {
+		DockedText.text = "Docked";
+
          if(damaged) {
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
@@ -67,7 +72,19 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void Docked() {
 		Debug.Log(" docked on starbase ");
+		Debug.Log(" text " + DockedText.text);
+		DockedText.text = "Docked";
+		DockedText.enabled = true;
+
 		gameController.frozen = true;
+
+		currentHealth = 100;
+		currentShield = 100;
+
+		playerShooting.torpedoSlider.value = 100;
+		playerMovement.enabled = false;
+		playerShooting.enabled = false;
+
 	}
 
 	public void ApplyDamage(int damage) {
