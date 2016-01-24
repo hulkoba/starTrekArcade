@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour {
              damageImage.color = Color.Lerp (damageImage.color, Color.clear, 5f * Time.deltaTime);
 
 			if(currentShield <= 100 && Time.time > shieldReloadTime+lastDamageTime){
-				if(Time.time > timeBetweenShieldRecharge + shieldReloadWaitingTime){
+				if(Time.time > timeBetweenShieldRecharge + shieldReloadWaitingTime && currentShield < 100){
 					RechargeShield(1);
 					timeBetweenShieldRecharge = Time.time;
 				}
@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour {
 		DockedText.enabled = true;
 
 	//	gameController.frozen = true;
-	
+
 		DisableScripts();
 
 		playerShooting.torpedoSlider.value = 100;
@@ -85,7 +85,7 @@ public class PlayerHealth : MonoBehaviour {
 			RechargeHealth(5);
 		}
 
-		if(currentHealth == 100 && currentShield == 100) {
+		if(currentHealth >= 100 && currentShield >= 100) {
 			DockedText.enabled = false;
 			playerMovement.enabled = true;
 	        playerShooting.enabled = true;
@@ -116,10 +116,16 @@ public class PlayerHealth : MonoBehaviour {
 
 	void RechargeShield(int num) {
 		currentShield += num;
+		if(currentShield > 100) {
+			currentShield = 100;
+		}
 		shieldUI.value = currentShield;
 	}
 	void RechargeHealth(int num) {
 		currentHealth += num;
+		if(currentHealth > 100) {
+			currentHealth = 100;
+		}
 		healthUI.value = currentHealth;
 	}
 
