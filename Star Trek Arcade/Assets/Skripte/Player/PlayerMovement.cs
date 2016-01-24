@@ -7,10 +7,13 @@ public class PlayerMovement : MonoBehaviour {
 	private AudioSource audioSource;
 
 	private float flySpeed = 40;   // left shift for flying
-	private float warpSpeed = 100;  // w for warping
+	private float warpSpeed = 250;  // w for warping
 
 	Transform enterprise;
 	Rigidbody rb;
+
+	public float nextWarp = 0.0f;
+	public float warpRate = 5f;
 
 	// Use this for initialization
 	void Awake () {
@@ -41,14 +44,11 @@ public class PlayerMovement : MonoBehaviour {
 		//isMoving = !Input.GetKey(KeyCode.LeftShift) || !Input.GetKey(KeyCode.W);
 
 		// set the desired speed to be flying or 'warping'
-		if(Input.GetKeyDown(KeyCode.W)) {
+		if(Input.GetKeyDown(KeyCode.W) && Time.time >= nextWarp) {
 			PlayWarpSound();
+			warp(warpSpeed);
+			nextWarp = Time.time + warpRate;
 		}
-		if(Input.GetKey(KeyCode.W)) {
-			//speed = warpSpeed;
-			move(warpSpeed);
-		}
-
 		if(Input.GetKey(KeyCode.LeftShift)) {
 			//speed = flySpeed;
 			move(flySpeed);
@@ -71,6 +71,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void move(float speed){
 		rb.AddForce (enterprise.forward * speed);
+	}
+
+	void warp(float speed){
+		rb.AddForce (enterprise.forward * speed,ForceMode.Impulse);
 	}
 
 	void rotateView(float upDown, float leftRight){
