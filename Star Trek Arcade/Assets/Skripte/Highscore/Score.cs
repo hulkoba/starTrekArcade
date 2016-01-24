@@ -75,11 +75,11 @@ public class Score : MonoBehaviour {
 			foreach(KeyValuePair<string,KeyValuePair<string,string>> entry in highscoreList)
 			{
 				if(entry.Value.Value == "new"){
-					GUI.TextField (new Rect (11*Screen.width / 25, position * Screen.height / 12 + 155, 2 * Screen.width / 6, Screen.height / 16), "" + position + ". " + entry.Key +" : "+entry.Value.Key,highlite);
+					GUI.TextField (new Rect (11*Screen.width / 25, position * Screen.height / 12 + 115, 2 * Screen.width / 6, Screen.height / 16), "" + position + ". " + entry.Key +" : "+entry.Value.Key,highlite);
 					isNew = true;
 				}
 				else{
-					GUI.TextField (new Rect (11*Screen.width / 25, position * Screen.height / 12 + 155, 2 * Screen.width / 6, Screen.height / 16), "" + position + ". " + entry.Key +" : "+entry.Value.Key);
+					GUI.TextField (new Rect (11*Screen.width / 25, position * Screen.height / 12 + 115, 2 * Screen.width / 6, Screen.height / 16), "" + position + ". " + entry.Key +" : "+entry.Value.Key);
 				}
 				position++;
 			}

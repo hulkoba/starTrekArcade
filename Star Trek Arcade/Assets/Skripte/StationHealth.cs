@@ -11,6 +11,7 @@ public class StationHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		capCollider = gameObject.GetComponent<CapsuleCollider> ();
+		InvokeRepeating ("addStarbaseScore", 30f, 30f);
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -30,6 +31,10 @@ public class StationHealth : MonoBehaviour {
 			applyDamage(15);
 			Destroy(other.gameObject);
 			changeScore(-10);
+		} else if(other.name == "EnterpriseCollider"){
+			if(other.transform.parent.GetComponent<PlayerHealth>().currentHealth >= 100){
+				other.transform.parent.GetComponent<Rigidbody>().AddForce(other.transform.parent.transform.right*(1500));
+			}
 		}
 	}
 
@@ -48,5 +53,9 @@ public class StationHealth : MonoBehaviour {
 
 	void changeScore(int score){
 		ScoreManager.score += score;
+	}
+
+	void addStarbaseScore(){
+		ScoreManager.score = ScoreManager.score + 15;
 	}
 }
