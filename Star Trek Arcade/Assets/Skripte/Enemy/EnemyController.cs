@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
 	private AudioSource audioSource;
 
 	float playerDistance;
+	float stationDistance;
 	float timeBetweenAttacks = 2f;
 	float nextFire = 0.0f;
 
@@ -20,6 +21,9 @@ public class EnemyController : MonoBehaviour {
 	public Transform shotSpawn;
 
 	public Transform spaceStation;
+
+	public int playerPrio;
+	public int stationPrio;
 
 	//0.5 usw. sorgt für langsames Drehen!!!
 	public float dragTime;
@@ -54,26 +58,33 @@ public class EnemyController : MonoBehaviour {
 	void FixedUpdate () {
 
 		playerDistance = Vector3.Distance(player.position, transform.position);
-		Vector3 newEnterpriseVector = player.position - gameObject.transform.position;
+		stationDistance = Vector3.Distance (spaceStation.position, transform.position);
 
-		targetLook ();
+		if(playerDistance*playerPrio<stationDistance*stationPrio){
+			targetLook (player);
+		} else{
+			targetLook (spaceStation);
+		}
 
+	}
+
+	void targetLook(Transform target){
+		//Erst Bewegung dann schießen
+		var newRotation = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
+		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
+		if (playerDistance >= 10  && gameController.frozen == false) {			
+			Move ();
+		}
+
+		Vector3 newTargetVector = target.position - gameObject.transform.position;
 		//Wenn 0 dann zielt er genau auf den Spieler;
-		float Angle = Vector3.Angle (newEnterpriseVector, gameObject.transform.forward);
-
+		float Angle = Vector3.Angle (newTargetVector, gameObject.transform.forward);
+		
 		if (Angle <= 15f && playerDistance <= 20) {
 			if(Time.time >= nextFire && gameController.frozen == false && enemyHealth.currentHealth > 0){
 				nextFire = Time.time + timeBetweenAttacks;
 				Shoot ();
 			}
-		}
-	}
-
-	void targetLook(Transform target){
-		var newRotation = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
-		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * dragTime);
-		if (playerDistance >= 10  && gameController.frozen == false) {			
-			Move ();
 		}
 	}
 
